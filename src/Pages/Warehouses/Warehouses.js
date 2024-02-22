@@ -1,6 +1,6 @@
-import "./Warehouse.scss";
+import "./Warehouses.scss";
 
-function Warehouse () {
+function Warehouses () {
     return (
         <div>
             <h1>Hello World</h1>
@@ -8,4 +8,4 @@ function Warehouse () {
     );
 }
 
-export default Warehouse;
+export default Warehouses;

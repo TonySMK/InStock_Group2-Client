@@ -1,10 +1,20 @@
-import logo from "./logo.svg";
+import React from "react";
 import "./App.scss";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Inventory from "./Pages/Inventory/Inventory";
+import Warehouse from "./Pages/Warehouse/Warehouse";
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Inventory />}></Route>
+          <Route path="/warehouse" element={<Warehouse />}></Route>
+        </Routes>
+      </BrowserRouter>
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -17,7 +27,7 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
     </div>
   );
 }

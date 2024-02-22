@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Developed by: Lucille, Ryan Park, Wanessa Lopes, Tony Sun
+Developed by: Lucille Alvar, Ryan Park, Wanessa Lopes, Tony Sun
 
 ## Available Scripts
 

@@ -23,7 +23,7 @@ function App() {
           <Route path="/warehouses" element={<Warehouses />}></Route>
           <Route path="/warehouses/:id/details" element={<WarehousesDetails/>}></Route>
           <Route path="/warehouses/:id/edit" element={<WarehousesEditItem/>}></Route>
-          <Route path="warehouses/add" element={<WarehousesAddItem/>}></Route>
+          <Route path="/warehouses/add" element={<WarehousesAddItem/>}></Route>
         </Routes>
       </BrowserRouter>
     </div>

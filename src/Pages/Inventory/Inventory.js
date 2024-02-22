@@ -4,7 +4,7 @@ import "./Inventory.scss";
 function Inventory () {
     return (
         <div>
-            <h1>Hello World</h1>
+            <h1>Inventory</h1>
         </div>
     );
 }

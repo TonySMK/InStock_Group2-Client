@@ -3,7 +3,7 @@ import "./WarehousesEditItem.scss";
 function WarehousesEditItem () {
     return (
       <div>
-        <h1>Hello World</h1>
+        <h1>Warehouses Edit Item</h1>
       </div>
     );
 }

@@ -3,7 +3,7 @@ import "./WarehousesAddItem.scss";
 function WarehousesAddItem () {
     return (
       <div>
-        <h1>Hello World</h1>
+        <h1>Warehouses Add Item</h1>
       </div>
     );
 }

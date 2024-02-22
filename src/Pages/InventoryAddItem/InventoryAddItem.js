@@ -3,7 +3,7 @@ import "./InventoryAddItem.scss";
 function InventoryAddItem () { 
     return(
         <div>
-            <h1>Hello World</h1>
+            <h1>Inventory Add Item</h1>
         </div>
     );
 }

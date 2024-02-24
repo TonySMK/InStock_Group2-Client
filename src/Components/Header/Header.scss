@@ -53,6 +53,7 @@
         &:hover {
             background-color: $P-text;
             color: $P-white;
+            text-decoration: underline;
     }
     @include tablet {
         height: 2.375rem;
@@ -73,6 +74,7 @@
         &:hover {
             background-color: $P-text;
             color: $P-white;
+            text-decoration: underline;
         }
         @include tablet {
             height: 2.375rem;

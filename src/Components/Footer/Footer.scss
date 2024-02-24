@@ -1,0 +1,22 @@
+@import "../../Styles/Partials/variables";
+@import "../../Styles/Partials/mixins";
+
+
+.footer {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0;
+    text-align: left;
+    margin: 0 1rem 0 1rem;
+    @include tablet {
+        margin: 0 1.5rem 0 1.5rem;
+    }
+    @include desktop {
+        margin-left: calc((100% - 63.75rem)/2)
+    }
+
+    &__text {
+        font-size: 0.75rem;
+        color: $S-slate;
+    }
+}

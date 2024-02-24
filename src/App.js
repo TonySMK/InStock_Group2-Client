@@ -9,8 +9,8 @@ import Warehouses from "./Pages/Warehouses/Warehouses";
 import WarehousesAddItem from "./Pages/WarehousesAddItem/WarehousesAddItem";
 import WarehousesDetails from "./Pages/WarehousesDetails/WarehousesDetails";
 import WarehousesEditItem from "./Pages/WarehousesEditItem/WarehousesEditItem";
-import Header from "../src/Components/Header/Header"
-
+import Header from "../src/Components/Header/Header";
+import Footer from "../src/Components/Footer/Footer";
 
 function App() {
   return (
@@ -28,6 +28,7 @@ function App() {
           <Route path="/warehouses/add" element={<WarehousesAddItem/>}></Route>
         </Routes>
       </BrowserRouter>
+      <Footer></Footer>
     </div>
   );
 }

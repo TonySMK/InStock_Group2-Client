@@ -1,0 +1,86 @@
+@import '../../Styles/Partials/fonts';
+@import '../../Styles/Partials/mixins';
+@import '../../Styles/Partials/variables';
+
+.header {
+    background-color: $B-graphite;
+    padding: 1rem 0 1rem 0;
+    @include tablet {
+        padding: 1.5rem 0 1.5rem 0;
+    }
+
+    &__logo {
+        width: 128.60px;
+        height: 28px;
+        padding-bottom: 1rem;
+        @include tablet {
+            padding-bottom: 0rem;
+        }
+    }
+
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include tablet {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 2rem 0 2rem;
+        }  
+        @include desktop {
+            width: 63.75rem;
+            margin: auto;
+        }
+    }
+
+    &__button-container {
+        width: calc(100% - 4rem);
+        @include tablet {
+            width: auto;
+        }
+    }
+
+    &__nav-warehouses {
+        border-radius: 20px;
+        background-color: $B-graphite;
+        color: $S-cloud;
+        height: 2.25rem;
+        border: none;
+        width: calc(50% - 2rem);
+        margin: 0 1rem 0 1rem;
+        &:hover {
+            background-color: $P-text;
+            color: $P-white;
+            text-decoration: underline;
+    }
+    @include tablet {
+        height: 2.375rem;
+        width: auto;
+        padding: 0 2rem 0 2rem;
+    }
+    }
+
+    &__nav-inventory {
+        border-radius: 20px;
+        background-color: $B-graphite;
+        color: $S-cloud;
+        height: 2.25rem;
+        border: none; 
+        width: calc(50% - 2rem);
+        margin: 0 1rem 0 1rem;
+    
+        &:hover {
+            background-color: $P-text;
+            color: $P-white;
+            text-decoration: underline;
+        }
+        @include tablet {
+            height: 2.375rem;
+            width: auto;
+            padding: 0 2rem 0 2rem;
+        }
+    }
+    
+}

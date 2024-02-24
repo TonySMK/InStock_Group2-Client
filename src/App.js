@@ -9,11 +9,13 @@ import Warehouses from "./Pages/Warehouses/Warehouses";
 import WarehousesAddItem from "./Pages/WarehousesAddItem/WarehousesAddItem";
 import WarehousesDetails from "./Pages/WarehousesDetails/WarehousesDetails";
 import WarehousesEditItem from "./Pages/WarehousesEditItem/WarehousesEditItem";
+import Header from "../src/Components/Header/Header"
 
 
 function App() {
   return (
     <div className="App">
+      <Header></Header>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Inventory />}></Route>

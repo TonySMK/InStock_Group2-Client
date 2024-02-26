@@ -13,8 +13,9 @@ function InventoryListComp({ object }) {
   function fetch() {
     axios.get("http://localhost:8080/api/inventories").then((res) => {
       console.log(res.data);
-      setInventoryList(res.data);
-      renderList();
+      let thelist = res.data;
+      setCompState(false);
+      renderList(res.data);
     });
   }
 
@@ -22,9 +23,8 @@ function InventoryListComp({ object }) {
     fetch();
   }, []);
 
-  function renderList() {
-    // let somelist = theList;
-    const therender = invenstoryList.map((row) => (
+  function renderList(list) {
+    const therender = list.map((row) => (
       <section className="row" key={row.id.toString()}>
         <div className="row__left">
           <button className="row__left__item">{row.item_name}</button>

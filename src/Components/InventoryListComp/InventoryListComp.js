@@ -1,6 +1,7 @@
 import "./InventoryListStyles.scss";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import chevronRightIcon from "../../Assets/Icons/chevron_right-24px.svg";
 
 function InventoryListComp({ object }) {
   const [compstate, setCompState] = useState(true);
@@ -19,6 +20,15 @@ function InventoryListComp({ object }) {
     });
   }
 
+  function deleteButtonHandler(number) {
+    console.log(number);
+    axios
+      .delete(`http://localhost:8080/api/inventories/${number}`)
+      .then((res) => {
+        fetch();
+      });
+  }
+
   useEffect(() => {
     fetch();
   }, []);
@@ -27,7 +37,10 @@ function InventoryListComp({ object }) {
     const therender = list.map((row) => (
       <section className="row" key={row.id.toString()}>
         <div className="row__left">
-          <button className="row__left__item">{row.item_name}</button>
+          <button className="row__left__item">
+            <div className="itemname">{row.item_name}</div>
+            <img src={chevronRightIcon} alt="Chevron Right Icon" />
+          </button>
           <div className="row__left__category">{row.category}</div>
         </div>
 
@@ -40,7 +53,12 @@ function InventoryListComp({ object }) {
         </div>
 
         <div className="row__bottom">
-          <button className="row__bottom__deleteitem">delete button</button>
+          <button
+            className="row__bottom__deleteitem"
+            onClick={() => deleteButtonHandler(row.id)}
+          >
+            delete button
+          </button>
           <button className="row__bottom__edititem">edit button</button>
         </div>
       </section>

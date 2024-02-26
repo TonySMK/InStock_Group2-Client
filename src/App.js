@@ -9,13 +9,13 @@ import Warehouses from "./Pages/Warehouses/Warehouses";
 import WarehousesAddItem from "./Pages/WarehousesAddItem/WarehousesAddItem";
 import WarehousesDetails from "./Pages/WarehousesDetails/WarehousesDetails";
 import WarehousesEditItem from "./Pages/WarehousesEditItem/WarehousesEditItem";
-import Header from "../src/Components/Header/Header"
-
+import Header from "../src/Components/Header/Header";
+import InvListComp from "./Components/InventoryListComp/InventoryListComp";
 
 function App() {
   return (
     <div className="App">
-      <Header></Header>
+      {/* <Header></Header>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Inventory />}></Route>
@@ -27,7 +27,8 @@ function App() {
           <Route path="/warehouses/:id/edit" element={<WarehousesEditItem/>}></Route>
           <Route path="/warehouses/add" element={<WarehousesAddItem/>}></Route>
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
+      <InvListComp />
     </div>
   );
 }

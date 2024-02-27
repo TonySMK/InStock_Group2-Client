@@ -1,14 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 
-function NewItemAvailabilityForm() {
-    const [status, setStatus] = useState("");
-    const [quantity, setQuantity] = useState("");
-    const [warehouse, setWarehouse] = useState("");
-
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      onSubmit({ status, quantity, warehouse });
-    };
+function NewItemAvailabilityForm({ formData, setFormData }) {
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   return (
     <div>
@@ -21,38 +16,39 @@ function NewItemAvailabilityForm() {
           type="radio"
           name="status"
           value="in stock"
-          checked={status === "in stock"}
-          onChange={() => setStatus("in stock")}
+          checked={formData.status === "in stock"}
+          onChange={handleInputChange}
         />
-        <label for="in stock">In stock</label>
+        <label>In stock</label>
       </div>
       <div>
         <input
           type="radio"
           name="status"
           value="out of stock"
-          checked={status === "out of stock"}
-          onChange={() => setStatus("out of stock")}
+          checked={formData.status === "out of stock"}
+          onChange={handleInputChange}
         />
-        <label for="music">Out of stock</label>
+        <label>Out of stock</label>
       </div>
-      {status === "in stock" && (
+      {formData.status === "in stock" && (
         <label>
           Quantity:
           <input
             type="text"
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
+            name="quantity"
+            value={formData.quantity}
+            onChange={handleInputChange}
             placeholder="0"
           />
         </label>
       )}
-      <label for="warehouse">
-        Warehouse
+      <label>
+        Warehouse:
         <select
           name="warehouse"
-          value={warehouse}
-          onChange={(e) => setWarehouse(e.target.value)}
+          value={formData.warehouse}
+          onChange={handleInputChange}
         >
           <option value="">Please Select</option>
           {/* Add options for warehouses */}

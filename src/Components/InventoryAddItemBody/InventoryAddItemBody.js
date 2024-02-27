@@ -1,17 +1,65 @@
+import React, { useState } from "react";
 // import AddItemForm from "../AddItemForm/AddItemForm";
 import NewItemsDetailsForm from "../NewItemDetailsForm/NewItemDetailsForm";
 import NewItemAvailabilityForm from "../NewItemAvailabilityForm.js/NewItemAvailabilityForm";
+import axios from "axios";
 
 function InventoryAddItemBody() {
+  const [formData, setFormData] = useState({
+    itemName: "",
+    description: "",
+    category: "",
+    status: "",
+    quantity: "",
+    warehouse: "",
+  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    // Frontend validation
+    if (
+      !formData.itemName ||
+      !formData.description ||
+      !formData.category ||
+      !formData.status ||
+      (formData.status === "in stock" && !formData.quantity) ||
+      !formData.warehouse
+    ) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+    try {
+      // Backend request
+      const response = await axios.post(
+        "http://localhost:8080/api/inventories/",
+        formData
+      );
+      console.log("Item added successfully:", response.data);
+      // Reset form data after successful submission
+      setFormData({
+        itemName: "",
+        description: "",
+        category: "",
+        status: "",
+        quantity: "",
+        warehouse: "",
+      });
+    } catch (error) {
+      console.error("Error adding new item: ", error);
+    }
+  };
+
   return (
     <div>
       <h1>Add New Inventory Item</h1>
-      <form>
-        {/* <AddItemForm /> */}
-        <NewItemsDetailsForm />
-        <NewItemAvailabilityForm/>
+      <form onSubmit={handleSubmit}>
+        <NewItemsDetailsForm formData={formData} setFormData={setFormData} />
+        <NewItemAvailabilityForm
+          formData={formData}
+          setFormData={setFormData}
+        />
         <button>Cancel</button>
-        <button>Add Item</button>
+        <button type="submit">Add Item</button>
       </form>
     </div>
   );

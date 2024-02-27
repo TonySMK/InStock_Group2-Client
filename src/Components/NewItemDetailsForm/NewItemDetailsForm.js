@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 
-function NewItemsDetailsForm() {
-    const [itemName, setItemName] = useState("");
-    const [description, setDescription] = useState("");
-    const [category, setCategory] = useState("");
+function NewItemsDetailsForm({ formData, setFormData }) {
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   return (
     <div>
@@ -12,28 +12,31 @@ function NewItemsDetailsForm() {
         Item Name:
         <input
           type="text"
-          value={itemName}
-          onChange={(e) => setItemName(e.target.value)}
-          placeholder=" Item Name"
+          name="itemName"
+          value={formData.itemName}
+          onChange={handleInputChange}
+          placeholder="Item Name"
         />
       </label>
       <label>
         Description:
         <input
           type="text"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          name="description"
+          value={formData.description}
+          onChange={handleInputChange}
           placeholder="Please enter a brief item description"
         />
       </label>
-      <label for="category">
-        Category
+      <label>
+        Category:
         <select
           name="category"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
+          value={formData.category}
+          onChange={handleInputChange}
         >
           <option value="">Please Select</option>
+          {/* Add options for categories */}
         </select>
       </label>
     </div>

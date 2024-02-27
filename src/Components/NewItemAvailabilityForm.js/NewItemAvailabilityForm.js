@@ -46,11 +46,12 @@ function NewItemAvailabilityForm({ formData, setFormData }) {
       <label>
         Warehouse:
         <select
-          name="warehouse"
-          value={formData.warehouse}
+          name="warehouse_id"
+          value={formData.warehouse_id}
           onChange={handleInputChange}
         >
           <option value="">Please Select</option>
+          <option value="1">Warehouse 1</option>
           {/* Add options for warehouses */}
         </select>
       </label>

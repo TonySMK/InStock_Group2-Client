@@ -6,27 +6,27 @@ import axios from "axios";
 
 function InventoryAddItemBody() {
   const [formData, setFormData] = useState({
-    itemName: "",
+    item_name: "",
     description: "",
     category: "",
     status: "",
     quantity: "",
-    warehouse: "",
+    warehouse_id: "",
   });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Frontend validation
     if (
-      !formData.itemName ||
+      !formData.item_name ||
       !formData.description ||
       !formData.category ||
       !formData.status ||
       (formData.status === "in stock" && !formData.quantity) ||
-      !formData.warehouse
+      !formData.warehouse_id
     ) {
       alert("Please fill in all required fields.");
-      return;
+      //   return;
     }
     try {
       // Backend request
@@ -37,12 +37,12 @@ function InventoryAddItemBody() {
       console.log("Item added successfully:", response.data);
       // Reset form data after successful submission
       setFormData({
-        itemName: "",
+        item_name: "",
         description: "",
         category: "",
         status: "",
         quantity: "",
-        warehouse: "",
+        warehouse_id: "",
       });
     } catch (error) {
       console.error("Error adding new item: ", error);

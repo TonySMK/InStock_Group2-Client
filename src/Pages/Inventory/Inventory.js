@@ -1,13 +1,13 @@
 import React from "react";
 import "./Inventory.scss";
-import axios from "axios";
-import { useState, useEffect } from "react";
 import InventoryListComp from "../../Components/InventoryListComp/InventoryListComp";
 import searchIcon from "../../Assets/Icons/search-24px.svg";
+import axios from "axios";
+import { useState, useEffect } from "react";
+
 function Inventory() {
   const [compstate, setCompState] = useState(true);
   const [invenstoryList, setInventoryList] = useState("");
-  const [renderedList, setRenderedList] = useState("");
 
   function fetch() {
     axios.get("http://localhost:8080/api/inventories").then((res) => {
@@ -38,9 +38,9 @@ function Inventory() {
       ) : (
         <>
           <div className="parentwrapper">
-            <div className="top">
-              <div className="top__title">Inventory</div>
-              <form className="top__form">
+            <div className="parentwrapper__top">
+              <h2 className="title">Inventory</h2>
+              <form className="form">
                 <div className="searchbarwrapper">
                   <input className="searchbarinput" placeholder="Search..." />
                   <button className="searchbarbutton">
@@ -53,14 +53,15 @@ function Inventory() {
                 </div>
               </form>
 
-              <div className="top__addinventory"></div>
+              <button className="addinventory">+ Add New Item</button>
             </div>
 
-            <div id="bottomlist">{renderedList}</div>
-            <InventoryListComp
-              object={invenstoryList}
-              deleteButtonHandler={deleteButtonHandler}
-            />
+            <div id="parentwrapper__bottomlist">
+              <InventoryListComp
+                object={invenstoryList}
+                deleteButtonHandler={deleteButtonHandler}
+              />
+            </div>
           </div>
         </>
       )}

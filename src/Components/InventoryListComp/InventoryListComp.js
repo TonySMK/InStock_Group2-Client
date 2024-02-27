@@ -13,7 +13,7 @@ function InventoryListComp({ object, deleteButtonHandler }) {
     renderList(object);
     setCompState(false);
   }, [object]);
-  //   console.log(object);
+  //FIXME: missing dependencies, but adding it cause another error
 
   function renderList(someobject) {
     // console.log(someobject);
@@ -22,7 +22,11 @@ function InventoryListComp({ object, deleteButtonHandler }) {
         <div className="row__left">
           <button className="row__left__item">
             <div className="itemname">{row.item_name}</div>
-            <img src={chevronRightIcon} alt="Chevron Right Icon" />
+            <img
+              className="chevronicon"
+              src={chevronRightIcon}
+              alt="Chevron Right Icon"
+            />
           </button>
           <div className="row__left__category">{row.category}</div>
         </div>

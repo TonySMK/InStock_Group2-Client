@@ -1,5 +1,66 @@
+@import "../../Styles/Partials/fonts";
+@import "../../Styles/Partials/mixins";
+@import "../../Styles/Partials/variables";
+
+
 button{
     background-color: transparent;
     border: none;
     cursor: pointer;
+}
+
+h2{
+    margin: 0rem;
+}
+
+.parentwrapper{
+    background-color: grey;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0rem 1.5rem;
+    // FIXME: padding??? 1.5rem, looks larger than 1rem
+
+    &__top{
+        background-color: antiquewhite;
+        display: flex;
+        flex-direction: column;
+        // FIXME: Redundent?? 2 lines above...
+
+        .title{
+            font-family: 'Titillium Web';
+            font-weight: 400;
+            font-size: 30px;
+            align-self: start;
+            // FIXME: idk correct way to apply font attributes
+        }
+    }
+}
+
+.searchbarwrapper{
+    background-color: aqua;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    border: 2px solid $S-cloud;
+    border-radius: 20px;
+    // FIXME: double check border wall width
+}
+
+.searchbarinput{
+    width: 100%;
+    height: 35px;
+    box-sizing: border-box;
+    border: 0px;
+    padding: 0rem 1rem;
+    border-radius: 20px;
+    // FIXME: seeing doubled border-radius, not very dry
+
+}
+
+.searchbarbutton{
+    position: absolute;
+    top:4.5px;
+    right: 0px;
+    padding: 0px;
+    margin: auto 1rem;
 }

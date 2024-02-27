@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import NewItemsDetailsForm from "../NewItemDetailsForm/NewItemDetailsForm";
 import NewItemAvailabilityForm from "../NewItemAvailabilityForm.js/NewItemAvailabilityForm";
 import axios from "axios";
+import "./InventoryAddItemBody.scss"
 
 function InventoryAddItemBody() {
   const [formData, setFormData] = useState({
@@ -51,8 +52,13 @@ function InventoryAddItemBody() {
 
   const inventoryId = 1;
   return (
-    <div>
-      <h1>Add New Inventory Item</h1>
+    <section className="body">
+      <div className="body__header">
+        <h1 className="body__header__title">Add New Inventory Item</h1>
+      </div>
+      <div className="body__division">
+        <div className="body__division__line"></div>
+      </div>
       <form onSubmit={handleSubmit}>
         <NewItemsDetailsForm
           formData={formData}
@@ -63,10 +69,18 @@ function InventoryAddItemBody() {
           formData={formData}
           setFormData={setFormData}
         />
-        <button>Cancel</button>
-        <button type="submit">Add Item</button>
+        <div className="body__buttons">
+          <div className="body__buttons__container">
+            <button className="body__buttons__container__cancel">Cancel</button>
+          </div>
+          <div className="body__buttons__container">
+            <button className="body__buttons__container__add" type="submit">
+              Add Item
+            </button>
+          </div>
+        </div>
       </form>
-    </div>
+    </section>
   );
 }
 

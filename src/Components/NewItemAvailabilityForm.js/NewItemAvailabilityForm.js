@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./NewItemAvailabilityForm.scss"
 
 function NewItemAvailabilityForm({ formData, setFormData }) {
   const [warehouses, setWarehouses] = useState([]);

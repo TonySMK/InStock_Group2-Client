@@ -49,11 +49,16 @@ function InventoryAddItemBody() {
     }
   };
 
+  const inventoryId = 1;
   return (
     <div>
       <h1>Add New Inventory Item</h1>
       <form onSubmit={handleSubmit}>
-        <NewItemsDetailsForm formData={formData} setFormData={setFormData} />
+        <NewItemsDetailsForm
+          formData={formData}
+          setFormData={setFormData}
+          inventoryId={inventoryId}
+        />
         <NewItemAvailabilityForm
           formData={formData}
           setFormData={setFormData}

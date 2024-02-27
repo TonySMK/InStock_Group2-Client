@@ -1,25 +1,30 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-function NewItemsDetailsForm({ formData, setFormData, inventoryid }) {
+function NewItemsDetailsForm({ formData, setFormData, inventoryId }) {
   const [categories, setCategories] = useState([]);
 
+  const cats = [
+    { id: "ELe", value: "ELE" },
+    { id: "aaa", value: "AAA" },
+  ];
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/api/inventories/${inventoryid}`)
+      .get(`http://localhost:8080/api/inventories/${inventoryId}`)
       .then((response) => {
         setCategories(response.data.categories);
       })
       .catch((error) => {
-        console.error("Erro ao buscar categorias:", error);
+        console.error("Error when fetching categories:", error);
       });
-  }, [inventoryid]);
+  }, [inventoryId]);
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  if (categories == null) {
+  //   if (categories == null) {
+  if (cats == null) {
     <h1>LOADING</h1>;
   } else {
     return (
@@ -53,9 +58,9 @@ function NewItemsDetailsForm({ formData, setFormData, inventoryid }) {
             onChange={handleInputChange}
           >
             <option value="">Please Select</option>
-            {categories.map((category) => (
+            {cats.map((category) => (
               <option key={category.id} value={category.id}>
-                {category.name}
+                {category.value}
               </option>
             ))}
           </select>

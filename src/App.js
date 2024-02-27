@@ -28,7 +28,8 @@ function App() {
           <Route path="/warehouses/add" element={<WarehousesAddItem/>}></Route>
         </Routes>
       </BrowserRouter> */}
-      <InvListComp />
+      {/* <InvListComp /> */}
+      <Inventory />
     </div>
   );
 }

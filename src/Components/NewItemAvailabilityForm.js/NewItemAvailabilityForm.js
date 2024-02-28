@@ -23,59 +23,72 @@ function NewItemAvailabilityForm({ formData, setFormData }) {
     <h1>LOADING</h1>;
   } else {
     return (
-      <div>
-        <h2>Item Availability</h2>
-        <div>
-          <h3>Status</h3>
+      <section className="availability">
+        <div className="availability__subheader">
+          <h2 className="availability__subheader__title">Item Availability</h2>
         </div>
-        <div>
-          <input
-            type="radio"
-            name="status"
-            value="in stock"
-            checked={formData.status === "in stock"}
-            onChange={handleInputChange}
-          />
-          <label>In stock</label>
+        <div className="availability__status">
+          <h3 className="availability__status__title">Status</h3>
         </div>
-        <div>
-          <input
-            type="radio"
-            name="status"
-            value="out of stock"
-            checked={formData.status === "out of stock"}
-            onChange={handleInputChange}
-          />
-          <label>Out of stock</label>
+        <div className="availability__container">
+          <div className="availability__container__instock">
+            <input
+              type="radio"
+              name="status"
+              value="in stock"
+              checked={formData.status === "in stock"}
+              onChange={handleInputChange}
+            />
+            <label className="availability__container__instock__label">
+              In stock
+            </label>
+          </div>
+          <div className="availability__container__out">
+            <input
+              type="radio"
+              name="status"
+              value="out of stock"
+              checked={formData.status === "out of stock"}
+              onChange={handleInputChange}
+            />
+            <label className="availability__container__out__label">
+              Out of stock
+            </label>
+          </div>
         </div>
         {formData.status === "in stock" && (
-          <label>
-            Quantity:
-            <input
-              type="text"
-              name="quantity"
-              value={formData.quantity}
-              onChange={handleInputChange}
-              placeholder="0"
-            />
-          </label>
+          <div className="availability__quantity">
+            <label className="availability__quantity__label">
+              Quantity:
+              <input
+                type="text"
+                name="quantity"
+                value={formData.quantity}
+                onChange={handleInputChange}
+                placeholder="0"
+              />
+            </label>
+          </div>
         )}
-        <label>
-          Warehouse:
-          <select
-            name="warehouse_id"
-            value={formData.warehouse_id}
-            onChange={handleInputChange}
-          >
-            <option value="">Please Select</option>
-            {warehouses.map((warehouse) => (
-              <option key={warehouse.id} value={warehouse.id}>
-                {warehouse.warehouse_name}
-              </option>
-            ))}
-          </select>
-        </label>
-      </div>
+        <div className="availability__warehouse">
+          <label className="availability__warehouse__label">
+            Warehouse:
+            <select
+              className="availability__warehouse__select"
+              name="warehouse_id"
+              value={formData.warehouse_id}
+              onChange={handleInputChange}
+            >
+              <option value="">Please Select</option>
+              {warehouses.map((warehouse) => (
+                <option key={warehouse.id} value={warehouse.id}>
+                  {warehouse.warehouse_name}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
+      </section>
     );
   }
 }

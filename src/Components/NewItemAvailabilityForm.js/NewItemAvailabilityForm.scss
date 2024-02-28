@@ -1,4 +1,56 @@
-@use '../../Styles/Partials/global' as *;
-@import '../../Styles/Partials/fonts';
-@import '../../Styles/Partials/mixins';
-@import '../../Styles/Partials/variables';
+@use "../../Styles/Partials/global" as *;
+@import "../../Styles/Partials/fonts";
+@import "../../Styles/Partials/mixins";
+@import "../../Styles/Partials/variables";
+
+.avalability {
+  &__subheader {
+    &__title {
+      font-family: $Semi-bold;
+      font-size: 13px;
+      line-height: 20px;
+      text-decoration: none;
+      @include tablet {
+        font-size: 14px;
+        line-height: 22px;
+      }
+    }
+  }
+  &__status {
+    &__title {
+      font-family: $Semi-bold;
+      font-size: 13px;
+      line-height: 20px;
+      text-decoration: none;
+      @include tablet {
+        font-size: 14px;
+        line-height: 22px;
+      }
+    }
+  }
+  &__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    &__instock {
+      font-size: 14px;
+    }
+    &__out {
+      font-size: 14px;
+    }
+  }
+  &__quantity {
+    &__label {
+      font-family: $Semi-bold;
+      font-size: 13px;
+      line-height: 20px;
+    }
+  }
+  &__warehouse {
+    &__label {
+      font-family: $Semi-bold;
+      font-size: 13px;
+      line-height: 20px;
+    }
+  }
+}

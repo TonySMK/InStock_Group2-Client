@@ -14,7 +14,7 @@ const WarehouseList = ({ warehouses }) => {
           <h4>WAREHOUSE</h4>
           <img src={sort} alt="sort"/>
         </div>
-        <div className="warehouses_header-label add">
+        <div className="warehouses_header-label">
           <h4>ADDRESS</h4>
           <img src={sort} alt="sort"/>
         </div>
@@ -26,7 +26,7 @@ const WarehouseList = ({ warehouses }) => {
           <h4>CONTACT INFORMATION </h4>
           <img src={sort} alt="sort"/>
         </div>
-        <div className="warehouses_header-label">
+        <div className="warehouses_header-label action">
           <h4>ACTIONS</h4>
           <img src={sort} alt="sort"/>
         </div>
@@ -56,7 +56,7 @@ const WarehouseList = ({ warehouses }) => {
               <p>{warehouse.contact_phone}</p>
               <p>{warehouse.contact_email}</p>
             </div>
-            <div className="info icons">
+            <div className="info-icons action">
               <img src={del}/>
               <Link to={`/warehouses/${warehouse.id}/edit`}>
               <img src={edit}/>

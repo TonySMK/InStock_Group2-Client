@@ -3,4 +3,45 @@
 @import '../../Styles/Partials/variables';
 @import '../../Styles/Partials/global';
 
-  
+.warehouse{
+    .warehouse-header {
+        text-align: left;
+        padding: 24px;
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+        }
+        &_label {
+            padding-bottom: 24px;
+    
+        }
+        &_input {
+            @include tablet {
+                width: 75%;
+                display: flex;
+                justify-content: flex-end;
+                align-content: center;
+                .search-bar {
+                    margin-right: 20px;
+                    width: 185px;
+                    @include desktop {
+                        width: 274px;
+                    }
+                }
+            }
+            .add-warehouse {
+                margin-top: 16px;
+                color: $P-white;
+                width: 100%;
+                border-radius: 20px;                 
+                height: 36px;
+                background-color: $P-interactive;
+                border: none;
+                @include tablet {
+                    width: 168px;
+                }
+             }     
+        }
+    }
+}
+

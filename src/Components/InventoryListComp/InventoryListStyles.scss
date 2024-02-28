@@ -4,23 +4,23 @@
 
 
 .row{
-    background-color: aliceblue;
-    border-top: 2px solid black;
+    // background-color: aliceblue;
+    border-top: 2px solid $S-slate;
     width:100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 1rem;
 
     &__first{
-        background-color: rgb(204, 197, 189);
+        // background-color: rgb(204, 197, 189);
         width: 100%;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
     }
 
     &__second{
-        background-color: rgb(114, 187, 246);
+        // background-color: rgb(114, 187, 246);
         box-sizing: border-box;
         width: 100%;
         display: flex;
@@ -31,11 +31,14 @@
 
 
 .infopanelone{
-    background-color: antiquewhite;
+    // background-color: antiquewhite;
+    width: 50%;
 }
 
 .infopaneltwo{
-    background-color: rgb(41, 166, 166);
+    // background-color: rgb(41, 166, 166);
+    width: 50%;
+
 }
 
 .contentpanel{
@@ -48,19 +51,25 @@
     }
 }
 
-.inventorylabel{
-    &__contentbutton{
+.inventorylabelnamebuttonwrapper{
+    // background-color: red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.itembutton__name{
         color:$P-interactive;
         display: flex;
         justify-content: space-between;
         align-items: center;
-    }
 }
-
-
 
 .modbutton{
     padding: 0rem;
-    background-color: aquamarine;
+    // background-color: aquamarine;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 

@@ -39,8 +39,8 @@ function Inventory() {
         <>
           <div className="parentwrapper">
             <div className="parentwrapper__top">
-              <h2 className="title">Inventory</h2>
-              <form className="form">
+              <h1 className="title">Inventory</h1>
+              <form className="searchbarwrapperform">
                 <div className="searchbarwrapper">
                   <input className="searchbarinput" placeholder="Search..." />
                   <button className="searchbarbutton">
@@ -53,7 +53,7 @@ function Inventory() {
                 </div>
               </form>
 
-              <button className="addinventory">+ Add New Item</button>
+              <button className="addinventorybutton">+ Add New Item</button>
             </div>
 
             <div id="parentwrapper__bottomlist">

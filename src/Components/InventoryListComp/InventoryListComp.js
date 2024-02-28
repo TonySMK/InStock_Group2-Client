@@ -2,6 +2,9 @@ import "./InventoryListStyles.scss";
 import chevronRightIcon from "../../Assets/Icons/chevron_right-24px.svg";
 import deleteIcon from "../../Assets/Icons/delete_outline-24px.svg";
 import editIcon from "../../Assets/Icons/edit-24px.svg";
+
+import StockStatus from "../StockStatus/StockStatus";
+
 import { useState, useEffect } from "react";
 
 function InventoryListComp({ object, deleteButtonHandler }) {
@@ -25,7 +28,8 @@ function InventoryListComp({ object, deleteButtonHandler }) {
               <div className="contentpanel__name inventorylabel">
                 inventory item
               </div>
-              <button className="contentpanel__value inventorylabel__contentbutton">
+
+              <button className="contentpanel__value inventorylabelnamebuttonwrapper">
                 <div className="itembutton__name">{row.item_name}</div>
                 <img
                   className="itembutton__icon"
@@ -34,6 +38,7 @@ function InventoryListComp({ object, deleteButtonHandler }) {
                 />
               </button>
             </div>
+
             <div className="contentpanel">
               <div className="contentpanel__name categorylabel">category</div>
               <div className="contentpanel__value categorylabel__cotent">
@@ -45,9 +50,7 @@ function InventoryListComp({ object, deleteButtonHandler }) {
           <div className="infopaneltwo">
             <div className="contentpanel">
               <div className="contentpanel__name statuslabel">status</div>
-              <div className="contentpanel__value statuslabel__content">
-                {row.status}
-              </div>
+              <StockStatus status={row.status} />
             </div>
             <div className="contentpanel">
               <div className="contentpanel__name quantitylabel">qty</div>
@@ -72,14 +75,14 @@ function InventoryListComp({ object, deleteButtonHandler }) {
             onClick={() => deleteButtonHandler(row.id)}
           >
             <img
-              className="deleteembutton__icon"
+              className="deleteembutton__icon modbutton__icon"
               src={deleteIcon}
               alt="edit icon"
             />
           </button>
           <button className="edititembutton modbutton">
             <img
-              className="edititembutton__icon"
+              className="edititembutton__icon modbutton__icon"
               src={editIcon}
               alt="edit icon"
             />

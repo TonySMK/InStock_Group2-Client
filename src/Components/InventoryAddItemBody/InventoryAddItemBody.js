@@ -53,11 +53,13 @@ function InventoryAddItemBody() {
 
   return (
     <section className="body">
-        <div>
-            <img src="back" alt="arrow-back"/>
+      <div className="body__wrapper">
+        <div className="body__wrapper__arrow">
+          <img src={back} alt="arrow-back" />
         </div>
-      <div className="body__header">
-        <h1 className="body__header__title">Add New Inventory Item</h1>
+        <div className="body__wrapper__header">
+          <h1 className="body__wrapper__header__title">Add New Inventory Item</h1>
+        </div>
       </div>
       <div className="body__division">
         <div className="body__division__line"></div>
@@ -74,7 +76,7 @@ function InventoryAddItemBody() {
           </div>
           <div className="body__buttons__container">
             <button className="body__buttons__container__add" type="submit">
-                <div></div>
+              <div></div>
               Add Item
             </button>
           </div>

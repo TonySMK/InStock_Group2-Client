@@ -5,7 +5,16 @@
 
 .body {
   background-color: $P-white;
-  &__header {
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    @include tablet {
+      padding: 32px;
+    }
+    &__arrow {
+
+    }
+    &__header {
     font-family: $Semi-bold;
     font-size: 28px;
     line-height: 36px;
@@ -13,6 +22,7 @@
       font-size: 32px;
       line-height: 40px;
     }
+  }
   }
   &__division {
     &__line {
@@ -26,6 +36,9 @@
     justify-content: space-evenly;
     background-color: $B-grey;
     padding: 16px 0;
+    @include tablet {
+      justify-content: flex-end;
+    }
     &__container {
       &__cancel {
         color: $S-slate;
@@ -37,6 +50,10 @@
         &:hover {
             border: 0.5px solid $P-interactive;
             cursor: pointer;
+        }
+        @include tablet {
+          height: 36px;
+          width: 80px
         }
       }
 
@@ -50,6 +67,10 @@
         &:hover {
           background-color: $B-graphite;
           cursor: pointer;
+        }
+        @include tablet {
+          height: 36px;
+          width: 100px
         }
       }
     }

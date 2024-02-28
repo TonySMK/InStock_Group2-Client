@@ -40,3 +40,30 @@
         }
     }
 }
+
+input {
+    border-radius: 20px;
+    border: 0.5px solid $S-slate;
+    &:active {
+        border: 0.5px solid $P-interactive;
+        color: $P-text;
+    }
+    &.item-name {
+        padding: 16px;
+    }
+    &.description {
+        padding: 16px;
+    }
+}
+
+select {
+    border-radius: 20px;
+    border: 0.5px solid $S-slate;
+    &.category{
+        padding: 16px;
+        &:active {
+        border: 0.5px solid $P-interactive;
+        color: $P-text;
+    }  
+    }  
+}

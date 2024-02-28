@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import NewItemsDetailsForm from "../NewItemDetailsForm/NewItemDetailsForm";
 import NewItemAvailabilityForm from "../NewItemAvailabilityForm.js/NewItemAvailabilityForm";
 import axios from "axios";
-import "./InventoryAddItemBody.scss"
+import "./InventoryAddItemBody.scss";
+import back from "../../Assets/Icons/arrow_back-24px.svg"
 
 function InventoryAddItemBody() {
   const [formData, setFormData] = useState({
@@ -50,9 +51,11 @@ function InventoryAddItemBody() {
     }
   };
 
-  const inventoryId = 1;
   return (
     <section className="body">
+        <div>
+            <img src="back" alt="arrow-back"/>
+        </div>
       <div className="body__header">
         <h1 className="body__header__title">Add New Inventory Item</h1>
       </div>
@@ -60,11 +63,7 @@ function InventoryAddItemBody() {
         <div className="body__division__line"></div>
       </div>
       <form onSubmit={handleSubmit}>
-        <NewItemsDetailsForm
-          formData={formData}
-          setFormData={setFormData}
-          inventoryId={inventoryId}
-        />
+        <NewItemsDetailsForm formData={formData} setFormData={setFormData} />
         <NewItemAvailabilityForm
           formData={formData}
           setFormData={setFormData}
@@ -75,6 +74,7 @@ function InventoryAddItemBody() {
           </div>
           <div className="body__buttons__container">
             <button className="body__buttons__container__add" type="submit">
+                <div></div>
               Add Item
             </button>
           </div>

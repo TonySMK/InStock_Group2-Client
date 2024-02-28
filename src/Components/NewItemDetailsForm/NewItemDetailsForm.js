@@ -2,30 +2,26 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./NewItemDetailsForm.scss";
 
-function NewItemsDetailsForm({ formData, setFormData, inventoryId }) {
+function NewItemsDetailsForm({ formData, setFormData }) {
   const [categories, setCategories] = useState([]);
 
-  const cats = [
-    { id: "ELe", value: "ELE" },
-    { id: "aaa", value: "AAA" },
-  ];
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/api/inventories/${inventoryId}`)
+      .get(`http://localhost:8080/api/inventories/list/name/`)
       .then((response) => {
-        setCategories(response.data.categories);
+        setCategories(response.data);
       })
       .catch((error) => {
         console.error("Error when fetching categories:", error);
       });
-  }, [inventoryId]);
+  }, []);
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   //   if (categories == null) {
-  if (cats == null) {
+  if (categories == null) {
     <h1>LOADING</h1>;
   } else {
     return (
@@ -36,7 +32,7 @@ function NewItemsDetailsForm({ formData, setFormData, inventoryId }) {
         <div className="details__container">
           <label className="details__container__label">
             Item Name:
-            <input
+            <input className="item-name"
               type="text"
               name="item_name"
               value={formData.item_name}
@@ -46,7 +42,7 @@ function NewItemsDetailsForm({ formData, setFormData, inventoryId }) {
           </label>
           <label className="details__container__label">
             Description:
-            <input
+            <input className="description"
               type="text"
               name="description"
               value={formData.description}
@@ -56,15 +52,15 @@ function NewItemsDetailsForm({ formData, setFormData, inventoryId }) {
           </label>
           <label className="details__container__label">
             Category:
-            <select
+            <select className="category"
               name="category"
               value={formData.category}
               onChange={handleInputChange}
             >
               <option value="">Please Select</option>
-              {cats.map((category) => (
-                <option key={category.id} value={category.id}>
-                  {category.value}
+              {categories.map((category) => (
+                <option key={category} value={category}>
+                  {category}
                 </option>
               ))}
             </select>

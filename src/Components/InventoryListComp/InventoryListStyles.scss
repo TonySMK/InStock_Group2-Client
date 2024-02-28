@@ -3,5 +3,64 @@
 @import "../../Styles/Partials/variables";
 
 
+.row{
+    background-color: aliceblue;
+    border-top: 2px solid black;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
+    &__first{
+        background-color: rgb(204, 197, 189);
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &__second{
+        background-color: rgb(114, 187, 246);
+        box-sizing: border-box;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 0rem;
+    }
+}
+
+
+.infopanelone{
+    background-color: antiquewhite;
+}
+
+.infopaneltwo{
+    background-color: rgb(41, 166, 166);
+}
+
+.contentpanel{
+    text-align: start;
+    margin-bottom: 1rem;
+
+    &__name{
+        text-transform: uppercase;
+        color:$S-slate;
+    }
+}
+
+.inventorylabel{
+    &__contentbutton{
+        color:$P-interactive;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+
+
+.modbutton{
+    padding: 0rem;
+    background-color: aquamarine;
+}
 

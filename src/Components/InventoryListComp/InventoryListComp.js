@@ -19,35 +19,70 @@ function InventoryListComp({ object, deleteButtonHandler }) {
     // console.log(someobject);
     const therender = someobject.map((row) => (
       <section className="row" key={row.id.toString()}>
-        <div className="row__left">
-          <button className="row__left__item">
-            <div className="itemname">{row.item_name}</div>
-            <img
-              className="chevronicon"
-              src={chevronRightIcon}
-              alt="Chevron Right Icon"
-            />
-          </button>
-          <div className="row__left__category">{row.category}</div>
-        </div>
+        <div className="row__first">
+          <div className="infopanelone">
+            <div className="contentpanel">
+              <div className="contentpanel__name inventorylabel">
+                inventory item
+              </div>
+              <button className="contentpanel__value inventorylabel__contentbutton">
+                <div className="itembutton__name">{row.item_name}</div>
+                <img
+                  className="itembutton__icon"
+                  src={chevronRightIcon}
+                  alt="Chevron Right Icon"
+                />
+              </button>
+            </div>
+            <div className="contentpanel">
+              <div className="contentpanel__name categorylabel">category</div>
+              <div className="contentpanel__value categorylabel__cotent">
+                {row.category}
+              </div>
+            </div>
+          </div>
 
-        <div className="row__middle">
-          <div className="row__middle__status">{row.status}</div>
-          <div className="row__middle__quantity">{row.quantity}</div>
-          <div className="row__middle__warehouselocation">
-            {row.warehouse_name}
+          <div className="infopaneltwo">
+            <div className="contentpanel">
+              <div className="contentpanel__name statuslabel">status</div>
+              <div className="contentpanel__value statuslabel__content">
+                {row.status}
+              </div>
+            </div>
+            <div className="contentpanel">
+              <div className="contentpanel__name quantitylabel">qty</div>
+              <div className="contentpanel__value quantitylabel__content">
+                {row.quantity}
+              </div>
+            </div>
+            <div className="contentpanel">
+              <div className="contentpanel__name warehouselocationlabel">
+                warehouse
+              </div>
+              <div className="contentpanel__value warehouselocationlabel__content">
+                {row.warehouse_name}
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="row__bottom">
+        <div className="row__second">
           <button
-            className="row__bottom__deleteitem"
+            className="deleteembutton modbutton"
             onClick={() => deleteButtonHandler(row.id)}
           >
-            <img className="deleteiconimage" src={deleteIcon} alt="edit icon" />
+            <img
+              className="deleteembutton__icon"
+              src={deleteIcon}
+              alt="edit icon"
+            />
           </button>
-          <button className="row__bottom__edititem">
-            <img className="editiconimage" src={editIcon} alt="edit icon" />
+          <button className="edititembutton modbutton">
+            <img
+              className="edititembutton__icon"
+              src={editIcon}
+              alt="edit icon"
+            />
           </button>
         </div>
       </section>

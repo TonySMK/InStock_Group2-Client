@@ -1,9 +1,12 @@
+
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
+
 import "./Warehouses.scss";
 import SearchBar from "../../Components/SearchBar/SearchBar";
 import WarehouseList from "../../Components/WarehouseList/WarehouseList";
+
 
 function Warehouses() {
   const [warehouses, setWarehouses] = useState([]);

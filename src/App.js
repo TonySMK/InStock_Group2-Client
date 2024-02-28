@@ -10,7 +10,6 @@ import WarehousesAddItem from "./Pages/WarehousesAddItem/WarehousesAddItem";
 import WarehousesDetails from "./Pages/WarehousesDetails/WarehousesDetails";
 import WarehousesEditItem from "./Pages/WarehousesEditItem/WarehousesEditItem";
 import Header from "../src/Components/Header/Header";
-import InvListComp from "./Components/InventoryListComp/InventoryListComp";
 
 function App() {
   return (
@@ -30,6 +29,7 @@ function App() {
       </BrowserRouter> */}
       {/* <InvListComp /> */}
       <Inventory />
+      <Footer></Footer>
     </div>
   );
 }

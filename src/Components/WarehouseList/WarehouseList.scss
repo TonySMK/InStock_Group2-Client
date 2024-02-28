@@ -2,45 +2,111 @@
 @import "../../Styles/Partials/mixins";
 @import "../../Styles/Partials/variables";
 
-.warehouse-list {
-  ul {
-    list-style: none;
-    padding: 0;
-    .warehouse-list_info {
-      border-top: 1px solid $S-cloud;
+.warehouses {
+  text-align: left;
+  &_header {
+    display: none;
+    height: 40px;
+    @include tablet {
       display: flex;
-      justify-content: space-around;
-      align-items:flex-start;
-      padding: 16px 16px 0;
-      &-left,
-      &-right {
-        flex: 1;
-        .info {
-            text-align: left;
-            padding: 8px;
-            .name {
-                display: flex;
-                align-content: center;
-                img {
-                    width: 20px;
-                    height: 20px;
-                }
-            }
-            h4 {
-                padding-bottom: 4px;
-            }
-            h3, p {
-              margin: 0;
-              font-size: 13px;
-            }
-          }    
+      justify-content: space-evenly;
+      align-items: center;
+      padding: 16px;
+      background-color: $B-grey;
+    }
+    &-label {
+      width: 150px;
+      display: flex;
+      align-items: center;
+      @include desktop {
+        width: 200px;
+      }
+      img{
+        width: 16px;
       }
     }
-    .warehouse-list_update-icons {
+  }
+  &_list {
+    li {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      grid-gap: 16px;
+      border-top: 1px solid $S-slate;
+      padding: 16px;
+      @include tablet {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        border-top: hidden;
+        border-bottom: 1px solid $S-slate;
+        padding: 16px 24px;
+        .info {
+          width: 145px;
+          @include desktop {
+            width: 195px;
+          }
+        }
+        .title {
+          display: none;
+        }
+      }
+      p {
+        font-size: 13px;
+        @include tablet {
+          font-size: 14px;
+          font-weight: 400;
+        }
+      }
+      .name {
+        grid-column: 1;
+        grid-row: 1;
+        &_info {
+          display: flex;
+          align-items: center;
+          .victor {
+            width: 20px;
+          }
+          @include desktop {
+            :hover {
+              cursor: pointer;
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+      .adress {
+        grid-column: 1;
+        grid-row: 2;
+      }
+      .contact_name {
+        grid-column: 2;
+        grid-row: 1;
+      }
+      .contact_information {
+        grid-column: 2;
+        grid-row: 2;
+      }
+      .icons {
+        grid-column: 1/ span 2;
         display: flex;
         justify-content: space-between;
-        align-items: center;
-        padding: 16px 24px;
+        align-items: flex-start;
+        @include tablet {
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-start;
+          img {
+            padding-right: 10px;
+          }
+        }
+      }
     }
+  }
+}
+
+@include desktop {
+  li:hover {
+    background: rgba(46, 102, 229, 0.07);
   }
 }

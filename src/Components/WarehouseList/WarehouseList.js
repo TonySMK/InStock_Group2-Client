@@ -14,7 +14,7 @@ const WarehouseList = ({ warehouses }) => {
           <h4>WAREHOUSE</h4>
           <img src={sort} alt="sort"/>
         </div>
-        <div className="warehouses_header-label">
+        <div className="warehouses_header-label address">
           <h4>ADDRESS</h4>
           <img src={sort} alt="sort"/>
         </div>

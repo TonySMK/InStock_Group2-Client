@@ -3,16 +3,16 @@
 @import "../../Styles/Partials/variables";
 
 .warehouses {
-  width: 100vw;
   text-align: left;
+  align-self: center;
   &_header {
     display: none;
     height: 40px;
     @include tablet {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-evenly;
       align-items: center;
-      padding: 24px;
+      padding: 0 24px;
       background-color: $B-grey;
       .action {
         width: 80px;
@@ -25,7 +25,7 @@
       @include desktop {
         width: 20vw;
       }
-      img{
+      img {
         width: 16px;
       }
     }
@@ -36,15 +36,15 @@
       grid-template-columns: 1fr 1fr;
       grid-template-rows: auto;
       grid-gap: 16px;
-      border-top: 1px solid $S-slate;
+      border-top: 1px solid $S-cloud;
       padding: 16px;
       @include tablet {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
         align-items: center;
         border-top: hidden;
-        border-bottom: 1px solid $S-slate;
-        padding: 16px 32px;
+        border-bottom: 1px solid $S-cloud;
+        padding: 16px 24px;
         .info {
           width: 19vw;
           @include desktop {
@@ -92,9 +92,9 @@
         grid-row: 2;
       }
       .info-icons {
-        grid-column: 1/ span 2;
+        grid-column: 1 / span 2;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
         align-items: flex-start;
         @include tablet {
           display: flex;

@@ -31,44 +31,38 @@ function NewItemsDetailsForm({ formData, setFormData }) {
             <h2 className="details__subheader__title">Item Details</h2>
           </div>
           <div className="details__container">
-            <label className="details__container__label">
-              Item Name:
-              <input
-                className="item-name"
-                type="text"
-                name="item_name"
-                value={formData.item_name}
-                onChange={handleInputChange}
-                placeholder="Item Name"
-              />
-            </label>
-            <label className="details__container__label">
-              Description:
-              <input
-                className="description"
-                type="text"
-                name="description"
-                value={formData.description}
-                onChange={handleInputChange}
-                placeholder="Please enter a brief item description"
-              />
-            </label>
-            <label className="details__container__label">
-              Category:
-              <select
-                className="category"
-                name="category"
-                value={formData.category}
-                onChange={handleInputChange}
-              >
-                <option value="">Please Select</option>
-                {categories.map((category) => (
-                  <option key={category} value={category}>
-                    {category}
-                  </option>
-                ))}
-              </select>
-            </label>
+            <label className="details__container__label">Item Name:</label>
+            <input
+              className="item-name"
+              type="text"
+              name="item_name"
+              value={formData.item_name}
+              onChange={handleInputChange}
+              placeholder="Item Name"
+            />
+            <label className="details__container__label">Description:</label>
+            <input
+              className="description"
+              type="text"
+              name="description"
+              value={formData.description}
+              onChange={handleInputChange}
+              placeholder="Please enter a brief item description"
+            />
+            <label className="details__container__label">Category:</label>
+            <select
+              className="category"
+              name="category"
+              value={formData.category}
+              onChange={handleInputChange}
+            >
+              <option value="">Please Select</option>
+              {categories.map((category) => (
+                <option key={category} value={category}>
+                  {category}
+                </option>
+              ))}
+            </select>
           </div>
         </section>
         <div className="details__division">

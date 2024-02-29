@@ -3,6 +3,17 @@
 @import "../../Styles/Partials/mixins";
 @import "../../Styles/Partials/variables";
 
+.offsetwarpper {
+  @include desktop {
+    background-color: transparent;
+    width: 88%;
+    position: relative;
+    top: -6rem;
+    left: 60px;
+    padding: 0rem 1rem;
+  }
+}
+
 .body {
   background-color: $P-white;
   &__wrapper {
@@ -64,6 +75,8 @@
         &:hover {
           border: 0.5px solid $P-interactive;
           cursor: pointer;
+          color: $P-interactive;
+          font-family: $Semi-bold;
         }
         @include tablet {
           height: 36px;
@@ -81,6 +94,7 @@
         &:hover {
           background-color: $B-graphite;
           cursor: pointer;
+          font-family: $Semi-bold;
         }
         @include tablet {
           height: 36px;
@@ -91,8 +105,3 @@
   }
 }
 
-// form {
-//   @include tablet {
-//     display: flex;
-//   }
-// }

@@ -17,5 +17,11 @@
     top: -4rem;
     left:0px;
     padding:0rem 1rem;
-
+    @include tablet {
+      top: -6.5rem;
+      padding: 0 2rem;
+      @include desktop {
+        padding: 0 3rem;
+      }
+  }
 }

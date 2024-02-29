@@ -4,8 +4,9 @@
 
 .header {
     background-color: $B-graphite;
-    padding: 1rem 0 1rem 0;
+    padding: 1.5rem 0 1rem 0;
     height: 200px;
+    position: relative;
     @include tablet {
         padding: 1.5rem;
     }

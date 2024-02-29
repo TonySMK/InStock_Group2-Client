@@ -9,26 +9,35 @@ import Warehouses from "./Pages/Warehouses/Warehouses";
 import WarehousesAddItem from "./Pages/WarehousesAddItem/WarehousesAddItem";
 import WarehousesDetails from "./Pages/WarehousesDetails/WarehousesDetails";
 import WarehousesEditItem from "./Pages/WarehousesEditItem/WarehousesEditItem";
-import Header from "../src/Components/Header/Header";
-import Footer from "../src/Components/Footer/Footer";
+import Header from "./Components/Header/Header";
 
 function App() {
   return (
     <div className="App">
-      <Header></Header>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Inventory />}></Route>
-          <Route path="/:id/details" element={< InventoryDetails/>}></Route>
-          <Route path="/:id/edit" element={<InventoryEditItem/>}></Route>
-          <Route path="/add" element={<InventoryAddItem/>}></Route>
-          <Route path="/warehouses" element={<Warehouses />}></Route>
-          <Route path="/warehouses/:id/details" element={<WarehousesDetails/>}></Route>
-          <Route path="/warehouses/:id/edit" element={<WarehousesEditItem/>}></Route>
-          <Route path="/warehouses/add" element={<WarehousesAddItem/>}></Route>
-        </Routes>
-      </BrowserRouter>
-      <Footer></Footer>
+      <Header />
+      <section className="offsetwarpper">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Inventory />}></Route>
+            <Route path="/:id/details" element={<InventoryDetails />}></Route>
+            <Route path="/:id/edit" element={<InventoryEditItem />}></Route>
+            <Route path="/add" element={<InventoryAddItem />}></Route>
+            <Route path="/warehouses" element={<Warehouses />}></Route>
+            <Route
+              path="/warehouses/:id/details"
+              element={<WarehousesDetails />}
+            ></Route>
+            <Route
+              path="/warehouses/:id/edit"
+              element={<WarehousesEditItem />}
+            ></Route>
+            <Route
+              path="/warehouses/add"
+              element={<WarehousesAddItem />}
+            ></Route>
+          </Routes>
+        </BrowserRouter>
+      </section>
     </div>
   );
 }

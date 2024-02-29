@@ -10,6 +10,7 @@ import WarehousesAddItem from "./Pages/WarehousesAddItem/WarehousesAddItem";
 import WarehousesDetails from "./Pages/WarehousesDetails/WarehousesDetails";
 import WarehousesEditItem from "./Pages/WarehousesEditItem/WarehousesEditItem";
 import Header from "./Components/Header/Header";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </section>
+      <Footer/>
     </div>
   );
 }

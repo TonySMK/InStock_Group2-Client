@@ -2,9 +2,54 @@
 @import "../../Styles/Partials/mixins";
 @import "../../Styles/Partials/variables";
 
+.sortingbarwrappper{
+    display: none;
+
+    @include tablet{
+        background-color: #5C667E;
+        display:flex;
+        justify-content: space-between;
+        // align-items: center;
+    }
+}
+
+.sortlistnamewrapper{
+    background-color: aqua;
+    
+    display: flex;
+    // justify-content: space-between;
+    align-items: center;
+    // flex-grow: 1;
+    gap: 0.25rem;
+    // height: 100%;
+    &__name{
+        font-size: 12px;
+        text-transform: uppercase;
+
+    }
+
+    &__sorticon{
+        width: 16px;
+    }
+}
+
+.inventorysortname, .warehousesortname{
+    background-color: red;
+    width: 110px;
+}
+
+.categorysortname, .statussortname, .qtysortname, .actionssortname{
+    background-color: blue;
+    width: 80px;
+}
+
+
+.actionssortname img{ 
+display: none;
+}
 
 .row{
-    // background-color: aliceblue;
+    background-color: aliceblue;
     border-top: 2px solid $S-slate;
     width:100%;
     display: flex;
@@ -12,11 +57,16 @@
     align-items: center;
     padding-top: 1rem;
 
+    @include tablet{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
     &__first{
         // background-color: rgb(204, 197, 189);
         width: 100%;
         display: flex;
-        flex-direction: row;
+        flex-direction: row; 
     }
 
     &__second{
@@ -26,6 +76,12 @@
         display: flex;
         justify-content: space-between;
         padding: 1rem 0rem;
+
+        @include tablet{
+            width: 89.72px;
+        }
+
+        
     }
 }
 
@@ -33,12 +89,21 @@
 .infopanelone{
     // background-color: antiquewhite;
     width: 50%;
+    @include tablet{
+        display: flex;
+        flex-direction: row;
+        width: auto;
+    }
 }
 
 .infopaneltwo{
     // background-color: rgb(41, 166, 166);
     width: 50%;
-
+    @include tablet{
+        display: flex;
+        flex-direction: row;
+        width: auto;
+    }
 }
 
 .contentpanel{
@@ -46,8 +111,14 @@
     margin-bottom: 1rem;
 
     &__name{
+        color: #5C667E;
         text-transform: uppercase;
         color:$S-slate;
+        font-size: 11px;
+    }
+
+    &__value{
+        font-size: 13px;
     }
 }
 
@@ -63,6 +134,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        font-weight: 600;
 }
 
 .modbutton{
@@ -73,3 +145,19 @@
     align-items: center;
 }
 
+.sortingbarwrappper{
+    width: 100%;
+    height: 30px;
+}
+
+.inventorypanel, .warehouselocationpanel{
+    @include tablet{
+        width: 110px;
+    }
+}
+
+.categorypanel, .statuspane, .quantitypanel, .actionspanel{
+    @include tablet{
+        width: 80px;
+    }
+}

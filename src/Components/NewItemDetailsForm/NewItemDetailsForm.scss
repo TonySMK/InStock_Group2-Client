@@ -20,6 +20,7 @@
     display: flex;
     flex-direction: column;
     &__label {
+      padding-bottom: 4px;
       display: flex;
       flex-direction: column;
       font-family: $Semi-bold;
@@ -44,6 +45,7 @@ input {
   border-radius: 20px;
   border: 1px solid $S-slate;
   color : $S-slate;
+  margin-top: 4px;
   &.item-name {
     padding: 16px;
     &:active {
@@ -69,10 +71,11 @@ input {
 }
 
 select {
+  margin-top: 4px;  
   border-radius: 20px;
   border: 1px solid $S-slate;
   &.category {
-    padding: 16px;
+    padding: 5px 16px;
     &:active {
       border: 1px solid $P-interactive;
       color: $P-text;

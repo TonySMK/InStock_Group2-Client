@@ -77,10 +77,7 @@ function InventoryAddItemBody() {
           </div>
           <div className="body__buttons__container">
             <button className="body__buttons__container__add" type="submit">
-              <div>
-                <img/>
-              </div>
-              Add Item
+              + Add Item
             </button>
           </div>
         </div>

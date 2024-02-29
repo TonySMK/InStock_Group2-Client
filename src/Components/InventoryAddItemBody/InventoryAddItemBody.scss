@@ -12,7 +12,10 @@
       padding: 32px;
     }
     &__arrow {
-
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      padding-right: 16px;
     }
     &__header {
     font-family: $Semi-bold;

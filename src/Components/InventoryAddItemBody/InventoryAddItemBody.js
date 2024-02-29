@@ -6,6 +6,7 @@ import axios from "axios";
 import "./InventoryAddItemBody.scss";
 import back from "../../Assets/Icons/arrow_back-24px.svg"
 
+
 function InventoryAddItemBody() {
   const [formData, setFormData] = useState({
     item_name: "",
@@ -76,7 +77,9 @@ function InventoryAddItemBody() {
           </div>
           <div className="body__buttons__container">
             <button className="body__buttons__container__add" type="submit">
-              <div></div>
+              <div>
+                <img/>
+              </div>
               Add Item
             </button>
           </div>

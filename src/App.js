@@ -10,13 +10,12 @@ import WarehousesAddItem from "./Pages/WarehousesAddItem/WarehousesAddItem";
 import WarehousesDetails from "./Pages/WarehousesDetails/WarehousesDetails";
 import WarehousesEditItem from "./Pages/WarehousesEditItem/WarehousesEditItem";
 import Header from "./Components/Header/Header";
-import Footer from "./Components/Footer/Footer";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      {/* <section className="offsetwarpper">
+      <section className="offsetwarpper">
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Inventory />}></Route>
@@ -38,9 +37,7 @@ function App() {
             ></Route>
           </Routes>
         </BrowserRouter>
-      </section> */}
-
-      <Footer />
+      </section>
     </div>
   );
 }

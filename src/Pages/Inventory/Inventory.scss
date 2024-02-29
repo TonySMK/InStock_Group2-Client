@@ -14,24 +14,25 @@ button{
 // }
 
 .parentwrapper{
-    // background-color: grey;
+    background-color:$P-white;
     width: 100%;
     box-sizing: border-box;
-    padding: 0rem 1.5rem;
+    padding: 1.5rem 1rem;
+    border-radius: 4px;
+    box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
     // FIXME: padding??? 1.5rem, looks larger than 1rem
 
     &__top{
         // background-color: antiquewhite;
         display: flex;
         flex-direction: column;
-        padding-top: 2rem;
         padding-bottom: 1.5rem;
         // FIXME: Redundent?? 2 lines above...
 
         .title{
             width: 100%;
-            align-self: start;
-            margin-bottom: 1.5rem;
+            text-align: start;
+            margin-bottom: 1rem;
             // FIXME: idk correct way to apply font attributes
         }
     }

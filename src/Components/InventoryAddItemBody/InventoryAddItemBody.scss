@@ -7,7 +7,7 @@
   background-color: $P-white;
   &__wrapper {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     @include tablet {
       padding: 32px;
     }
@@ -15,22 +15,32 @@
       display: flex;
       align-items: center;
       flex-direction: row;
-      padding-right: 16px;
+      padding-right: 10px;
     }
     &__header {
-    font-family: $Semi-bold;
-    font-size: 28px;
-    line-height: 36px;
-    @include tablet {
-      font-size: 32px;
-      line-height: 40px;
+      font-family: $Semi-bold;
+      font-size: 25px;
+      line-height: 36px;
+      text-align: left;
+      padding-top: 16px;
+      @include tablet {
+        font-size: 32px;
+        line-height: 40px;
+      }
     }
-  }
   }
   &__division {
     &__line {
       border-bottom: 0.5px solid $S-cloud;
       padding-top: 24px;
+    }
+  }
+  &__forms-wrapper {
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 24px 32px;
     }
   }
   &__buttons {
@@ -41,6 +51,7 @@
     padding: 16px 0;
     @include tablet {
       justify-content: flex-end;
+      gap: 16px;
     }
     &__container {
       &__cancel {
@@ -51,12 +62,12 @@
         width: 120px;
         border-radius: 20px;
         &:hover {
-            border: 0.5px solid $P-interactive;
-            cursor: pointer;
+          border: 0.5px solid $P-interactive;
+          cursor: pointer;
         }
         @include tablet {
           height: 36px;
-          width: 80px
+          width: 75px;
         }
       }
 
@@ -73,9 +84,15 @@
         }
         @include tablet {
           height: 36px;
-          width: 100px
+          width: 100px;
         }
       }
     }
   }
 }
+
+// form {
+//   @include tablet {
+//     display: flex;
+//   }
+// }

@@ -3,24 +3,29 @@
 @import "../../Styles/Partials/mixins";
 @import "../../Styles/Partials/variables";
 
-.avalability {
+.availability {
+  @include tablet {
+    width: 50%;
+  }
   &__subheader {
     &__title {
       font-family: $Semi-bold;
       font-size: 13px;
       line-height: 20px;
       text-decoration: none;
-      @include tablet {
-        font-size: 14px;
-        line-height: 22px;
-      }
+    }
+    @include tablet {
+      font-size: 14px;
+      line-height: 22px;
     }
   }
+
   &__status {
     &__title {
       font-family: $Semi-bold;
       font-size: 13px;
       line-height: 20px;
+      color: $P-text;
       text-decoration: none;
       @include tablet {
         font-size: 14px;
@@ -35,28 +40,48 @@
     &__instock {
       &__label {
         font-size: 14px;
-    }
+        color: $P-text;
       }
+    }
     &__out {
       &__label {
         font-size: 14px;
+        color: $P-text;
       }
     }
   }
   &__quantity {
+    display: flex;
+    flex-direction: column;
+    &__input {
+      @include tablet {
+        height: 36px;
+      }
+    }
     &__label {
+      align-self: flex-start;
       padding-bottom: 4px;
       font-family: $Semi-bold;
       font-size: 13px;
       line-height: 20px;
+      color: $P-text;
     }
   }
-  &__warehouse {
+  &__warehouse { 
+    display: flex;
+    flex-direction: column;
+    &__select {
+      @include tablet {
+        height: 36px;
+      }
+    }
     &__label {
+      align-self: flex-start;
       padding-bottom: 4px;
       font-family: $Semi-bold;
       font-size: 13px;
       line-height: 20px;
+      color: $P-text;
     }
   }
 }

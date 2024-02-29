@@ -4,15 +4,23 @@
 @import "../../Styles/Partials/variables";
 
 .details {
+  @include tablet {
+    width: 50%;
+  }
+
   &__subheader {
-    padding: 16px;
+    @include tablet {
+      width: 55%;
+    }
     &__title {
       font-family: $Semi-bold;
       font-size: 20px;
       line-height: 28px;
+      width: 44%;
       @include tablet {
         font-size: 24px;
         line-height: 32px;
+        width: 90%;
       }
     }
   }
@@ -20,6 +28,7 @@
     display: flex;
     flex-direction: column;
     &__label {
+      padding: 0px 16px;
       padding-bottom: 4px;
       display: flex;
       flex-direction: column;
@@ -27,6 +36,7 @@
       font-size: 13px;
       line-height: 20px;
       text-decoration: none;
+      color: $P-text;
       @include tablet {
         font-size: 14px;
         line-height: 22px;
@@ -35,8 +45,17 @@
   }
   &__division {
     &__line {
-      border-bottom: 0.5px solid $S-cloud;
-      padding-top: 24px;
+      // border-bottom: 0.5px solid $S-cloud;
+      // padding-top: 24px;
+      @include tablet {
+        margin: 24px 0px;
+        border-right: 0.5px solid $S-cloud;
+        height: 100%;
+      }
+      // @include mobile {
+      //   border-bottom: 0.5px solid $S-cloud;
+      //   padding-top: 24px;
+      // }
     }
   }
 }
@@ -44,10 +63,10 @@
 input {
   border-radius: 20px;
   border: 1px solid $S-slate;
-  color : $S-slate;
+  color: $S-slate;
   margin-top: 4px;
   &.item-name {
-    padding: 16px;
+    padding: 5px 16px;
     &:active {
       border: 1px solid $P-interactive;
       color: $P-text;
@@ -57,8 +76,8 @@ input {
       color: $P-text;
     }
   }
-   &.description {
-    padding: 16px;
+  &.description {
+    padding: 5px 16px 75px 16px;
     &:active {
       border: 1px solid $P-interactive;
       color: $P-text;
@@ -71,7 +90,7 @@ input {
 }
 
 select {
-  margin-top: 4px;  
+  margin-top: 4px;
   border-radius: 20px;
   border: 1px solid $S-slate;
   &.category {
@@ -84,7 +103,5 @@ select {
       border: 1px solid $P-interactive;
       color: $P-text;
     }
-    
   }
 }
-

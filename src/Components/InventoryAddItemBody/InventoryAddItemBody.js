@@ -59,18 +59,22 @@ function InventoryAddItemBody() {
           <img src={back} alt="arrow-back" />
         </div>
         <div className="body__wrapper__header">
-          <h1 className="body__wrapper__header__title">Add New Inventory Item</h1>
+          <h1 className="body__wrapper__header__title">
+            Add New Inventory Item
+          </h1>
         </div>
       </div>
       <div className="body__division">
         <div className="body__division__line"></div>
       </div>
       <form onSubmit={handleSubmit}>
-        <NewItemsDetailsForm formData={formData} setFormData={setFormData} />
-        <NewItemAvailabilityForm
-          formData={formData}
-          setFormData={setFormData}
-        />
+        <div className="body__forms-wrapper">
+          <NewItemsDetailsForm formData={formData} setFormData={setFormData} />
+          <NewItemAvailabilityForm
+            formData={formData}
+            setFormData={setFormData}
+          />
+        </div>
         <div className="body__buttons">
           <div className="body__buttons__container">
             <button className="body__buttons__container__cancel">Cancel</button>

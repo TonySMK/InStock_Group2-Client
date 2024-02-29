@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./NewItemAvailabilityForm.scss"
+import "./NewItemAvailabilityForm.scss";
 
 function NewItemAvailabilityForm({ formData, setFormData }) {
   const [warehouses, setWarehouses] = useState([]);
@@ -58,35 +58,32 @@ function NewItemAvailabilityForm({ formData, setFormData }) {
         </div>
         {formData.status === "in stock" && (
           <div className="availability__quantity">
-            <label className="availability__quantity__label">
-              Quantity:
-              <input
-                type="text"
-                name="quantity"
-                value={formData.quantity}
-                onChange={handleInputChange}
-                placeholder="0"
-              />
-            </label>
+            <label className="availability__quantity__label">Quantity:</label>
+            <input
+              className="availability__quantity__input"
+              type="text"
+              name="quantity"
+              value={formData.quantity}
+              onChange={handleInputChange}
+              placeholder="0"
+            />
           </div>
         )}
         <div className="availability__warehouse">
-          <label className="availability__warehouse__label">
-            Warehouse:
-            <select
-              className="availability__warehouse__select"
-              name="warehouse_id"
-              value={formData.warehouse_id}
-              onChange={handleInputChange}
-            >
-              <option value="">Please Select</option>
-              {warehouses.map((warehouse) => (
-                <option key={warehouse.id} value={warehouse.id}>
-                  {warehouse.warehouse_name}
-                </option>
-              ))}
-            </select>
-          </label>
+          <label className="availability__warehouse__label">Warehouse:</label>
+          <select
+            className="availability__warehouse__select"
+            name="warehouse_id"
+            value={formData.warehouse_id}
+            onChange={handleInputChange}
+          >
+            <option value="">Please Select</option>
+            {warehouses.map((warehouse) => (
+              <option key={warehouse.id} value={warehouse.id}>
+                {warehouse.warehouse_name}
+              </option>
+            ))}
+          </select>
         </div>
       </section>
     );

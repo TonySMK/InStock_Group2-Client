@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
@@ -6,6 +5,7 @@ import axios from "axios";
 import "./Warehouses.scss";
 import SearchBar from "../../Components/SearchBar/SearchBar";
 import WarehouseList from "../../Components/WarehouseList/WarehouseList";
+// import Footer from "../../Components/Footer/Footer";
 
 
 function Warehouses() {
@@ -28,7 +28,7 @@ function Warehouses() {
   }
 
   return (
-    <div className="warehouse">
+        <div className="warehouse">
       <div className="warehouse-header">
         <h1 className="warehouse-header_label">Warehouses</h1>
         <div className="warehouse-header_input">

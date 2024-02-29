@@ -11,6 +11,7 @@ import WarehousesDetails from "./Pages/WarehousesDetails/WarehousesDetails";
 import WarehousesEditItem from "./Pages/WarehousesEditItem/WarehousesEditItem";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
+
 function App() {
   return (
     <div className="App">
@@ -38,7 +39,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </section>
-      <Footer />
+      <Footer/>
     </div>
   );
 }

@@ -1,0 +1,116 @@
+@import "../../Styles/Partials/global";
+@import "../../Styles/Partials/mixins";
+@import "../../Styles/Partials/variables";
+
+.warehouses {
+  text-align: left;
+  align-self: center;
+  &_header {
+    display: none;
+    height: 40px;
+    @include tablet {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      padding: 0 24px;
+      background-color: $B-grey;
+      .action {
+        width: 80px;
+      }
+    }
+    &-label {
+      width: 20vw;
+      display: flex;
+      align-items: center;
+      @include desktop {
+        width: 20vw;
+      }
+      img {
+        width: 16px;
+      }
+    }
+  }
+  &_list {
+    li {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      grid-gap: 16px;
+      border-top: 1px solid $S-cloud;
+      padding: 16px;
+      @include tablet {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        border-top: hidden;
+        border-bottom: 1px solid $S-cloud;
+        padding: 16px 24px;
+        .info {
+          width: 19vw;
+          @include desktop {
+            width: 40vw;
+          }
+        }
+        .title {
+          display: none;
+        }
+      }
+      p {
+        font-size: 13px;
+        @include tablet {
+          font-size: 14px;
+          font-weight: 400;
+        }
+      }
+      .name {
+        grid-column: 1;
+        grid-row: 1;
+        &_info {
+          display: flex;
+          align-items: center;
+          .victor {
+            width: 20px;
+          }
+          @include desktop {
+            :hover {
+              cursor: pointer;
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+      .adress {
+        grid-column: 1;
+        grid-row: 2;
+      }
+      .contact_name {
+        grid-column: 2;
+        grid-row: 1;
+      }
+      .contact_information {
+        grid-column: 2;
+        grid-row: 2;
+      }
+      .info-icons {
+        grid-column: 1 / span 2;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        @include tablet {
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-start;
+          img {
+            padding-right: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include desktop {
+  li:hover {
+    background: rgba(46, 102, 229, 0.07);
+  }
+}

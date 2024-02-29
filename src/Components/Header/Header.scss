@@ -4,16 +4,14 @@
 
 .header {
     background-color: $B-graphite;
-    padding: 1.5rem 0 1rem 0;
+    padding: 1rem 0 1rem 0;
     height: 200px;
-    position: relative;
     @include tablet {
-        padding: 1.5rem 0 1.5rem 0;
+        padding: 1.5rem;
     }
 
     &__logo {
         width: 128.60px;
-        // height: 28px;
         padding-bottom: 1rem;
         @include tablet {
             padding-bottom: 0rem;
@@ -22,6 +20,7 @@
 
 
     &__container {
+        padding-top: 16px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -29,10 +28,9 @@
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
-            margin: 0 2rem 0 2rem;
         }  
         @include desktop {
-            width: 63.75rem;
+            width: 90%;
             margin: auto;
         }
     }

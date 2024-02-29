@@ -4,11 +4,12 @@
 @import "../../Styles/Partials/variables";
 
 .offsetwarpper {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   @include desktop {
     background-color: transparent;
     width: 88%;
     position: relative;
-    top: -6rem;
+    top: -7rem;
     left: 60px;
     padding: 0rem 1rem;
   }
@@ -21,6 +22,10 @@
     align-items: baseline;
     @include tablet {
       padding: 32px;
+    }
+    @include desktop {
+      padding: 32px;
+      padding-bottom: 0;
     }
     &__arrow {
       display: flex;

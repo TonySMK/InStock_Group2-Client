@@ -15,22 +15,32 @@ import Footer from "./Components/Footer/Footer";
 function App() {
   return (
     <div className="App">
-      {/* <Header/>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Inventory />}></Route>
-          <Route path="/:id/details" element={< InventoryDetails/>}></Route>
-          <Route path="/:id/edit" element={<InventoryEditItem/>}></Route>
-          <Route path="/add" element={<InventoryAddItem/>}></Route>
-          <Route path="/warehouses" element={<Warehouses />}></Route>
-          <Route path="/warehouses/:id/details" element={<WarehousesDetails/>}></Route>
-          <Route path="/warehouses/:id/edit" element={<WarehousesEditItem/>}></Route>
-          <Route path="/warehouses/add" element={<WarehousesAddItem/>}></Route>
-        </Routes>
-      </BrowserRouter> */}
-      {/* <InvListComp /> */}
-      <Inventory />
-      {/* <Footer/>*/}
+      <Header />
+      {/* <section className="offsetwarpper">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Inventory />}></Route>
+            <Route path="/:id/details" element={<InventoryDetails />}></Route>
+            <Route path="/:id/edit" element={<InventoryEditItem />}></Route>
+            <Route path="/add" element={<InventoryAddItem />}></Route>
+            <Route path="/warehouses" element={<Warehouses />}></Route>
+            <Route
+              path="/warehouses/:id/details"
+              element={<WarehousesDetails />}
+            ></Route>
+            <Route
+              path="/warehouses/:id/edit"
+              element={<WarehousesEditItem />}
+            ></Route>
+            <Route
+              path="/warehouses/add"
+              element={<WarehousesAddItem />}
+            ></Route>
+          </Routes>
+        </BrowserRouter>
+      </section> */}
+
+      <Footer />
     </div>
   );
 }

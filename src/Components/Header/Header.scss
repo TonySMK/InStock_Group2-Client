@@ -4,14 +4,16 @@
 
 .header {
     background-color: $B-graphite;
-    padding: 1rem 0 1rem 0;
+    padding: 1.5rem 0 1rem 0;
+    height: 200px;
+    position: relative;
     @include tablet {
         padding: 1.5rem 0 1.5rem 0;
     }
 
     &__logo {
         width: 128.60px;
-        height: 28px;
+        // height: 28px;
         padding-bottom: 1rem;
         @include tablet {
             padding-bottom: 0rem;

@@ -1,5 +1,11 @@
-@import "./Styles/Partials/global"
+@import "./Styles/Partials/global";
 
-// *{
-//   font-family: $Regular;
-// }
+
+.offsetwarpper{
+    background-color: transparent;
+    width: 100%;
+    position: absolute;
+    top:6rem;
+    left:0px;
+    padding:0rem 1rem;
+}

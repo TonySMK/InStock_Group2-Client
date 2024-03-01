@@ -14,7 +14,7 @@ function EditInventoryItemBody() {
     description: "",
     category: "",
     status: "",
-    quantity: "",
+    quantity: 0,
     warehouse_id: "",
   });
 
@@ -49,7 +49,7 @@ function EditInventoryItemBody() {
         `http://localhost:8080/api/inventories/${id}`,
         {
           ...formData,
-          quantity: formData.status === "Out Of Stock" ? 0 : formData.quantity,
+          quantity: formData.status === "Out of Stock" ? 0 : formData.quantity,
         }
       );
       console.log("Item edited successfully:", response.data);

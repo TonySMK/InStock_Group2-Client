@@ -1,5 +1,5 @@
 import React from "react";
-import "./Inventory.scss";
+import "./InventoryStyles.scss";
 import InventoryListComp from "../../Components/InventoryListComp/InventoryListComp";
 import searchIcon from "../../Assets/Icons/search-24px.svg";
 import axios from "axios";

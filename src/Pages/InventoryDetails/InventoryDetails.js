@@ -1,6 +1,6 @@
 import "./InventoryDetailsStyles.scss";
 import { useState, useEffect } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import leftChevron from "../../Assets/Icons/arrow_back-24px.svg";
@@ -26,7 +26,7 @@ function InventoryDetails() {
 
   useEffect(() => {
     selectinventoryitemfetch(id);
-  }, []);
+  }, [id]);
 
   return (
     <>

@@ -9,10 +9,6 @@ button{
     cursor: pointer;
 }
 
-// h1{
-//     margin: 0rem;
-// }
-
 .parentwrapper{
     background-color:$P-white;
     width: 100%;
@@ -22,8 +18,12 @@ button{
     box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
     // FIXME: padding??? 1.5rem, looks larger than 1rem
 
+    @include tablet{
+    padding: 1.5rem 2.5rem;
+
+    }
+
     &__top{
-        // background-color: antiquewhite;
         display: flex;
         flex-direction: column;
         padding-bottom: 1.5rem;
@@ -33,6 +33,7 @@ button{
             width: 100%;
             text-align: start;
             margin-bottom: 1rem;
+            font-size: 28px;
             // FIXME: idk correct way to apply font attributes
         }
     }
@@ -41,12 +42,12 @@ button{
 .searchbarwrapperform{
     margin-bottom: 1rem;
 }
+
 .searchbarwrapper{
-    background-color: aqua;
     position: relative;
     box-sizing: border-box;
     width: 100%;
-    border: 2px solid $S-cloud;
+    border: 1px solid $S-cloud;
     border-radius: 20px;
     // FIXME: double check border wall width
 }
@@ -59,8 +60,12 @@ button{
     padding: 0rem 1rem;
     border-radius: 20px;
     // FIXME: seeing doubled border-radius, not very dry
-
 }
+
+::placeholder {
+    color: $S-slate;
+    opacity: 1;
+  }
 
 .searchbarbutton{
     position: absolute;
@@ -76,4 +81,5 @@ button{
     width: 100%;
     height: 35px;
     border-radius: 20px;
+    font-size: 13px;
 }

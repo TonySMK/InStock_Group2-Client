@@ -11,7 +11,6 @@ function Inventory() {
 
   function fetch() {
     axios.get("http://localhost:8080/api/inventories").then((res) => {
-      //   console.log(res.data);
       let thelist = res.data;
       setCompState(false);
       setInventoryList(res.data);
@@ -19,7 +18,6 @@ function Inventory() {
   }
 
   function deleteButtonHandler(number) {
-    // console.log(number);
     axios
       .delete(`http://localhost:8080/api/inventories/${number}`)
       .then((res) => {

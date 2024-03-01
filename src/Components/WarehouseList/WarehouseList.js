@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
 import "./WarehouseList.scss";
 import victor from "../../Assets/Icons/chevron_right-24px.svg";
 import edit from "../../Assets/Icons/edit-24px.svg";
@@ -7,28 +8,33 @@ import del from "../../Assets/Icons/delete_outline-24px.svg";
 import sort from "../../Assets/Icons/sort-24px.svg";
 
 const WarehouseList = ({ warehouses }) => {
+  const navigate = useNavigate();
+
+  const editWarehouseClick = () => {
+    navigate(`/warehouses/${warehouses.id}/edit`);
+  }
   return (
     <div className="warehouses">
       <header className="warehouses_header">
         <div className="warehouses_header-label">
           <h4>WAREHOUSE</h4>
-          <img src={sort} alt="sort"/>
+          <img src={sort} alt="sort" className="sort"/>
         </div>
         <div className="warehouses_header-label address">
           <h4>ADDRESS</h4>
-          <img src={sort} alt="sort"/>
+          <img src={sort} alt="sort" className="sort"/>
         </div>
         <div className="warehouses_header-label">
           <h4>CONTACT NAME</h4>
-          <img src={sort} alt="sort"/>
+          <img src={sort} alt="sort" className="sort"/>
         </div>
         <div className="warehouses_header-label">
           <h4>CONTACT INFORMATION </h4>
-          <img src={sort} alt="sort"/>
+          <img src={sort} alt="sort" className="sort"/>
         </div>
         <div className="warehouses_header-label action">
           <h4>ACTIONS</h4>
-          <img src={sort} alt="sort"/>
+          <img src={sort} alt="sort" className="sort"/>
         </div>
       </header>
       <ul className="warehouses_list">
@@ -57,10 +63,12 @@ const WarehouseList = ({ warehouses }) => {
               <p>{warehouse.contact_email}</p>
             </div>
             <div className="info-icons action">
+              <button>
               <img src={del}/>
-              <Link to={`/warehouses/${warehouse.id}/edit`}>
+              </button>
+              <button onClick={editWarehouseClick}>
               <img src={edit}/>
-              </Link>
+              </button>
             </div>
           </li>
         ))}

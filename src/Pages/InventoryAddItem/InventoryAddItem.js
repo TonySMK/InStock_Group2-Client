@@ -1,9 +1,10 @@
 import "./InventoryAddItem.scss";
+import InventoryAddItemBody from "../../Components/InventoryAddItemBody/InventoryAddItemBody";
 
 function InventoryAddItem () { 
     return(
         <div>
-            <h1>Inventory Add Item</h1>
+            <InventoryAddItemBody/>
         </div>
     );
 }

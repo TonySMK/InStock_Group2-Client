@@ -1,0 +1,157 @@
+@use "../../Styles/Partials/global" as *;
+@import "../../Styles/Partials/fonts";
+@import "../../Styles/Partials/mixins";
+@import "../../Styles/Partials/variables";
+
+.availability {
+  @include mobile {
+    padding-bottom: 24px;
+  }
+  @include tablet {
+    width: 50%;
+    padding-top: 8px;
+  }
+  &__subheader {
+    @include mobile {
+      padding-top: 16px;
+    }
+    &__title {
+      font-family: $Semi-bold;
+      font-size: 20px;
+      line-height: 20px;
+      width: 60%;
+      text-decoration: none;
+      @include tablet {
+      font-size: 24px;
+      line-height: 22px;
+      width: 60%;
+    }
+    }
+  }
+
+  &__status {
+    align-self: flex-start;
+    @include mobile {
+      width: 26%;
+      padding: 16px 0 4px 0;
+    }
+    @include tablet {
+      width: 23%;
+      padding-top: 16px;
+    }
+    &__title {
+      font-family: $Semi-bold;
+      font-size: 13px;
+      line-height: 20px;
+      color: $P-text;
+      text-decoration: none;
+      @include tablet {
+        align-self: flex-start;
+        font-size: 14px;
+        line-height: 22px;
+      }
+    }
+  }
+  &__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 4px;
+    &__instock {
+      &__label {
+        font-size: 14px;
+        color: $P-text;
+      }
+    }
+    &__out {
+      &__label {
+        font-size: 14px;
+        color: $P-text;
+      }
+    }
+  }
+  &__quantity {
+    display: flex;
+    flex-direction: column;
+    &__input {
+      @include tablet {
+        height: 36px;
+        padding-left: 16px;
+        margin-left: 16px;
+      }
+    }
+    &__label {
+      align-self: flex-start;
+      padding-bottom: 4px;
+      font-family: $Semi-bold;
+      font-size: 13px;
+      line-height: 20px;
+      color: $P-text;
+      @include tablet {
+        padding: 16px 16px 4px 16px;
+      }
+    }
+  }
+  &__warehouse { 
+    display: flex;
+    flex-direction: column;
+    &__select {
+      @include tablet {
+        height: 36px;
+        padding-left: 16px;
+        margin-left: 16px;
+      }
+    }
+    &__label {
+      align-self: flex-start;
+      padding: 16px 0 4px 16px;
+      font-family: $Semi-bold;
+      font-size: 13px;
+      line-height: 20px;
+      color: $P-text;
+      @include tablet {
+        padding: 16px 16px 4px 16px;
+      }
+    }
+  }
+}
+ 
+select {
+  outline: none;
+  @include mobile {
+    margin: 0px 16px;
+  }
+    &:active {
+      border: 1px solid $P-interactive;
+      color: $P-text;
+    }
+    &:hover {
+      border: 1px solid $P-interactive;
+      color: $P-text;
+    }
+    &:focus {
+      border: 1px solid $P-interactive;
+      color: $P-text;
+    }
+}
+
+input {
+  outline: none;
+  @include mobile {
+    margin: 0px 16px;
+  }
+  &.input {
+    &:active {
+      border: 1px solid $P-interactive;
+      color: $P-text;
+    }
+    &:hover {
+      border: 1px solid $P-interactive;
+      color: $P-text;
+    }
+    &:focus {
+      border: 1px solid $P-interactive;
+      color: $P-text;
+    }
+  }
+}

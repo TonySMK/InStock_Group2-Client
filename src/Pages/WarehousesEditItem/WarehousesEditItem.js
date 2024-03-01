@@ -1,11 +1,12 @@
 import "./WarehousesEditItem.scss";
+import EditWarehouseBody from "../../Components/EditWarehouseBody/EditWarehouseBody";
 
-function WarehousesEditItem () {
-    return (
-      <div>
-        <h1>Warehouses Edit Item</h1>
-      </div>
-    );
+function WarehousesEditItem() {
+  return (
+    <div>
+      <EditWarehouseBody/>
+    </div>
+  );
 }
 
 export default WarehousesEditItem;

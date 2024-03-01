@@ -6,67 +6,146 @@
     display: none;
 
     @include tablet{
-        background-color: #5C667E;
+        // background-color: #5C667E;
         display:flex;
+        flex-direction: row;
         justify-content: space-between;
-        // align-items: center;
+        width: 100%;
+        height: 40px;
     }
 }
 
-.sortlistnamewrapper{
-    background-color: aqua;
-    
+.fistsort{
+    @include tablet{
+    // background-color: lightcoral;
+    flex-grow: 1;
     display: flex;
+    flex-direction: row;
     // justify-content: space-between;
+    }
+}
+
+.secondsort{
+    @include tablet{
+    width: 100px;
+    display: flex;
     align-items: center;
-    // flex-grow: 1;
-    gap: 0.25rem;
-    // height: 100%;
-    &__name{
-        font-size: 12px;
-        text-transform: uppercase;
-
-    }
-
-    &__sorticon{
-        width: 16px;
     }
 }
 
-.inventorysortname, .warehousesortname{
-    background-color: red;
-    width: 110px;
+.sortingbar{
+    @include tablet{
+    display: flex;
+    align-items: center;
+    }
 }
 
-.categorysortname, .statussortname, .qtysortname, .actionssortname{
-    background-color: blue;
-    width: 80px;
+.sortingbarname{
+    @include tablet{
+    text-transform: uppercase;
+    }
+}
+
+.sortingbarsorticon{
+    @include tablet{
+    width: 16px;
+    }
+}
+
+.inventorylabel, .categorylabel, .statuslabel, .qtylabel, .warehouselocationlabel{
+    @include tablet{
+        display: none;
+    }
+}
+.inventorywrapper, .inventorypanel{
+    @include tablet{
+        flex-grow: 1;
+        margin-right: 2rem;
+        width: 120px;
+    }
+}
+
+.categorywrapper, .categorypanel{
+    @include tablet{
+        flex-grow: 1;
+        width: 70px;
+        margin-right: 3.5rem;
+    }
+}
+
+.statuswrapper, .statuspanel{
+    @include tablet{
+        flex-grow: 1;
+        width: 70px;
+        margin-right: 2.5em;
+    }
+}
+
+.qtywrapper, .qtypanel{
+    @include tablet{
+        flex-grow: 0.25;
+        width: 70px;
+        margin-right: 1em;
+    }
+}
+
+.warehousewrapper, .warehousepanel{
+    @include tablet{
+        flex-grow: 1;
+        width: 100px;
+    }
 }
 
 
-.actionssortname img{ 
-display: none;
+.secondsort, .row__second{
+    @include tablet{
+        // flex-grow: 1;
+        margin-left: 1rem;
+    }
+}
+
+
+.placeholderpanel{
+    @include tablet{
+        display: none;
+    }
 }
 
 .row{
-    background-color: aliceblue;
-    border-top: 2px solid $S-slate;
+    // background-color: aliceblue;
+    border-top: 1px solid $S-cloud;
     width:100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     padding-top: 1rem;
+
+    &:hover{
+        background-color: rgba(46, 102, 229, 0.07);
+    }
 
     @include tablet{
         flex-direction: row;
         justify-content: space-between;
+        height: 3rem;
+        padding: 0rem;
     }
 
     &__first{
         // background-color: rgb(204, 197, 189);
         width: 100%;
-        display: flex;
-        flex-direction: row; 
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto auto auto;
+        grid-auto-flow: column;
+
+        @include tablet{
+            width: auto;
+            display: flex;
+            flex-direction: row;
+            // justify-content: space-between;
+            
+            flex-grow: 1;
+        }
     }
 
     &__second{
@@ -75,34 +154,14 @@ display: none;
         width: 100%;
         display: flex;
         justify-content: space-between;
-        padding: 1rem 0rem;
 
         @include tablet{
-            width: 89.72px;
+            width: 100px;
+            justify-content: flex-start;
+            gap: 1rem;
         }
 
         
-    }
-}
-
-
-.infopanelone{
-    // background-color: antiquewhite;
-    width: 50%;
-    @include tablet{
-        display: flex;
-        flex-direction: row;
-        width: auto;
-    }
-}
-
-.infopaneltwo{
-    // background-color: rgb(41, 166, 166);
-    width: 50%;
-    @include tablet{
-        display: flex;
-        flex-direction: row;
-        width: auto;
     }
 }
 
@@ -120,6 +179,19 @@ display: none;
     &__value{
         font-size: 13px;
     }
+
+    @include tablet{
+        // background-color: antiquewhite;
+        // display: flex;
+        align-items: center;
+        margin-bottom: 0rem;   
+    }
+}
+
+.inventorypanel, .categorypanel, .statuspanel, .qtypanel, .warehousepanel{
+    @include tablet{
+        display: flex;
+    }
 }
 
 .inventorylabelnamebuttonwrapper{
@@ -129,12 +201,15 @@ display: none;
     align-items: center;
 }
 
-.itembutton__name{
+.itembutton{
+    &__name{
         color:$P-interactive;
         display: flex;
         justify-content: space-between;
         align-items: center;
         font-weight: 600;
+    }
+
 }
 
 .modbutton{
@@ -145,19 +220,3 @@ display: none;
     align-items: center;
 }
 
-.sortingbarwrappper{
-    width: 100%;
-    height: 30px;
-}
-
-.inventorypanel, .warehouselocationpanel{
-    @include tablet{
-        width: 110px;
-    }
-}
-
-.categorypanel, .statuspane, .quantitypanel, .actionspanel{
-    @include tablet{
-        width: 80px;
-    }
-}

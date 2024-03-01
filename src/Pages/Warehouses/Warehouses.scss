@@ -39,14 +39,16 @@
             }
             .add-warehouse {
                 margin-top: 16px;
+                text-align: center;
                 color: $P-white;
                 width: 100%;
-                border-radius: 20px;                 
                 height: 36px;
+                border-radius: 20px;                 
                 background-color: $P-interactive;
                 border: none;
                 @include tablet {
                     width: 168px;
+                    height: 38px;
                     margin-top: 0;
                 }
              }     

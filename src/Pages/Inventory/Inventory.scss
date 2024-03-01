@@ -9,10 +9,6 @@ button{
     cursor: pointer;
 }
 
-// h1{
-//     margin: 0rem;
-// }
-
 .parentwrapper{
     background-color:$P-white;
     width: 100%;
@@ -28,7 +24,6 @@ button{
     }
 
     &__top{
-        // background-color: antiquewhite;
         display: flex;
         flex-direction: column;
         padding-bottom: 1.5rem;
@@ -47,6 +42,7 @@ button{
 .searchbarwrapperform{
     margin-bottom: 1rem;
 }
+
 .searchbarwrapper{
     position: relative;
     box-sizing: border-box;
@@ -65,9 +61,10 @@ button{
     border-radius: 20px;
     // FIXME: seeing doubled border-radius, not very dry
 }
+
 ::placeholder {
     color: $S-slate;
-    opacity: 1; /* Firefox */
+    opacity: 1;
   }
 
 .searchbarbutton{

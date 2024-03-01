@@ -6,7 +6,6 @@
     display: none;
 
     @include tablet{
-        // background-color: #5C667E;
         display:flex;
         flex-direction: row;
         justify-content: space-between;
@@ -17,11 +16,9 @@
 
 .fistsort{
     @include tablet{
-    // background-color: lightcoral;
     flex-grow: 1;
     display: flex;
     flex-direction: row;
-    // justify-content: space-between;
     }
 }
 
@@ -99,7 +96,6 @@
 
 .secondsort, .row__second{
     @include tablet{
-        // flex-grow: 1;
         margin-left: 1rem;
     }
 }
@@ -112,7 +108,6 @@
 }
 
 .row{
-    // background-color: aliceblue;
     border-top: 1px solid $S-cloud;
     width:100%;
     display: flex;
@@ -131,7 +126,6 @@
     }
 
     &__first{
-        // background-color: rgb(204, 197, 189);
         width: 100%;
         display: grid;
         grid-template-columns: 50% 50%;
@@ -142,14 +136,11 @@
             width: auto;
             display: flex;
             flex-direction: row;
-            // justify-content: space-between;
-            
             flex-grow: 1;
         }
     }
 
     &__second{
-        // background-color: rgb(114, 187, 246);
         box-sizing: border-box;
         width: 100%;
         display: flex;
@@ -181,8 +172,6 @@
     }
 
     @include tablet{
-        // background-color: antiquewhite;
-        // display: flex;
         align-items: center;
         margin-bottom: 0rem;   
     }
@@ -195,7 +184,6 @@
 }
 
 .inventorylabelnamebuttonwrapper{
-    // background-color: red;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -214,7 +202,6 @@
 
 .modbutton{
     padding: 0rem;
-    // background-color: aquamarine;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -11,15 +11,13 @@ import { useState, useEffect } from "react";
 function InventoryListComp({ object, deleteButtonHandler }) {
   const [compstate, setCompState] = useState(true);
   const [renderedList, setRenderedList] = useState("");
-  const [renderedSortList, setRenderedSortList] = useState("");
-  const [windowWidth, setWindowWidth] = useState(0);
 
   console.log(window.innerWidth);
   useEffect(() => {
     renderList(object);
     setCompState(false);
   }, [object]);
-  //FIXME: missing dependencies, but adding it cause another error
+  //FIXME: missing dependencies, but adding it causes another error
 
   function renderList(someObject) {
     const theRender = someObject.map((row) => (

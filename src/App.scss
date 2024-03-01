@@ -20,8 +20,9 @@
     @include tablet {
       top: -6.5rem;
       padding: 0 2rem;
-      @include desktop {
-        padding: 0 3rem;
-      }
+      
+  }
+  @include desktop {
+    padding: 0 3rem;
   }
 }

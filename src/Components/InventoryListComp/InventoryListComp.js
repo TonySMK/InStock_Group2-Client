@@ -7,6 +7,7 @@ import sortIcon from "../../Assets/Icons/sort-24px.svg";
 import StockStatus from "../StockStatus/StockStatus";
 
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function InventoryListComp({ object, deleteButtonHandler }) {
   const [compstate, setCompState] = useState(true);
@@ -28,14 +29,16 @@ function InventoryListComp({ object, deleteButtonHandler }) {
               inventory item
             </div>
 
-            <button className="contentpanel__value inventorylabelnamebuttonwrapper">
-              <h3 className="itembutton__name">{row.item_name}</h3>
-              <img
-                className="itembutton__icon"
-                src={chevronRightIcon}
-                alt="Chevron Right Icon"
-              />
-            </button>
+            <Link to={`/${row.id}/details`}>
+              <button className="contentpanel__value inventorylabelnamebuttonwrapper">
+                <h3 className="itembutton__name">{row.item_name}</h3>
+                <img
+                  className="itembutton__icon"
+                  src={chevronRightIcon}
+                  alt="Chevron Right Icon"
+                />
+              </button>
+            </Link>
           </div>
 
           <div className="contentpanel categorypanel">

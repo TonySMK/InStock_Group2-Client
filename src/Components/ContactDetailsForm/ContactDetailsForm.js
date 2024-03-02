@@ -10,37 +10,41 @@ function ContactDetailsForm({ warehouseData, setWarehouseData }) {
   };
 
   return (
-    <section>
-      <div>
-        <h2>Contact Details</h2>
+    <section className="contact">
+      <div className="contact__head">
+        <h2 className="contact__head__name">Contact Details</h2>
       </div>
-      <div>
-        <label>Contact Name</label>
+      <div className="contact__container">
+        <label className="contact__container__label">Contact Name</label>
         <input
+          className="contact__container__input"
           type="text"
           name="contact_name"
           value={warehouseData.contact_name}
           onChange={handleChange}
           placeholder="Contact Name"
         />
-        <label>Position</label>
+        <label className="contact__container__label">Position</label>
         <input
+          className="contact__container__input"
           type="text"
           name="contact_position"
           value={warehouseData.contact_position}
           onChange={handleChange}
           placeholder="Position"
         />
-        <label>Phone Number</label>
+        <label className="contact__container__label">Phone Number</label>
         <input
+          className="contact__container__input"
           type="text"
           name="contact_phone"
           value={warehouseData.contact_phone}
           onChange={handleChange}
           placeholder="Phone Number"
         />
-        <label>Email</label>
+        <label className="contact__container__label">Email</label>
         <input
+          className="contact__container__input"
           type="text"
           name="contact_email"
           value={warehouseData.contact_email}

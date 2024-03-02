@@ -1,3 +1,22 @@
 @import "../../Styles/Partials/fonts";
 @import "../../Styles/Partials/mixins";
 @import "../../Styles/Partials/variables";
+
+
+.contact {
+    &__container { 
+        display: flex;
+        flex-direction: column;
+    }
+    &__label {
+        align-self: baseline;
+        padding: 16px 16px 4px 16px;
+        display: flex;
+        flex-direction: column;
+        font-family: "Titillium Semi-bold";
+        font-size: 13px;
+        line-height: 20px;
+        text-decoration: none;
+        color: $P-text;
+    }
+}

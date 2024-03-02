@@ -12,47 +12,50 @@ function WarehouseDetailsForm({ warehouseData, setWarehouseData }) {
 
 
   return (
-    <section>
-      <div>
-        <h2>Warehouse Details</h2>
+    <section className="details">
+      <div className="details__title">
+        <h2 className="details__title__name">Warehouse Details</h2>
       </div>
-      <div>
-        <label>Warehouse Name</label>
+      <div className="details__container">
+        <label className="details__container__label">Warehouse Name</label>
         <input
-          className="warehouse-name"
+          className="details__container__input"
           type="text"
           name="warehouse_name"
           value={warehouseData.warehouse_name}
           onChange={handleChange}
           placeholder="Warehouse Name"
         />
-        <label>Street Address</label>
+        <label className="details__container__label">Street Address</label>
         <input
-          className="address"
+          className="details__container__input"
           type="text"
           name="address"
           value={warehouseData.address}
           onChange={handleChange}
           placeholder="Street Address"
         />
-        <label>City</label>
+        <label className="details__container__label">City</label>
         <input
-          className="city"
+          className="details__container__input"
           type="text"
           name="city"
           value={warehouseData.city}
           onChange={handleChange}
           placeholder="City"
         />
-        <label>Country:</label>
+        <label className="details__container__label">Country:</label>
         <input
-          className="country"
+          className="details__container__input"
           type="text"
           name="country"
           value={warehouseData.country}
           onChange={handleChange}
           placeholder="Country"
         />
+      </div>
+      <div className="details__division">
+        <div className="details__division__line"></div>
       </div>
     </section>
   );

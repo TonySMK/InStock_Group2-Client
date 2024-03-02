@@ -56,32 +56,7 @@ function WarehousesDetails (warehouseDetails) {
       </div>
       </div>
   </section>
-  <section className = 'inventory-list'></section>
-  <div className = 'inventory-list__container-top'>
-      <div className = 'inventory-list__item-container'>
-        <p className = 'inventory-list__item-header'>INVENTORY ITEM</p>
-        <p className = 'inventory-list__item'>Television</p>
-      </div>  
-      <div className = 'inventory-list__status-container'>
-        <p className = 'inventory-list__status-header'>STATUS</p>
-        <p className = 'inventory-list__status'></p>
-      </div>
-  </div>
-  <div className = 'inventory-list__container-middle'>
-      <div className = 'inventory-list__category-container'>
-        <p className = 'inventory-list__category-header'>CATEGORY</p>
-        <p className = 'inventory-list__category'>Electronics</p>
-      </div>
-      <div className = 'inventory-list__quantity-container'>
-        <p className = 'inventory-list__quantity-header'>QTY</p>
-        <p className = 'inventory-list__quantity'>500</p>
-      </div>
-  </div>
-  <div className = 'inventory-list__container-bottom'>
-      <img className = 'inventory-list__delete' src = ''></img>
-      <img className = 'inventory-list__edit' src = ''></img>
-
-  </div>
+  <SelectedWarehouseInventory/>
   </div>
   </>
 

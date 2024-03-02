@@ -79,11 +79,13 @@ function InventoryDetails() {
                   </div>
                 </div>
 
-                <h4 className="categorydetailpanel__label someplacholderlabel someplacholder">
-                  category:
-                </h4>
-                <div className="categorydetailpanel__content someplacholdercontent someplacholder">
-                  {iventoryDetailsObject.category}
+                <div className="categorydetailpanel">
+                  <h4 className="categorydetailpanel__label someplacholderlabel someplacholder">
+                    category:
+                  </h4>
+                  <div className="categorydetailpanel__content someplacholdercontent someplacholder">
+                    {iventoryDetailsObject.category}
+                  </div>
                 </div>
               </div>
 

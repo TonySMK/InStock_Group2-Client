@@ -8,6 +8,19 @@
   margin: 0 auto;
   text-align: center;
   position: relative;
+
+  @include desktop {
+    padding: 0 3rem;
+  }
+}
+
+.backgroundwrapper{
+  @include desktop {
+    width: 1020px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 }
 
 .parenteoffsetwarpper{

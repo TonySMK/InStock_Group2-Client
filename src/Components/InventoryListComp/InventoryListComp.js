@@ -7,6 +7,7 @@ import sortIcon from "../../Assets/Icons/sort-24px.svg";
 import StockStatus from "../StockStatus/StockStatus";
 
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function InventoryListComp({ object, deleteButtonHandler }) {
   const [compstate, setCompState] = useState(true);
@@ -28,14 +29,16 @@ function InventoryListComp({ object, deleteButtonHandler }) {
               inventory item
             </div>
 
-            <button className="contentpanel__value inventorylabelnamebuttonwrapper">
-              <h3 className="itembutton__name">{row.item_name}</h3>
-              <img
-                className="itembutton__icon"
-                src={chevronRightIcon}
-                alt="Chevron Right Icon"
-              />
-            </button>
+            <Link to={`/${row.id}/details`}>
+              <button className="contentpanel__value inventorylabelnamebuttonwrapper">
+                <h3 className="itembutton__name">{row.item_name}</h3>
+                <img
+                  className="itembutton__icon"
+                  src={chevronRightIcon}
+                  alt="Chevron Right Icon"
+                />
+              </button>
+            </Link>
           </div>
 
           <div className="contentpanel categorypanel">
@@ -105,30 +108,54 @@ function InventoryListComp({ object, deleteButtonHandler }) {
             <section className="fistsort">
               <div className="sortingbar inventorywrapper">
                 <h4 className="sortingbarname">iventory item</h4>
-                <img className="sortingbarsorticon" src={sortIcon} />
+                <img
+                  className="sortingbarsorticon"
+                  src={sortIcon}
+                  alt="Sort Icon"
+                />
               </div>
               <div className="sortingbar categorywrapper">
                 <h4 className="sortingbarname">categcory</h4>
-                <img className="sortingbarsorticon" src={sortIcon} />
+                <img
+                  className="sortingbarsorticon"
+                  src={sortIcon}
+                  alt="Sort Icon"
+                />
               </div>
               <div className="sortingbar statuswrapper">
                 <h4 className="sortingbarname">status</h4>
-                <img className="sortingbarsorticon" src={sortIcon} />
+                <img
+                  className="sortingbarsorticon"
+                  src={sortIcon}
+                  alt="Sort Icon"
+                />
               </div>
               <div className="sortingbar qtywrapper">
                 <h4 className="sortingbarname">qty</h4>
-                <img className="sortingbarsorticon" src={sortIcon} />
+                <img
+                  className="sortingbarsorticon"
+                  src={sortIcon}
+                  alt="Sort Icon"
+                />
               </div>
               <div className="sortingbar warehousewrapper">
                 <h4 className="sortingbarname">warehouse</h4>
-                <img className="sortingbarsorticon" src={sortIcon} />
+                <img
+                  className="sortingbarsorticon"
+                  src={sortIcon}
+                  alt="Sort Icon"
+                />
               </div>
             </section>
 
             <section className="secondsort">
               <div className="sortingbar actionswrapper">
                 <h4 className="sortingbarname">actions</h4>
-                <img className="sortingbarsorticon" src={sortIcon} />
+                <img
+                  className="sortingbarsorticon"
+                  src={sortIcon}
+                  alt="Sort Icon"
+                />
               </div>
             </section>
           </section>

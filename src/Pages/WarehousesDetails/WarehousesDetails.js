@@ -1,8 +1,9 @@
 import "./WarehousesDetails.scss";
+import axios from 'axios'
 import backArrow from '../../Assets/Icons/arrow_back-24px.svg'
 import editButton from '../../Assets/Icons/edit-24px.svg'
 import {Link, useParams} from 'react-router-dom'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import SelectedWarehouseInventory from "../../Components/SelectedWarehouseInventory/SelectedWarehouseInventory";
 
 function WarehousesDetails (warehouses) {

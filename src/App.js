@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <section className="offsetwarpper">
+      <section className="parenteoffsetwarpper">
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Inventory />}></Route>

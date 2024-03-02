@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import editIcon from "../../Assets/Icons/edit-24px.svg";
 import deleteIcon from "../../Assets/Icons/delete_outline-24px.svg";
 import chevron from "../../Assets/Icons/chevron_right-24px.svg";
-import classNames from 'classname'
 
 const SelectedWarehouseInventory = () => {
   const { warehouseId } = useParams();

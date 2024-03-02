@@ -39,18 +39,20 @@ function EditWarehouseBody() {
         );
     };
   return (
-    <section>
-      <div className="warehouse">
-        <div className="warehouse__head">
-          <div className="warehouse__head__img">
+    <section className="warehouse">
+      <div className="warehouse__wrapper">
+        <div className="warehouse__wrapper__head">
+          <div className="warehouse__wrapper__head__img">
             <img
-              className="warehouse__head__img__arrow"
+              className="warehouse__wrapper__head__img__arrow"
               src={back}
               alt="back_arrow"
             />
           </div>
-          <div className="warehouse__head__title">
-            <h1 className="warehouse__head__title__name">Edit Warehouse</h1>
+          <div className="warehouse__wrapper__head__title">
+            <h1 className="warehouse__wrapper__head__title__name">
+              Edit Warehouse
+            </h1>
           </div>
         </div>
       </div>
@@ -66,12 +68,18 @@ function EditWarehouseBody() {
           />
         </form>
       </div>
-      <div>
-        <div>
-          <button>Cancel</button>
+      <div className="warehouse__buttons">
+        <div className="warehouse__buttons__container">
+          <button className="warehouse__buttons__container__cancel">
+            Cancel
+          </button>
         </div>
-        <div>
-          <button onClick={handleSubmit} type="submit">
+        <div className="warehouse__buttons__container">
+          <button
+            className="warehouse__buttons__container__save"
+            onClick={handleSubmit}
+            type="submit"
+          >
             Save
           </button>
         </div>

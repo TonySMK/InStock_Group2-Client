@@ -1,3 +1,39 @@
 @import "../../Styles/Partials/fonts";
 @import "../../Styles/Partials/mixins";
 @import "../../Styles/Partials/variables";
+ 
+
+.details {
+    &__title {
+        padding-top: 24px;
+        &__name {
+            width: 67%
+        }
+    }
+    &__division {
+        &__line {
+            border-bottom: 0.5px solid $S-cloud;
+        }
+    }
+}
+
+label {
+  text-decoration: none;
+  color: $P-text;
+  padding-top: 16px;
+}
+
+input {
+    &:active {
+        border: 0.5px solid $P-interactive;
+        color: $P-text;
+    }
+    &:focus {
+        border: 0.5px solid $P-interactive;
+        color: $P-text;
+    }
+  @include mobile {
+    height: 32px;
+    padding-left: 16px;
+  }
+}

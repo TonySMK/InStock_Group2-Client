@@ -1,13 +1,28 @@
 import "./WarehousesDetails.scss";
+import axios from 'axios'
 import backArrow from '../../Assets/Icons/arrow_back-24px.svg'
 import editButton from '../../Assets/Icons/edit-24px.svg'
 import {Link, useParams} from 'react-router-dom'
+import {useState, useEffect} from 'react'
+import SelectedWarehouseInventory from "../../Components/SelectedWarehouseInventory/SelectedWarehouseInventory";
 
-function WarehousesDetails (warehouseDetails) {
+function WarehousesDetails (warehouses) {
 
   const params = useParams();
 
   const warehouseId = params.warehouseId
+
+  const [warehouse, setWarehouse] = useState(null);
+
+  useEffect(() => {
+    axios
+    .get(`http://localhost:8080/api/warehouses/${warehouses.id}/details`)
+    .then((res) => {
+      let warehouseDetails = res.data[0];
+      console.log(warehouseDetails);
+      setWarehouse(warehouseDetails);
+    });
+})
 
     return (
       <>

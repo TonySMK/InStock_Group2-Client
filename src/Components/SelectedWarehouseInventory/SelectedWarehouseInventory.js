@@ -3,16 +3,17 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import editIcon from "../../assets/images/Icons/edit-24px.svg";
-import deleteIcon from "../../assets/images/Icons/delete_outline-24px.svg";
-import chevron from "../../assets/images/Icons/chevron_right-24px.svg";
+import editIcon from "../../Assets/Icons/edit-24px.svg";
+import deleteIcon from "../../Assets/Icons/delete_outline-24px.svg";
+import chevron from "../../Assets/Icons/chevron_right-24px.svg";
+import classNames from 'classname'
 
 const SelectedWarehouseInventory = () => {
   const { warehouseId } = useParams();
   const [warehouseInventories, setWarehouseInventory] = useState(null);
 
   useEffect(() => {
-    const getWarehouseInventory = async () => {
+    const getWarehouseInventory = async (warehouses) => {
       try {
         const response = await axios.get(
           `http://localhost:8080/api/warehouses/${warehouses.id}/details`,
@@ -56,13 +57,7 @@ const SelectedWarehouseInventory = () => {
               <div className="selected-warehouse__div">
                 <p className="selected-warehouse__div-title">STATUS</p>
                 <div
-                  className={classNames(
-                    "selected-warehouse__div-info--outstock-container",
-                    {
-                      "selected-warehouse__div-info--instock-container":
-                        warehouseInventory.quantity,
-                    }
-                  )}
+                  className= {"selected-warehouse__div-info" + (warehouseInventory.quantity === 0 ? "selected-warehouse__div-info--outstock" : "")}
                 >
                   <p className="selected-warehouse__div-info selected-warehouse__div-info--outstock">
                     {warehouseInventory.status.toUpperCase()}

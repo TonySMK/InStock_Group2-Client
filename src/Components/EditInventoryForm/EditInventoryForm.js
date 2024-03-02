@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import './EditInventoryForm.scss';
 
 function EditInventoryForm({ formData, setFormData }) {
     const [categories, setCategories] = useState([]);
@@ -24,9 +25,7 @@ function EditInventoryForm({ formData, setFormData }) {
 
   return (
     <section className="details">
-      <div className="details__subheader">
         <h2 className="details__subheader__title">Item Details</h2>
-      </div>
       <div className="details__container">
         <label className="details__container__label">
           Item Name:
@@ -66,9 +65,6 @@ function EditInventoryForm({ formData, setFormData }) {
               ))}
           </select>
         </label>
-      </div>
-      <div className="details__division">
-        <div className="details__division__line"></div>
       </div>
     </section>
   );

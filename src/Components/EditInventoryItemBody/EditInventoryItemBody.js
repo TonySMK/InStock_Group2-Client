@@ -4,6 +4,7 @@ import axios from "axios";
 import back from "../../Assets/Icons/arrow_back-24px.svg";
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+import "./EditInventoryItemBody.scss"
 
 function EditInventoryItemBody() {
   const { id } = useParams();
@@ -59,20 +60,17 @@ function EditInventoryItemBody() {
   };
 
   return (
-    <section>
-      <div>
-        <div>
-          <img src={back} alt="arrow-back" />
-        </div>
-        <div>
+    <section className="edit">
+      <div className="edit-header">
+          <img src={back} alt="arrow-back" className="back" />
           <h1>Edit Inventory Item</h1>
-        </div>
       </div>
       <form onSubmit={handleSubmit}>
-        <EditInventoryForm formData={formData} setFormData={setFormData} />
+        <EditInventoryForm formData={formData} setFormData={setFormData} className="left" />
         <EditItemAvailabilityForm
           formData={formData}
           setFormData={setFormData}
+          className="right"
         />
         <div className="body__buttons">
           <div className="body__buttons__container">
@@ -81,7 +79,7 @@ function EditInventoryItemBody() {
           <div className="body__buttons__container">
             <button className="body__buttons__container__add" type="submit">
               <div></div>
-              Edit Item
+              Save
             </button>
           </div>
         </div>

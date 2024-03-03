@@ -56,7 +56,7 @@ function InventoryAddItemBody() {
   };
 
   const handleCancel = () => {
-    navigate("/warehouses");
+    navigate("/");
   };
 
   return (

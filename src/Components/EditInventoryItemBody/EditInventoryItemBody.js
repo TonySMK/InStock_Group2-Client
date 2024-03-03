@@ -2,12 +2,13 @@ import EditInventoryForm from "../EditInventoryForm/EditInventoryForm";
 import EditItemAvailabilityForm from "../EditItemAvailabilityForm/EditItemAvailabilityForm";
 import axios from "axios";
 import back from "../../Assets/Icons/arrow_back-24px.svg";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import "./EditInventoryItemBody.scss";
 
 function EditInventoryItemBody() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const initialFormData = {
     id: "",
@@ -34,19 +35,19 @@ function EditInventoryItemBody() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(formData);
     // Frontend validation
     if (
       !formData.item_name ||
       !formData.description ||
       !formData.category ||
       !formData.status ||
-      (formData.status === "in stock" && formData.quantity > 0) ||
+      !(formData.status === "in stock" && formData.quantity > 0) ||
       !formData.warehouse_id
     ) {
       return;
     }
     try {
-      console.log(formData);
       const response = await axios.put(
         `http://localhost:8080/api/inventories/${id}`,
         {
@@ -61,6 +62,9 @@ function EditInventoryItemBody() {
   };
   const hasError = (fieldName) => {
     return formData[fieldName] === "" && hasSubmitted;
+  };
+  const handleCancel = () => {
+    navigate("/");
   };
 
   return (
@@ -86,7 +90,12 @@ function EditInventoryItemBody() {
         />
         <div className="body__buttons">
           <div className="body__buttons__container">
-            <button className="body__buttons__container__cancel">Cancel</button>
+            <button
+              className="body__buttons__container__cancel"
+              onClick={handleCancel}
+            >
+              Cancel
+            </button>
           </div>
           <div className="body__buttons__container">
             <button className="body__buttons__container__add" type="submit">

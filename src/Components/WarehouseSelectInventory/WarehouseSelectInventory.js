@@ -1,4 +1,4 @@
-import "./InventoryListStyles.scss";
+import "./WarehouseSelectInventoryStyles.scss";
 import chevronRightIcon from "../../Assets/Icons/chevron_right-24px.svg";
 import deleteIcon from "../../Assets/Icons/delete_outline-24px.svg";
 import editIcon from "../../Assets/Icons/edit-24px.svg";
@@ -6,22 +6,35 @@ import sortIcon from "../../Assets/Icons/sort-24px.svg";
 
 import StockStatus from "../StockStatus/StockStatus";
 import InventoryModel from "../InventoryModal/InventortyModel";
+import axios from "axios";
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-function InventoryListComp({ object, deleteButtonHandler }) {
+function WarehouseSelectInventory({ object, deleteButtonHandler }) {
+  const [warehouseInventories, setWarehouseInventory] = useState([]);
   const [compstate, setCompState] = useState(true);
-  const [renderedList, setRenderedList] = useState("");
   const [isModelOpen, setIsModelOpen] = useState(false);
-  const [targetInformationArray, setTargetInformationArray] = useState(null);
-  // let warehousepanelelement = document.getElementsByClassName("warehousepanel");
-  // if (fromWarehouse) {
-  //   warehousepanelelement.style.visibility = "hidden";
-  // }
+  const [inventoryList, setInventoryList] = useState("");
+
+  const [targetInformationArray, setTargetInformationArray] = useState("");
   // console.log(eTarget);
   function closeModalHandler() {
     setIsModelOpen(false);
+  }
+  function fetch() {
+    axios.get("http://localhost:8080/api/inventories").then((res) => {
+      let thelist = res.data;
+      setWarehouseInventory(res.data);
+    });
+  }
+
+  function deleteButtonHandler(number) {
+    axios
+      .delete(`http://localhost:8080/api/inventories/${number}`)
+      .then((res) => {
+        fetch();
+      });
   }
 
   function deleteHandler(therowinfoarray) {
@@ -29,21 +42,13 @@ function InventoryListComp({ object, deleteButtonHandler }) {
 
     // console.log(therowinfoarray);
     setTargetInformationArray(therowinfoarray);
+    fetch();
 
     // // FIXME:
 
     // console.log(targetInformationArray[1]);
   }
   // console.log(window.innerWidth);
-  useEffect(() => {
-    renderList(object);
-    setCompState(false);
-    if (targetInformationArray) {
-      console.log(targetInformationArray);
-    }
-  }, [object, targetInformationArray]);
-  //FIXME: missing dependencies, but adding it causes another error
-
   function renderList(someObject) {
     const theRender = someObject.map((row) => (
       <section className="row" key={row.id.toString()}>
@@ -85,15 +90,6 @@ function InventoryListComp({ object, deleteButtonHandler }) {
               {row.quantity}
             </h3>
           </div>
-
-          <div className="contentpanel warehousepanel">
-            <div className="contentpanel__name warehouselocationlabel">
-              warehouse
-            </div>
-            <h3 className="contentpanel__value warehouselocationlabel__content">
-              {row.warehouse_name}
-            </h3>
-          </div>
         </div>
 
         <div className="row__second">
@@ -121,9 +117,18 @@ function InventoryListComp({ object, deleteButtonHandler }) {
       </section>
     ));
 
-    setRenderedList(theRender);
+    setInventoryList(theRender);
     setCompState(false);
   }
+
+  useEffect(() => {
+    renderList(object);
+    setCompState(false);
+    if (targetInformationArray) {
+      console.log(targetInformationArray);
+    }
+  }, [object, targetInformationArray]);
+  //FIXME: missing dependencies, but adding it causes another error
 
   return (
     <>
@@ -186,7 +191,7 @@ function InventoryListComp({ object, deleteButtonHandler }) {
               </div>
             </section>
           </section>
-          {renderedList}
+          {inventoryList}
 
           <InventoryModel
             isModelOpen={isModelOpen}
@@ -200,4 +205,4 @@ function InventoryListComp({ object, deleteButtonHandler }) {
   );
 }
 
-export default InventoryListComp;
+export default WarehouseSelectInventory;

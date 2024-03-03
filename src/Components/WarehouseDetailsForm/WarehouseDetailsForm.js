@@ -2,13 +2,7 @@ import React from "react";
 import "./WarehouseDetailsForm.scss";
 import err from "../../Assets/Icons/error-24px.svg";
 
-function WarehouseDetailsForm({
-  warehouseData,
-  setWarehouseData,
-  error,
-  hasError,
-  hasSubmitted,
-}) {
+function WarehouseDetailsForm({ warehouseData, setWarehouseData, hasError }) {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setWarehouseData((prevData) => ({

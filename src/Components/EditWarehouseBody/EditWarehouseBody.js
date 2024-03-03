@@ -87,14 +87,11 @@ function EditWarehouseBody() {
           <WarehouseDetailsForm
             warehouseData={warehouseData}
             setWarehouseData={setWarehouseData}
-            error={error}
-            hasSubmitted={hasSubmitted}
             hasError={hasError}
           />
           <ContactDetailsForm
             warehouseData={warehouseData}
             setWarehouseData={setWarehouseData}
-            error={error}
             hasError={hasError}
           />
         </div>

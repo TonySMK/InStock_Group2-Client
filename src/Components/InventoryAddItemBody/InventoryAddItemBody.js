@@ -4,19 +4,23 @@ import NewItemAvailabilityForm from "../NewItemAvailabilityForm.js/NewItemAvaila
 import axios from "axios";
 import "./InventoryAddItemBody.scss";
 import back from "../../Assets/Icons/arrow_back-24px.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function InventoryAddItemBody() {
-  const [formData, setFormData] = useState({
+  const navigate = useNavigate();
+  const initialFormData = {
     item_name: "",
     description: "",
     category: "",
     status: "",
-    quantity: "",
+    quantity: 0,
     warehouse_id: "",
-  });
+  };
+  const [formData, setFormData] = useState(initialFormData);
+  const [hasSubmitted, setHasSubmitted] = useState(false);
 
   const handleSubmit = async (e) => {
+    setHasSubmitted(true);
     e.preventDefault();
     // Frontend validation
     if (
@@ -27,28 +31,32 @@ function InventoryAddItemBody() {
       (formData.status === "in stock" && !formData.quantity) ||
       !formData.warehouse_id
     ) {
-      alert("Please fill in all required fields.");
-      //   return;
+      return;
     }
     try {
       // Backend request
       const response = await axios.post(
         "http://localhost:8080/api/inventories/",
-        formData
+        {
+          ...formData,
+          quantity: formData.status === "Out of Stock" ? 0 : formData.quantity,
+        }
       );
       console.log("Item added successfully:", response.data);
       // Reset form data after successful submission
-      setFormData({
-        item_name: "",
-        description: "",
-        category: "",
-        status: "",
-        quantity: "",
-        warehouse_id: "",
-      });
+      setFormData(initialFormData);
+      setHasSubmitted(false);
     } catch (error) {
       console.error("Error adding new item: ", error);
     }
+  };
+
+  const hasError = (fieldName) => {
+    return formData[fieldName] === "" && hasSubmitted;
+  };
+
+  const handleCancel = () => {
+    navigate("/warehouses");
   };
 
   return (
@@ -70,15 +78,25 @@ function InventoryAddItemBody() {
       </div>
       <form onSubmit={handleSubmit}>
         <div className="body__forms-wrapper">
-          <NewItemsDetailsForm formData={formData} setFormData={setFormData} />
+          <NewItemsDetailsForm
+            formData={formData}
+            setFormData={setFormData}
+            hasError={hasError}
+          />
           <NewItemAvailabilityForm
             formData={formData}
             setFormData={setFormData}
+            hasError={hasError}
           />
         </div>
         <div className="body__buttons">
           <div className="body__buttons__container">
-            <button className="body__buttons__container__cancel">Cancel</button>
+            <button
+              className="body__buttons__container__cancel"
+              onClick={handleCancel}
+            >
+              Cancel
+            </button>
           </div>
           <div className="body__buttons__container">
             <button className="body__buttons__container__add" type="submit">

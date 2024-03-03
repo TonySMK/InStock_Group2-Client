@@ -8,8 +8,8 @@ import "./EditInventoryItemBody.scss";
 
 function EditInventoryItemBody() {
   const { id } = useParams();
-
-  const [formData, setFormData] = useState({
+  const [hasSubmitted, setHasSubmitted] = useState(false);
+  const initialFormData = {
     id: "",
     item_name: "",
     description: "",
@@ -17,7 +17,8 @@ function EditInventoryItemBody() {
     status: "",
     quantity: 0,
     warehouse_id: "",
-  });
+  };
+  const [formData, setFormData] = useState(initialFormData);
 
   useEffect(() => {
     axios
@@ -42,10 +43,10 @@ function EditInventoryItemBody() {
       (formData.status === "in stock" && formData.quantity > 0) ||
       !formData.warehouse_id
     ) {
-      alert("Please fill in all required fields.");
       return;
     }
     try {
+      console.log(formData);
       const response = await axios.put(
         `http://localhost:8080/api/inventories/${id}`,
         {
@@ -57,6 +58,9 @@ function EditInventoryItemBody() {
     } catch (error) {
       console.error("Error editing new item: ", error);
     }
+  };
+  const hasError = (fieldName) => {
+    return formData[fieldName] === "" && hasSubmitted;
   };
 
   return (
@@ -71,11 +75,13 @@ function EditInventoryItemBody() {
         <EditInventoryForm
           formData={formData}
           setFormData={setFormData}
+          hasError={hasError}
           className="left"
         />
         <EditItemAvailabilityForm
           formData={formData}
           setFormData={setFormData}
+          hasError={hasError}
           className="right"
         />
         <div className="body__buttons">

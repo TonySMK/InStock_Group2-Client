@@ -56,7 +56,7 @@ function WarehousesDetails (warehouseDetails) {
       </div>
       </div>
   </section>
-  <SelectedWarehouseInventory/>
+  {/* <SelectedWarehouseInventory/> */}
   </div>
   </>
 

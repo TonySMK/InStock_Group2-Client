@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import './EditItemAvailabilityForm.scss';
+import "./EditItemAvailabilityForm.scss";
+import err from "../../Assets/Icons/error-24px.svg";
 
-function EditItemAvailabilityForm({ formData, setFormData }) {
+function EditItemAvailabilityForm({ formData, setFormData, hasError }) {
   const [warehouses, setWarehouses] = useState([]);
 
   useEffect(() => {
@@ -24,11 +25,15 @@ function EditItemAvailabilityForm({ formData, setFormData }) {
   } else {
     return (
       <section className="availability">
-          <h2 className="availability__subheader__title">Item Availability</h2>
+        <h2 className="availability__subheader__title">Item Availability</h2>
         <div className="availability__status">
           <h3 className="availability__status__title">Status</h3>
         </div>
-        <div className="availability__container">
+        <div
+          className={`availability__container ${
+            hasError("status") ? "formError" : null
+          }`}
+        >
           <div className="availability__container__instock">
             <input
               type="radio"
@@ -37,9 +42,7 @@ function EditItemAvailabilityForm({ formData, setFormData }) {
               checked={formData.status === "in stock"}
               onChange={handleInputChange}
             />
-            <p className="availability__container__instock__label">
-              In stock
-            </p>
+            <p className="availability__container__instock__label">In stock</p>
           </div>
           <div className="availability__container__out">
             <input
@@ -49,14 +52,16 @@ function EditItemAvailabilityForm({ formData, setFormData }) {
               checked={formData.status === "Out of Stock"}
               onChange={handleInputChange}
             />
-            <p className="availability__container__out__p">
-              Out of stock
-            </p>
+            <p className="availability__container__out__p">Out of stock</p>
           </div>
         </div>
         {formData.status === "in stock" && (
           <div className="availability__quantity">
-            <label className="availability__quantity__label">
+            <label
+              className={`availability__quantity__label ${
+                hasError("warehouse_id") ? "formError" : null
+              }`}
+            >
               Quantity:
               <input
                 type="text"
@@ -69,7 +74,11 @@ function EditItemAvailabilityForm({ formData, setFormData }) {
           </div>
         )}
         <div className="availability__warehouse">
-          <label className="availability__warehouse__label">
+          <label
+            className={`availability__warehouse__label ${
+              hasError("warehouse_id") ? "formError" : null
+            }`}
+          >
             Warehouse:
             <select
               className="availability__warehouse__select"
@@ -85,6 +94,12 @@ function EditItemAvailabilityForm({ formData, setFormData }) {
               ))}
             </select>
           </label>
+          {hasError("warehouse_id") && (
+            <p className="validate">
+              <img src={err} alt="errorIcon" />
+              This field is required
+            </p>
+          )}
         </div>
       </section>
     );

@@ -2,14 +2,14 @@ import EditInventoryForm from "../EditInventoryForm/EditInventoryForm";
 import EditItemAvailabilityForm from "../EditItemAvailabilityForm/EditItemAvailabilityForm";
 import axios from "axios";
 import back from "../../Assets/Icons/arrow_back-24px.svg";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import "./EditInventoryItemBody.scss"
+import "./EditInventoryItemBody.scss";
 
 function EditInventoryItemBody() {
   const { id } = useParams();
-
-  const [formData, setFormData] = useState({
+  const [hasSubmitted, setHasSubmitted] = useState(false);
+  const initialFormData = {
     id: "",
     item_name: "",
     description: "",
@@ -17,7 +17,8 @@ function EditInventoryItemBody() {
     status: "",
     quantity: 0,
     warehouse_id: "",
-  });
+  };
+  const [formData, setFormData] = useState(initialFormData);
 
   useEffect(() => {
     axios
@@ -42,10 +43,10 @@ function EditInventoryItemBody() {
       (formData.status === "in stock" && formData.quantity > 0) ||
       !formData.warehouse_id
     ) {
-      alert("Please fill in all required fields.");
       return;
     }
     try {
+      console.log(formData);
       const response = await axios.put(
         `http://localhost:8080/api/inventories/${id}`,
         {
@@ -58,18 +59,29 @@ function EditInventoryItemBody() {
       console.error("Error editing new item: ", error);
     }
   };
+  const hasError = (fieldName) => {
+    return formData[fieldName] === "" && hasSubmitted;
+  };
 
   return (
     <section className="edit">
       <div className="edit-header">
+        <Link to={"/"}>
           <img src={back} alt="arrow-back" className="back" />
-          <h1>Edit Inventory Item</h1>
+        </Link>
+        <h1>Edit Inventory Item</h1>
       </div>
       <form onSubmit={handleSubmit}>
-        <EditInventoryForm formData={formData} setFormData={setFormData} className="left" />
+        <EditInventoryForm
+          formData={formData}
+          setFormData={setFormData}
+          hasError={hasError}
+          className="left"
+        />
         <EditItemAvailabilityForm
           formData={formData}
           setFormData={setFormData}
+          hasError={hasError}
           className="right"
         />
         <div className="body__buttons">

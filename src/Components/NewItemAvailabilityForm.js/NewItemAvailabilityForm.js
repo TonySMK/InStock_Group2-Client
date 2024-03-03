@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./NewItemAvailabilityForm.scss";
+import err from "../../Assets/Icons/error-24px.svg";
 
-function NewItemAvailabilityForm({ formData, setFormData }) {
+function NewItemAvailabilityForm({ formData, setFormData, hasError }) {
   const [warehouses, setWarehouses] = useState([]);
 
   useEffect(() => {
@@ -30,7 +31,11 @@ function NewItemAvailabilityForm({ formData, setFormData }) {
         <div className="availability__status">
           <h3 className="availability__status__title">Status</h3>
         </div>
-        <div className="availability__container">
+        <div
+          className={`availability__container ${
+            hasError("status") ? "formError" : null
+          }`}
+        >
           <div className="availability__container__instock">
             <input
               type="radio"
@@ -47,8 +52,8 @@ function NewItemAvailabilityForm({ formData, setFormData }) {
             <input
               type="radio"
               name="status"
-              value="out of stock"
-              checked={formData.status === "out of stock"}
+              value="Out of Stock"
+              checked={formData.status === "Out of Stock"}
               onChange={handleInputChange}
             />
             <label className="availability__container__out__label">
@@ -56,11 +61,19 @@ function NewItemAvailabilityForm({ formData, setFormData }) {
             </label>
           </div>
         </div>
+        {hasError("status") && (
+          <p className="validate">
+            <img src={err} alt="errorIcon" />
+            This field is required
+          </p>
+        )}
         {formData.status === "in stock" && (
           <div className="availability__quantity">
             <label className="availability__quantity__label">Quantity:</label>
             <input
-              className="availability__quantity__input"
+              className={`availability__quantity__input ${
+                hasError("quantity") ? "formError" : null
+              }`}
               type="text"
               name="quantity"
               value={formData.quantity}
@@ -72,7 +85,9 @@ function NewItemAvailabilityForm({ formData, setFormData }) {
         <div className="availability__warehouse">
           <label className="availability__warehouse__label">Warehouse:</label>
           <select
-            className="availability__warehouse__select"
+            className={`availability__warehouse__select ${
+              hasError("warehouse_id") ? "formError" : null
+            }`}
             name="warehouse_id"
             value={formData.warehouse_id}
             onChange={handleInputChange}
@@ -85,6 +100,12 @@ function NewItemAvailabilityForm({ formData, setFormData }) {
             ))}
           </select>
         </div>
+        {hasError("warehouse_id") && (
+          <p className="validate">
+            <img src={err} alt="errorIcon" />
+            This field is required
+          </p>
+        )}
       </section>
     );
   }

@@ -1,6 +1,8 @@
 import "./ContactDetailsForm.scss";
+import React, { useState } from "react";
+// import err from "../../Assets/Icons/error-24px.svg";
 
-function ContactDetailsForm({ warehouseData, setWarehouseData }) {
+function ContactDetailsForm({ warehouseData, setWarehouseData, error }) {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setWarehouseData((prevData) => ({

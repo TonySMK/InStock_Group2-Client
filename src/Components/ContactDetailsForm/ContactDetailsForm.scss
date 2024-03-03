@@ -3,6 +3,12 @@
 @import "../../Styles/Partials/variables";
 
 .contact {
+    @include tablet {
+        width: 50%;
+    }
+    @include desktop {
+        width: 50%;
+    }
   &__head {
     width: 57%;
     padding-top: 24px;
@@ -11,18 +17,30 @@
     display: flex;
     flex-direction: column;
     padding: 24px 0;
-  }
-  &__label {
-    width: 40%;
+    @include tablet {
+        padding: 0;
+    }
+    @include desktop {
+        padding: 0;
+    }
+    &__label {
+    padding: 16px 16px 4px 16px;
+    width: auto;
     text-decoration: none;
     color: $P-text;
+  }
   }
 }
 
 label {
-  text-decoration: none;
-  color: $P-text;
-  padding-top: 16px;
+    text-align: left;
+    text-decoration: none;
+    color: $P-text;
+    padding-top: 16px;
+    @include tablet {
+        padding-left: 16px;
+        padding-bottom: 4px;
+    }
 }
 
 input {

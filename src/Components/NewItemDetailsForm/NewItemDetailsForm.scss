@@ -1,0 +1,121 @@
+@use "../../Styles/Partials/global" as *;
+@import "../../Styles/Partials/fonts";
+@import "../../Styles/Partials/mixins";
+@import "../../Styles/Partials/variables";
+
+.details {
+  @include tablet {
+    width: 50%;
+  }
+
+  &__subheader {
+    padding: 16px;
+    @include tablet {
+      width: 55%;
+    }
+    &__title {
+      font-family: $Semi-bold;
+      font-size: 20px;
+      line-height: 28px;
+      width: 44%;
+      @include tablet {
+        font-size: 24px;
+        line-height: 32px;
+        width: 90%;
+      }
+    }
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+      padding-right: 32px;
+    }
+    &__label {
+      align-self: baseline;
+      padding: 16px 16px 4px 16px;
+      // padding-bottom: 4px;
+      display: flex;
+      flex-direction: column;
+      font-family: $Semi-bold;
+      font-size: 13px;
+      line-height: 20px;
+      text-decoration: none;
+      color: $P-text;
+      @include tablet {
+        padding: 16px 16px 4px 16px;
+        font-size: 14px;
+        line-height: 22px;
+        align-self: flex-start;
+      }
+    }
+  }
+  &__division {
+    &__line {
+      @include mobile {
+        border-bottom: 0.5px solid $S-cloud;
+        padding-top: 24px;
+      }
+      @include tablet {
+        margin: 24px 0px;
+        border-right: 0.5px solid $S-cloud;
+        height: 100%;
+      }
+      @include desktop {
+        margin: 24px 0px;
+        border-right: 0.5px solid $S-cloud;
+        height: 100%;
+      }
+    }
+  }
+}
+
+input {
+  border-radius: 20px;
+  border: 1px solid $S-slate;
+  color: $S-slate;
+  margin-top: 4px;
+  &.item-name {
+    padding: 5px 16px;
+    &:active {
+      border: 1px solid $P-interactive;
+      color: $P-text;
+    }
+    &:hover {
+      border: 1px solid $P-interactive;
+      color: $P-text;
+    }
+  }
+  &.description {
+    padding: 5px 16px 75px 16px;
+    &:active {
+      border: 1px solid $P-interactive;
+      color: $P-text;
+    }
+    &:hover {
+      border: 1px solid $P-interactive;
+      color: $P-text;
+    }
+  }
+}
+
+select {
+  margin-top: 4px;
+  border-radius: 20px;
+  border: 1px solid $S-slate;
+  &.category {
+    padding: 5px 16px;
+    &:active {
+      border: 1px solid $P-interactive;
+      color: $P-text;
+    }
+    &:hover {
+      border: 1px solid $P-interactive;
+      color: $P-text;
+    }
+  }
+}
+
+.formError {
+  border: 1px solid red;
+}

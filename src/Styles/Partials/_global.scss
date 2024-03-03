@@ -1,0 +1,58 @@
+@import "./fonts";
+@import "./variables";
+@import "./mixins";
+
+*,
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  color: $P-text;
+  font-family: $Regular;
+}
+//Page Header
+h1 {
+  font-family: $Semi-bold;
+  font-size: 28px;
+  line-height: 36px;
+  @include tablet {
+    font-size: 32px;
+    line-height: 40px;
+  }
+}
+//Subheader
+h2 {
+  font-family: $Semi-bold;
+  font-size: 20px;
+  line-height: 28px;
+  @include tablet {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+//labels, links 
+h3,
+a,
+label
+ {
+  font-family: $Semi-bold;
+  font-size: 13px;
+  line-height: 20px;
+  text-decoration: none;
+  color: $P-interactive;
+  @include tablet {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+//Table Header
+h4 {
+  font-family: $Semi-bold;
+  font-size: 11px;
+  color: $S-slate;
+  line-height: 16px;
+  @include tablet {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}

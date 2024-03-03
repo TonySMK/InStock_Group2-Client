@@ -1,0 +1,112 @@
+@use "../../Styles/Partials/global" as *;
+@import "../../Styles/Partials/fonts";
+@import "../../Styles/Partials/mixins";
+@import "../../Styles/Partials/variables";
+
+.offsetwarpper {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  @include desktop {
+    background-color: transparent;
+    width: 88%;
+    position: relative;
+    top: -7rem;
+    left: 60px;
+    padding: 0rem 1rem;
+  }
+}
+
+.body {
+  background-color: $P-white;
+  &__wrapper {
+    display: flex;
+    align-items: baseline;
+    @include tablet {
+      padding: 32px;
+    }
+    @include desktop {
+      padding: 32px;
+      padding-bottom: 0;
+    }
+    &__arrow {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      padding-right: 10px;
+    }
+    &__header {
+      font-family: $Semi-bold;
+      font-size: 25px;
+      line-height: 36px;
+      text-align: left;
+      padding-top: 16px;
+      @include tablet {
+        font-size: 32px;
+        line-height: 40px;
+      }
+    }
+  }
+  &__division {
+    &__line {
+      border-bottom: 0.5px solid $S-cloud;
+      padding-top: 24px;
+    }
+  }
+  &__forms-wrapper {
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 24px 32px;
+    }
+  }
+  &__buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: $B-grey;
+    padding: 16px 0;
+    @include tablet {
+      justify-content: flex-end;
+      gap: 16px;
+    }
+    &__container {
+      &__cancel {
+        color: $S-slate;
+        background-color: $P-white;
+        border: 0.5px solid $S-slate;
+        height: 30px;
+        width: 120px;
+        border-radius: 20px;
+        &:hover {
+          border: 0.5px solid $P-interactive;
+          cursor: pointer;
+          color: $P-interactive;
+          font-family: $Semi-bold;
+        }
+        @include tablet {
+          height: 36px;
+          width: 75px;
+        }
+      }
+
+      &__add {
+        color: $P-white;
+        background-color: $P-interactive;
+        border: 0.5px solid $P-interactive;
+        height: 30px;
+        width: 120px;
+        border-radius: 20px;
+        &:hover {
+          background-color: $B-graphite;
+          cursor: pointer;
+          font-family: $Semi-bold;
+        }
+        @include tablet {
+          height: 36px;
+          width: 100px;
+        }
+      }
+    }
+  }
+}
+

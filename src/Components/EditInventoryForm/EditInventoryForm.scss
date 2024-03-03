@@ -1,0 +1,49 @@
+@import "../../Styles/Partials/global";
+@import "../../Styles/Partials/mixins";
+@import "../../Styles/Partials/variables";
+
+.details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 16px 32px;
+  border-bottom: 1px solid $S-cloud;
+  @include tablet {
+    border-bottom: hidden;
+    border-right: 1px solid $S-cloud;
+    margin-bottom: 24px;
+    padding: 0 32px;
+  }
+  &__subheader__title {
+    text-align: left;
+    padding-bottom: 16px;
+  }
+  &__container {
+    width: 100%;
+    padding: 0;
+    label {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: 16px 0;
+      input,
+      .category {
+        border: 1px solid $S-cloud;
+        margin: 0;
+        margin-top: 4px;
+        width: 100%;
+      }
+    }
+  }
+  select {
+    appearance: none;
+    width: 100%;
+    background-image: url("../../Assets/Icons/arrow_drop_down-24px.svg");
+    background-repeat: no-repeat;
+    background-position: 98%;
+  }
+}

@@ -11,7 +11,6 @@ import InventoryModel from '../../Components/InventoryModal/InventortyModel';
 
 const SelectedWarehouseInventory = ({id}) => {
   const [warehouseInventories, setWarehouseInventory] = useState([]);
-  const [renderedList, setRenderedList] = useState("");
   const [isModelOpen, setIsModelOpen] = useState(false);
   const [targetInformationArray, setTargetInformationArray] = useState(null);
   const [inventoryList, setInventoryList] = useState("");

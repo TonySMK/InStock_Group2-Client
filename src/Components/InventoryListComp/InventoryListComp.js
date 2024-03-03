@@ -5,18 +5,40 @@ import editIcon from "../../Assets/Icons/edit-24px.svg";
 import sortIcon from "../../Assets/Icons/sort-24px.svg";
 
 import StockStatus from "../StockStatus/StockStatus";
+import InventoryModel from "../InventoryModal/InventortyModel";
 
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function InventoryListComp({ object, deleteButtonHandler }) {
   const [compstate, setCompState] = useState(true);
   const [renderedList, setRenderedList] = useState("");
+  const [isModelOpen, setIsModelOpen] = useState(false);
+  const [targetInformationArray, setTargetInformationArray] = useState(null);
 
-  console.log(window.innerWidth);
+  // console.log(eTarget);
+  function closeModalHandler() {
+    setIsModelOpen(false);
+  }
+
+  function deleteHandler(therowinfoarray) {
+    setIsModelOpen(true);
+
+    // console.log(therowinfoarray);
+    setTargetInformationArray(therowinfoarray);
+
+    // // FIXME:
+
+    // console.log(targetInformationArray[1]);
+  }
+  // console.log(window.innerWidth);
   useEffect(() => {
     renderList(object);
     setCompState(false);
-  }, [object]);
+    if (targetInformationArray) {
+      console.log(targetInformationArray);
+    }
+  }, [object, targetInformationArray]);
   //FIXME: missing dependencies, but adding it causes another error
 
   function renderList(someObject) {
@@ -28,14 +50,16 @@ function InventoryListComp({ object, deleteButtonHandler }) {
               inventory item
             </div>
 
-            <button className="contentpanel__value inventorylabelnamebuttonwrapper">
-              <h3 className="itembutton__name">{row.item_name}</h3>
-              <img
-                className="itembutton__icon"
-                src={chevronRightIcon}
-                alt="Chevron Right Icon"
-              />
-            </button>
+            <Link to={`/${row.id}/details`}>
+              <button className="contentpanel__value inventorylabelnamebuttonwrapper">
+                <h3 className="itembutton__name">{row.item_name}</h3>
+                <img
+                  className="itembutton__icon"
+                  src={chevronRightIcon}
+                  alt="Chevron Right Icon"
+                />
+              </button>
+            </Link>
           </div>
 
           <div className="contentpanel categorypanel">
@@ -72,7 +96,10 @@ function InventoryListComp({ object, deleteButtonHandler }) {
         <div className="row__second">
           <button
             className="deleteembutton modbutton"
-            onClick={() => deleteButtonHandler(row.id)}
+            // onClick={() => deleteButtonHandler(row.id)}
+            onClick={() => {
+              deleteHandler([row.id, row.item_name]);
+            }}
           >
             <img
               className="deleteembutton__icon modbutton__icon"
@@ -80,13 +107,13 @@ function InventoryListComp({ object, deleteButtonHandler }) {
               alt="edit icon"
             />
           </button>
-          <button className="edititembutton modbutton">
+          <Link to={`/${row.id}/edit`} className="edititembutton modbutton">
             <img
               className="edititembutton__icon modbutton__icon"
               src={editIcon}
               alt="edit icon"
             />
-          </button>
+          </Link>
         </div>
       </section>
     ));
@@ -105,34 +132,65 @@ function InventoryListComp({ object, deleteButtonHandler }) {
             <section className="fistsort">
               <div className="sortingbar inventorywrapper">
                 <h4 className="sortingbarname">iventory item</h4>
-                <img className="sortingbarsorticon" src={sortIcon} />
+                <img
+                  className="sortingbarsorticon"
+                  src={sortIcon}
+                  alt="Sort Icon"
+                />
               </div>
               <div className="sortingbar categorywrapper">
                 <h4 className="sortingbarname">categcory</h4>
-                <img className="sortingbarsorticon" src={sortIcon} />
+                <img
+                  className="sortingbarsorticon"
+                  src={sortIcon}
+                  alt="Sort Icon"
+                />
               </div>
               <div className="sortingbar statuswrapper">
                 <h4 className="sortingbarname">status</h4>
-                <img className="sortingbarsorticon" src={sortIcon} />
+                <img
+                  className="sortingbarsorticon"
+                  src={sortIcon}
+                  alt="Sort Icon"
+                />
               </div>
               <div className="sortingbar qtywrapper">
                 <h4 className="sortingbarname">qty</h4>
-                <img className="sortingbarsorticon" src={sortIcon} />
+                <img
+                  className="sortingbarsorticon"
+                  src={sortIcon}
+                  alt="Sort Icon"
+                />
               </div>
               <div className="sortingbar warehousewrapper">
                 <h4 className="sortingbarname">warehouse</h4>
-                <img className="sortingbarsorticon" src={sortIcon} />
+                <img
+                  className="sortingbarsorticon"
+                  src={sortIcon}
+                  alt="Sort Icon"
+                />
               </div>
             </section>
 
             <section className="secondsort">
               <div className="sortingbar actionswrapper">
                 <h4 className="sortingbarname">actions</h4>
-                <img className="sortingbarsorticon" src={sortIcon} />
+                <img
+                  className="sortingbarsorticon"
+                  src={sortIcon}
+                  alt="Sort Icon"
+                />
               </div>
             </section>
           </section>
           {renderedList}
+
+          <InventoryModel
+            isModelOpen={isModelOpen}
+            closeModalHandler={closeModalHandler}
+            targetinformtion={targetInformationArray}
+            deleteButtonHandler={deleteButtonHandler}
+          />
         </>
       )}
     </>

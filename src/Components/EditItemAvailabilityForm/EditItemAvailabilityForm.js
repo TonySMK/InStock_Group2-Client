@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import './EditItemAvailabilityForm.scss';
 
 function EditItemAvailabilityForm({ formData, setFormData }) {
   const [warehouses, setWarehouses] = useState([]);
@@ -23,9 +24,7 @@ function EditItemAvailabilityForm({ formData, setFormData }) {
   } else {
     return (
       <section className="availability">
-        <div className="availability__subheader">
           <h2 className="availability__subheader__title">Item Availability</h2>
-        </div>
         <div className="availability__status">
           <h3 className="availability__status__title">Status</h3>
         </div>
@@ -38,9 +37,9 @@ function EditItemAvailabilityForm({ formData, setFormData }) {
               checked={formData.status === "in stock"}
               onChange={handleInputChange}
             />
-            <label className="availability__container__instock__label">
+            <p className="availability__container__instock__label">
               In stock
-            </label>
+            </p>
           </div>
           <div className="availability__container__out">
             <input
@@ -50,9 +49,9 @@ function EditItemAvailabilityForm({ formData, setFormData }) {
               checked={formData.status === "Out of Stock"}
               onChange={handleInputChange}
             />
-            <label className="availability__container__out__label">
+            <p className="availability__container__out__p">
               Out of stock
-            </label>
+            </p>
           </div>
         </div>
         {formData.status === "in stock" && (

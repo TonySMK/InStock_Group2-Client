@@ -4,7 +4,7 @@ import EditInventoryItemBody from "../../Components/EditInventoryItemBody/EditIn
 
 function InventoryEditItem () {
     return (
-      <div>
+      <div className="edit-inventory">
         <EditInventoryItemBody/>
       </div>
     );

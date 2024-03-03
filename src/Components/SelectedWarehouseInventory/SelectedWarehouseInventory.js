@@ -7,9 +7,29 @@ import editIcon from "../../Assets/Icons/edit-24px.svg";
 import deleteIcon from "../../Assets/Icons/delete_outline-24px.svg";
 import chevronRightIcon from "../../Assets/Icons/chevron_right-24px.svg";
 import sortIcon from '../../Assets/Icons/sort-24px.svg';
+import InventoryModel from '../../Components/InventoryModal/InventortyModel';
 
 const SelectedWarehouseInventory = ({id, deleteButtonHandler}) => {
   const [warehouseInventories, setWarehouseInventory] = useState([]);
+  const [renderedList, setRenderedList] = useState("");
+  const [isModelOpen, setIsModelOpen] = useState(false);
+  const [targetInformationArray, setTargetInformationArray] = useState(null);
+
+  // console.log(eTarget);
+  function closeModalHandler() {
+    setIsModelOpen(false);
+  }
+
+  function deleteHandler(therowinfoarray) {
+    setIsModelOpen(true);
+
+    // console.log(therowinfoarray);
+    setTargetInformationArray(therowinfoarray);
+
+    // // FIXME:
+
+    // console.log(targetInformationArray[1]);
+  }
 
   useEffect(() => {
     axios
@@ -23,7 +43,7 @@ const SelectedWarehouseInventory = ({id, deleteButtonHandler}) => {
       console.error(err)
     });
     
-},[id])
+},[warehouseInventories])
 
   if (!warehouseInventories) {
     return <div>Loading...</div>;
@@ -126,7 +146,7 @@ const SelectedWarehouseInventory = ({id, deleteButtonHandler}) => {
         <div className="row__second">
           <button
             className="deleteembutton modbutton"
-            onClick={() => deleteButtonHandler(warehouseInventory.id)}
+            onClick={() => deleteHandler(warehouseInventory.id, warehouseInventory.item_name)}
           >
             <img
               className="deleteembutton__icon modbutton__icon"
@@ -146,6 +166,12 @@ const SelectedWarehouseInventory = ({id, deleteButtonHandler}) => {
         );
       })}
     </section>
+    <InventoryModel
+            isModelOpen={isModelOpen}
+            closeModalHandler={closeModalHandler}
+            targetinformtion={targetInformationArray}
+            deleteButtonHandler={deleteButtonHandler}
+          />
     </>
   );
 };

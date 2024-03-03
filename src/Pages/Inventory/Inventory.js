@@ -3,11 +3,14 @@ import "./InventoryStyles.scss";
 import InventoryListComp from "../../Components/InventoryListComp/InventoryListComp";
 import searchIcon from "../../Assets/Icons/search-24px.svg";
 import axios from "axios";
+import { useNavigate } from "react-router";
 import { useState, useEffect } from "react";
 
 function Inventory() {
   const [compstate, setCompState] = useState(true);
   const [invenstoryList, setInventoryList] = useState("");
+
+  const navigate = useNavigate();
 
   function fetch() {
     axios.get("http://localhost:8080/api/inventories").then((res) => {
@@ -38,20 +41,27 @@ function Inventory() {
           <div className="parentwrapper">
             <div className="parentwrapper__top">
               <h1 className="title">Inventory</h1>
-              <form className="searchbarwrapperform">
-                <div className="searchbarwrapper">
-                  <input className="searchbarinput" placeholder="Search..." />
-                  <button className="searchbarbutton">
-                    <img
-                      className="searchbarbutton__icon"
-                      src={searchIcon}
-                      alt="search icon"
-                    />
-                  </button>
-                </div>
-              </form>
+              <div className="aftertitleelement">
+                <form className="searchbarwrapperform">
+                  <div className="searchbarwrapper">
+                    <input className="searchbarinput" placeholder="Search..." />
+                    <button className="searchbarbutton">
+                      <img
+                        className="searchbarbutton__icon"
+                        src={searchIcon}
+                        alt="search icon"
+                      />
+                    </button>
+                  </div>
+                </form>
 
-              <button className="addinventorybutton">+ Add New Item</button>
+                <button
+                  className="addinventorybutton"
+                  onClick={() => navigate("/add")}
+                >
+                  + Add New Item
+                </button>
+              </div>
             </div>
 
             <div id="parentwrapper__bottomlist">

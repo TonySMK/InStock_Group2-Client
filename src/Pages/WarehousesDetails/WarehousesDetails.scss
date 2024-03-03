@@ -92,14 +92,23 @@ p {
         width: 20px;
         @include tablet {
           margin-right: 4px;
-        
       }
     }
 
     &__info {
         padding: 0 1.5rem 1rem 1.5rem;
         border-bottom: 1px solid $S-cloud;
+        @include tablet {
+            padding: 0 1.5rem 0rem 1.5rem;
+        }
+    }
 
+    &__info-container {
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
     }
 
     &__address {
@@ -110,17 +119,45 @@ p {
         }
     }
 
+    &__address-header, &__contact-header, &__contact-info-header {
+        font-size: 11px;
+    }
+
     &__address-container, &__contact-name-container, &__contact-info-container {
         text-align: left;
     }
 
+    &__contact-name-container {
+        padding: 0 3rem 0 0;
+        @include desktop {
+            padding: 0 5rem 0 0;
+        }
+    }
+
+    &__data {
+        font-size: 13px;
+    }
+
     &__address-container {
         margin: 1rem 0 2rem 0;
+        @include tablet {
+            margin: 1rem 0 1rem 0;
+            padding: 0 10rem 0 0;
+            border-right: 1px solid $S-slate 
+        }
+        @include desktop {
+            padding: 0 15rem 0 0;
+        }
     }
 
     &__contact-container {
         display: flex;
         justify-content: space-between;
+        @include tablet {
+            justify-content: left;
+            flex-grow: 1;
+            padding: 0 0 0 3rem;
+        }
     }
 
   }

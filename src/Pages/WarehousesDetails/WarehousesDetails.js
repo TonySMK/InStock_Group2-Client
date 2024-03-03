@@ -5,34 +5,46 @@ import editButton from '../../Assets/Icons/edit-24px.svg'
 import {Link, useParams} from 'react-router-dom'
 import {useState, useEffect} from 'react'
 import SelectedWarehouseInventory from "../../Components/SelectedWarehouseInventory/SelectedWarehouseInventory";
+import WarehouseList from "../../Components/WarehouseList/WarehouseList";
 
 function WarehousesDetails (warehouses) {
 
-  const params = useParams();
+  const { id } = useParams();
+  console.log(id);
 
-  const warehouseId = params.warehouseId
+  const [warehouse, setWarehouse] = useState([]);
 
-  const [warehouse, setWarehouse] = useState(null);
+  function deleteButtonHandler(id) {
+    axios
+      .delete(`http://localhost:8080/api/inventories/${id}`)
+      .then((res) => {
+        fetch();
+      });
+  }
 
   useEffect(() => {
     axios
-    .get(`http://localhost:8080/api/warehouses/${warehouses.id}/details`)
+    .get(`http://localhost:8080/api/warehouses/${id}`)
     .then((res) => {
       let warehouseDetails = res.data[0];
       console.log(warehouseDetails);
       setWarehouse(warehouseDetails);
+    })
+    .catch((err) => {
+      console.error(err)
     });
-})
+    
+},[id])
 
     return (
       <>
         <div className="warehouse-details">
   <div className="warehouse-details__top">
     <div className="warehouse-details__top-name">
-      <Link to={`/`} className="warehouse-details__back">
+      <Link to={`/warehouses`} className="warehouse-details__back">
         <img src={backArrow} alt="Back Arrow" />
       </Link>
-      <h1>Washington</h1>
+      <h1>{warehouse?.warehouse_name}</h1>
     </div>
     <Link
       // to={`/warehouse/edit/{}`}
@@ -53,25 +65,27 @@ function WarehousesDetails (warehouses) {
       <div className = 'warehouse-details__address-container'>
       <p className = 'warehouse-details__address-header'>WAREHOUSE ADDRESS:</p>
       <div className = 'warehouse-details__address'>
-        <p className = 'warehouse-details__address-street'>33 Pearl Street SW,</p>
-        <p className = 'warehouse-details__address-city'>Washington, USA</p>
+        <p className = 'warehouse-details__data'>{warehouse.address},</p>
+        <p className = 'warehouse-details__data'>&nbsp;{warehouse.city}, {warehouse.country}</p>
         </div>
       </div>
       <div className = 'warehouse-details__contact-container'>
       <div className = 'warehouse-details__contact-name-container'>
         <p className = 'warehouse-details__contact-header'>CONTACT NAME:</p>
-        <p className = 'warehouse-details__contact-name'>Graeme Lyon</p>
-        <p className = 'warehouse-details__contact-position'>Warehouse Manager</p>
+        <p className = 'warehouse-details__data'>{warehouse.contact_name}</p>
+        <p className = 'warehouse-details__data'>{warehouse.contact_position}</p>
       </div>
       <div className = 'warehouse-details__contact-info-container'>
         <p className = 'warehouse-details__contact-info-header'>CONTACT INFORMATION:</p>
-        <p className = 'warehouse-details__contact-number'>+1 (647) 504-0911</p>
-        <p className = 'warehouse-details__contact-email'>glyon@instock.com</p>
+        <p className = 'warehouse-details__data'>{warehouse.contact_phone}</p>
+        <p className = 'warehouse-details__data'>{warehouse.contact_email}</p>
       </div>
       </div>
       </div>
   </section>
-  {/* <SelectedWarehouseInventory/> */}
+  <SelectedWarehouseInventory id = {id} deleteButtonHandler={deleteButtonHandler}/>
+
+
   </div>
   </>
 

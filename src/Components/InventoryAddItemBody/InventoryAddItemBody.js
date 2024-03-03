@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-// import AddItemForm from "../AddItemForm/AddItemForm";
 import NewItemsDetailsForm from "../NewItemDetailsForm/NewItemDetailsForm";
 import NewItemAvailabilityForm from "../NewItemAvailabilityForm.js/NewItemAvailabilityForm";
 import axios from "axios";
 import "./InventoryAddItemBody.scss";
-import back from "../../Assets/Icons/arrow_back-24px.svg"
-
+import back from "../../Assets/Icons/arrow_back-24px.svg";
+import { Link } from "react-router-dom";
 
 function InventoryAddItemBody() {
   const [formData, setFormData] = useState({
@@ -56,7 +55,9 @@ function InventoryAddItemBody() {
     <section className="body">
       <div className="body__wrapper">
         <div className="body__wrapper__arrow">
-          <img src={back} alt="arrow-back" />
+          <Link to={"/"}>
+            <img src={back} alt="arrow-back" />
+          </Link>
         </div>
         <div className="body__wrapper__header">
           <h1 className="body__wrapper__header__title">

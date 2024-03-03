@@ -2,9 +2,9 @@ import EditInventoryForm from "../EditInventoryForm/EditInventoryForm";
 import EditItemAvailabilityForm from "../EditItemAvailabilityForm/EditItemAvailabilityForm";
 import axios from "axios";
 import back from "../../Assets/Icons/arrow_back-24px.svg";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import "./EditInventoryItemBody.scss"
+import "./EditInventoryItemBody.scss";
 
 function EditInventoryItemBody() {
   const { id } = useParams();
@@ -62,11 +62,17 @@ function EditInventoryItemBody() {
   return (
     <section className="edit">
       <div className="edit-header">
+        <Link to={"/"}>
           <img src={back} alt="arrow-back" className="back" />
-          <h1>Edit Inventory Item</h1>
+        </Link>
+        <h1>Edit Inventory Item</h1>
       </div>
       <form onSubmit={handleSubmit}>
-        <EditInventoryForm formData={formData} setFormData={setFormData} className="left" />
+        <EditInventoryForm
+          formData={formData}
+          setFormData={setFormData}
+          className="left"
+        />
         <EditItemAvailabilityForm
           formData={formData}
           setFormData={setFormData}

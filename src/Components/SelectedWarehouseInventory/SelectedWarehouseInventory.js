@@ -9,11 +9,12 @@ import chevronRightIcon from "../../Assets/Icons/chevron_right-24px.svg";
 import sortIcon from '../../Assets/Icons/sort-24px.svg';
 import InventoryModel from '../../Components/InventoryModal/InventortyModel';
 
-const SelectedWarehouseInventory = ({id, deleteButtonHandler}) => {
+const SelectedWarehouseInventory = ({id}) => {
   const [warehouseInventories, setWarehouseInventory] = useState([]);
   const [renderedList, setRenderedList] = useState("");
   const [isModelOpen, setIsModelOpen] = useState(false);
   const [targetInformationArray, setTargetInformationArray] = useState(null);
+  const [inventoryList, setInventoryList] = useState("");
 
   // console.log(eTarget);
   function closeModalHandler() {
@@ -28,8 +29,27 @@ const SelectedWarehouseInventory = ({id, deleteButtonHandler}) => {
 
     // // FIXME:
 
-    // console.log(targetInformationArray[1]);
+    console.log(targetInformationArray);
   }
+
+  function fetch() {
+    axios.get("http://localhost:8080/api/inventories").then((res) => {
+      let thelist = res.data;
+      setInventoryList(res.data);
+    });
+  }
+
+  function deleteButtonHandler(number) {
+    axios
+      .delete(`http://localhost:8080/api/inventories/${number}`)
+      .then((res) => {
+        fetch();
+      });
+  }
+
+  useEffect(() => {
+    fetch();
+  }, []);
 
   useEffect(() => {
     axios
@@ -43,7 +63,7 @@ const SelectedWarehouseInventory = ({id, deleteButtonHandler}) => {
       console.error(err)
     });
     
-},[warehouseInventories])
+},[id, inventoryList])
 
   if (!warehouseInventories) {
     return <div>Loading...</div>;
@@ -146,7 +166,7 @@ const SelectedWarehouseInventory = ({id, deleteButtonHandler}) => {
         <div className="row__second">
           <button
             className="deleteembutton modbutton"
-            onClick={() => deleteHandler(warehouseInventory.id, warehouseInventory.item_name)}
+            onClick={() => deleteHandler([warehouseInventory.id, warehouseInventory.item_name])}
           >
             <img
               className="deleteembutton__icon modbutton__icon"
@@ -155,11 +175,13 @@ const SelectedWarehouseInventory = ({id, deleteButtonHandler}) => {
             />
           </button>
           <button className="edititembutton modbutton">
+            <Link to={`/${warehouseInventory.id}/edit`}>
             <img
               className="edititembutton__icon modbutton__icon"
               src={editIcon}
               alt="edit icon"
             />
+            </Link>
           </button>
         </div>
       </section>

@@ -5,12 +5,11 @@ import ContactDetailsForm from "../ContactDetailsForm/ContactDetailsForm";
 import axios from "axios";
 import "./EditWarehousesBody.scss";
 import back from "../../Assets/Icons/arrow_back-24px.svg";
-import { useParams, Link } from "react-router-dom";
-
-const ERROR_MESSAGE = "This fiels is required"
+import { useParams, Link, useNavigate } from "react-router-dom";
 
 function EditWarehouseBody() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const initialFormData = {
     id: "",
     warehouse_name: "",
@@ -26,7 +25,6 @@ function EditWarehouseBody() {
   const [warehouseData, setWarehouseData] = useState(initialFormData);
   const [error, setError] = useState({});
   const [hasSubmitted, setHasSubmitted] = useState(false);
-  const [formError, setFormError] = useState(false);
 
   useEffect(() => {
     axios
@@ -38,29 +36,29 @@ function EditWarehouseBody() {
   const handleSubmit = (e) => {
     setHasSubmitted(true);
     e.preventDefault();
-    // const validateError = ValidateWarehouse(warehouseData);
-    // if (Object.keys(validateError).length === 0) {
-    //   axios
-    //     .put(`http://localhost:8080/api/warehouses/${id}/edit`, warehouseData)
-    //     .then((response) => {
-    //       console.log("Warehouse data updated successfully");
-    //     })
-    //     .catch((error) =>
-    //       console.error("Error updating warehouse data:", error)
-    //     );
-    // } else {
-    //   console.log(validateError);
-    //   setError(validateError);
-    // }
+    const validateError = ValidateWarehouse(warehouseData);
+    if (Object.keys(validateError).length === 0) {
+      axios
+        .put(`http://localhost:8080/api/warehouses/${id}`, warehouseData)
+        .then((response) => {
+          console.log("Warehouse data updated successfully");
+        })
+        .catch((error) =>
+          console.error("Error updating warehouse data:", error)
+        );
+    } else {
+      console.log(validateError);
+      setError(validateError);
+    }
   };
 
   const handleCancel = () => {
-    setWarehouseData(initialFormData);
-    setError({});
+    navigate("/warehouses");
   };
 
-  console.log("error", error);
-  console.log("warehouseData", warehouseData);
+  const hasError = (fieldName) => {
+    return warehouseData[fieldName] === "" && hasSubmitted;
+  };
   return (
     <section className="warehouse">
       <div className="warehouse__wrapper">
@@ -91,16 +89,21 @@ function EditWarehouseBody() {
             setWarehouseData={setWarehouseData}
             error={error}
             hasSubmitted={hasSubmitted}
+            hasError={hasError}
           />
           <ContactDetailsForm
             warehouseData={warehouseData}
             setWarehouseData={setWarehouseData}
             error={error}
+            hasError={hasError}
           />
         </div>
         <div className="warehouse__buttons">
           <div className="warehouse__buttons__container">
-            <button className="warehouse__buttons__container__cancel">
+            <button
+              className="warehouse__buttons__container__cancel"
+              onClick={handleCancel}
+            >
               Cancel
             </button>
           </div>

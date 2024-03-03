@@ -1,8 +1,12 @@
 import "./ContactDetailsForm.scss";
-import React, { useState } from "react";
-// import err from "../../Assets/Icons/error-24px.svg";
+import err from "../../Assets/Icons/error-24px.svg";
 
-function ContactDetailsForm({ warehouseData, setWarehouseData, error }) {
+function ContactDetailsForm({
+  warehouseData,
+  setWarehouseData,
+  error,
+  hasError,
+}) {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setWarehouseData((prevData) => ({
@@ -19,40 +23,72 @@ function ContactDetailsForm({ warehouseData, setWarehouseData, error }) {
       <div className="contact__container">
         <label className="contact__container__label">Contact Name</label>
         <input
-          className="contact__container__input"
+          className={`contact__container__input ${
+            hasError("contact_name") ? "formError" : null
+          }`}
           type="text"
           name="contact_name"
           value={warehouseData.contact_name}
           onChange={handleChange}
           placeholder="Contact Name"
         />
+        {hasError("contact_name") && (
+          <p className="validate">
+            <img src={err} alt="errorIcon" />
+            This field is required
+          </p>
+        )}
         <label className="contact__container__label">Position</label>
         <input
-          className="contact__container__input"
+          className={`contact__container__input ${
+            hasError("contact_position") ? "formError" : null
+          }`}
           type="text"
           name="contact_position"
           value={warehouseData.contact_position}
           onChange={handleChange}
           placeholder="Position"
         />
+        {hasError("contact_position") && (
+          <p className="validate">
+            <img src={err} alt="errorIcon" />
+            This field is required
+          </p>
+        )}
         <label className="contact__container__label">Phone Number</label>
         <input
-          className="contact__container__input"
+          className={`contact__container__input ${
+            hasError("contact_phone") ? "formError" : null
+          }`}
           type="text"
           name="contact_phone"
           value={warehouseData.contact_phone}
           onChange={handleChange}
           placeholder="Phone Number"
         />
+        {hasError("contact_phone") && (
+          <p className="validate">
+            <img src={err} alt="errorIcon" />
+            This field is required
+          </p>
+        )}
         <label className="contact__container__label">Email</label>
         <input
-          className="contact__container__input"
+          className={`contact__container__input ${
+            hasError("contact_email") ? "formError" : null
+          }`}
           type="text"
           name="contact_email"
           value={warehouseData.contact_email}
           onChange={handleChange}
           placeholder="Email"
         />
+        {hasError("contact_email") && (
+          <p className="validate">
+            <img src={err} alt="errorIcon" />
+            This field is required
+          </p>
+        )}
       </div>
     </section>
   );

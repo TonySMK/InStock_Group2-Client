@@ -6,6 +6,7 @@ function WarehouseDetailsForm({
   warehouseData,
   setWarehouseData,
   error,
+  hasError,
   hasSubmitted,
 }) {
   const handleChange = (e) => {
@@ -16,10 +17,6 @@ function WarehouseDetailsForm({
     }));
   };
 
-  const hasError = (fieldName) => {
-    return warehouseData[fieldName] === "" && hasSubmitted;
-  };
-
   return (
     <section className="details">
       <div className="details__title">
@@ -28,14 +25,21 @@ function WarehouseDetailsForm({
       <div className="details__container">
         <label className="details__container__label">Warehouse Name</label>
         <input
-          // className="details__container__input"
-          className={error.warehouse_name ? "error" : ""}
+          className={`details__container__input ${
+            hasError("warehouse_name") ? "formError" : null
+          }`}
           type="text"
           name="warehouse_name"
           value={warehouseData.warehouse_name}
           onChange={handleChange}
           placeholder="Warehouse Name"
         />
+        {hasError("warehouse_name") && (
+          <p className="validate">
+            <img src={err} alt="errorIcon" />
+            This field is required
+          </p>
+        )}
         <label className="details__container__label">Street Address</label>
         <input
           className={`details__container__input ${
@@ -47,25 +51,47 @@ function WarehouseDetailsForm({
           onChange={handleChange}
           placeholder="Street Address"
         />
-        
+        {hasError("address") && (
+          <p className="validate">
+            <img src={err} alt="errorIcon" />
+            This field is required
+          </p>
+        )}
+
         <label className="details__container__label">City</label>
         <input
-          className="details__container__input"
+          className={`details__container__input ${
+            hasError("city") ? "formError" : null
+          }`}
           type="text"
           name="city"
           value={warehouseData.city}
           onChange={handleChange}
           placeholder="City"
         />
+        {hasError("city") && (
+          <p className="validate">
+            <img src={err} alt="errorIcon" />
+            This field is required
+          </p>
+        )}
         <label className="details__container__label">Country:</label>
         <input
-          className="details__container__input"
+          className={`details__container__input ${
+            hasError("country") ? "formError" : null
+          }`}
           type="text"
           name="country"
           value={warehouseData.country}
           onChange={handleChange}
           placeholder="Country"
         />
+        {hasError("country") && (
+          <p className="validate">
+            <img src={err} alt="errorIcon" />
+            This field is required
+          </p>
+        )}
       </div>
       <div className="details__division">
         <div className="details__division__line"></div>

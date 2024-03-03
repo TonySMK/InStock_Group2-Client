@@ -12,6 +12,28 @@
   &__division {
     &__line {
       border-bottom: 0.5px solid $S-cloud;
+      @include tablet {
+        margin: 24px 0px;
+        border-right: 0.5px solid #bdc5d5;
+        height: 100%;
+        border-bottom: hidden;
+      }
+      @include desktop {
+        margin: 24px 0px;
+        border-right: 0.5px solid #bdc5d5;
+        height: 100%;
+        border-bottom: hidden;
+      }
+    }
+  }
+  .validate {
+    padding-top: 4px;
+    display: flex;
+    color: red;
+    font-size: 12px;
+    img {
+      width: 16px;
+      margin-right: 4px;
     }
   }
 }

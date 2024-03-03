@@ -71,7 +71,7 @@ function WarehousesDetails (warehouses) {
       </div>
       </div>
   </section>
-  <SelectedWarehouseInventory/>
+  {/* <SelectedWarehouseInventory/> */}
   </div>
   </>
 

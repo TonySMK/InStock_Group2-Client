@@ -57,7 +57,7 @@
 .inventorywrapper, .inventorypanel{
     @include tablet{
         flex-grow: 1;
-        margin-right: 2rem;
+        margin-right: 1rem;
         width: 120px;
     }
 }
@@ -66,7 +66,7 @@
     @include tablet{
         flex-grow: 1;
         width: 70px;
-        margin-right: 3.5rem;
+        margin-right: 2rem;
     }
 }
 
@@ -82,7 +82,7 @@
     @include tablet{
         flex-grow: 0.25;
         width: 70px;
-        margin-right: 1em;
+        margin-right: 0.5em;
     }
 }
 

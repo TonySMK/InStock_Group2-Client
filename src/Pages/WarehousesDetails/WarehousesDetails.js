@@ -84,6 +84,8 @@ function WarehousesDetails (warehouses) {
       </div>
   </section>
   <SelectedWarehouseInventory id = {id} deleteButtonHandler={deleteButtonHandler}/>
+
+
   </div>
   </>
 

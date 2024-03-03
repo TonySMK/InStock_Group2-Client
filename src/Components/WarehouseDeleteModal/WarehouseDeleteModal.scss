@@ -10,17 +10,26 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(19, 24, 44, 0.1);
+    background-color: rgba(19, 24, 44, 0.7);
     .modal {
         position: relative;
         background-color: $P-white;
         width: 100%;
         height: 100%;
+        @include tablet {
+            position: absolute;
+            top: 17%;
+            width: 672px;
+            height: 262px;
+        }
         &-header {
             text-align: right;
             padding: 16px;
             .close {
                 width: 24px;
+            }
+            @include tablet {
+                padding: 16px 16px 0;
             }
         }
         &-content {
@@ -28,6 +37,12 @@
             padding: 16px;
             &_title {
                 padding-bottom: 16px;
+            }
+            @include tablet {
+                padding: 0 88px 0 72px;
+                &_description {
+                    font-size: 16px;
+                }
             }
         }
         &-footer {
@@ -37,11 +52,19 @@
             bottom: 5%;
             justify-content: space-between;
             padding: 16px;
+            @include tablet {
+                justify-content: flex-end;
+                padding: 46px;
+            }
             .btn-cancel {
                 width: 45%;
                 height: 36px;
                 border: 1px solid $S-cloud;
                 border-radius: 20px;
+                @include tablet {
+                    width: 72px;
+                    height: 38px;
+                }
                 :hover{
                     cursor: pointer;
                 }
@@ -52,6 +75,11 @@
                 background-color: $Red;
                 border-radius: 20px;
                 color: $P-white;
+                @include tablet {
+                    width: 72px;
+                    height: 38px;
+                    margin-left: 24px;
+                }
                 :hover {
                     cursor: pointer;
                 }

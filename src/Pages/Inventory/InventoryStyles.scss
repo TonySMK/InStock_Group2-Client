@@ -20,7 +20,6 @@ button{
 
     @include tablet{
     padding: 1.5rem 2.5rem;
-
     }
 
     &__top{
@@ -29,16 +28,31 @@ button{
         padding-bottom: 1.5rem;
         // FIXME: Redundent?? 2 lines above...
 
+        @include tablet{
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
         .title{
             width: 100%;
             text-align: start;
             margin-bottom: 1rem;
             font-size: 28px;
             // FIXME: idk correct way to apply font attributes
+
+            @include tablet{
+                width: auto;
+            }
         }
     }
 }
 
+.aftertitleelement{
+    @include tablet{
+        display: flex;
+        gap:1rem
+    }
+}
 .searchbarwrapperform{
     margin-bottom: 1rem;
 }
@@ -52,6 +66,14 @@ button{
     border: 1px solid $S-cloud;
     border-radius: 20px;
     // FIXME: double check border wall width
+
+    @include tablet{
+        width: 185px;
+    }
+
+    @include desktop{
+        width: 274px;
+    }
 }
 
 .searchbarinput{
@@ -86,4 +108,8 @@ button{
     height: 35px;
     border-radius: 20px;
     font-size: 13px;
+
+    @include tablet{
+        width: 128px;
+    }
 }

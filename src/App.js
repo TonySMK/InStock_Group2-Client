@@ -1,5 +1,16 @@
-import logo from "./logo.svg";
+import React from "react";
 import "./App.scss";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Inventory from "./Pages/Inventory/Inventory";
+import InventoryAddItem from "./Pages/InventoryAddItem/InventoryAddItem";
+import InventoryDetails from "./Pages/InventoryDetails/InventoryDetails";
+import InventoryEditItem from "./Pages/InventoryEditItem/InventoryEditItem";
+import Warehouses from "./Pages/Warehouses/Warehouses";
+import WarehousesAddItem from "./Pages/WarehousesAddItem/WarehousesAddItem";
+import WarehousesDetails from "./Pages/WarehousesDetails/WarehousesDetails";
+import WarehousesEditItem from "./Pages/WarehousesEditItem/WarehousesEditItem";
+import Header from "./Components/Header/Header";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
   return (

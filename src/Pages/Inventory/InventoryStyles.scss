@@ -112,6 +112,9 @@ button{
     height: 35px;
     border-radius: 20px;
     font-size: 13px;
+    &:hover {
+        background-color: $B-graphite;
+    }
 
     @include tablet{
         width: 128px;

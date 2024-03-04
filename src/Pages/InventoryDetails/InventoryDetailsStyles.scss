@@ -56,6 +56,10 @@
             height: 36px;
             border-radius: 50%;
 
+            &:hover {
+                background-color: $B-graphite;
+            }
+
             @include tablet{
                 justify-content: space-between;
                 width: 81px;

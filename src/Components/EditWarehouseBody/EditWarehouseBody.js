@@ -28,7 +28,7 @@ function EditWarehouseBody() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/api/warehouses/${id}}/details`)
+      .get(`http://localhost:8080/api/warehouses/${id}}`)
       .then((response) => setWarehouseData(response.data[0]))
       .catch((error) => console.error("Error fetching warehouse data:", error));
   }, []);

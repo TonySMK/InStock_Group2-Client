@@ -40,7 +40,7 @@ function EditInventoryItemBody() {
       !formData.description ||
       !formData.category ||
       !formData.status ||
-      (formData.status === "in stock" && formData.quantity > 0) ||
+      !(formData.status === "in stock" && formData.quantity > 0) ||
       !formData.warehouse_id
     ) {
       return;

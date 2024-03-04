@@ -11,17 +11,17 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-function WarehouseSelectInventory({ object, deleteButtonHandler }) {
+function WarehouseSelectInventory({ object }) {
   const [warehouseInventories, setWarehouseInventory] = useState([]);
   const [compstate, setCompState] = useState(true);
   const [isModelOpen, setIsModelOpen] = useState(false);
   const [inventoryList, setInventoryList] = useState("");
-
   const [targetInformationArray, setTargetInformationArray] = useState("");
-  // console.log(eTarget);
+
   function closeModalHandler() {
     setIsModelOpen(false);
   }
+
   function fetch() {
     axios.get("http://localhost:8080/api/inventories").then((res) => {
       let thelist = res.data;

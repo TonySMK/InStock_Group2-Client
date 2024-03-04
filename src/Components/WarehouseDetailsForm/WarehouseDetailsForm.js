@@ -12,15 +12,15 @@ function WarehouseDetailsForm({ warehouseData, setWarehouseData, hasError }) {
   };
 
   return (
-    <section className="details">
-      <div className="details__title">
-        <h2 className="details__title__name">Warehouse Details</h2>
+    <section className="editdetails">
+      <div className="editdetails__title">
+        <h2 className="editdetails__title__name">Warehouse Details</h2>
       </div>
-      <div className="details__container">
-        <label className="details__container__label">Warehouse Name</label>
+      <div className="editdetails__container">
+        <label className="editdetails__container__label">Warehouse Name</label>
         <input
-          className={`details__container__input ${
-            hasError("warehouse_name") ? "formError" : null
+          className={`editdetails__container__input ${
+            hasError("warehouse_name") ? "formError" : "editformPass"
           }`}
           type="text"
           name="warehouse_name"
@@ -34,10 +34,10 @@ function WarehouseDetailsForm({ warehouseData, setWarehouseData, hasError }) {
             This field is required
           </p>
         )}
-        <label className="details__container__label">Street Address</label>
+        <label className="editdetails__container__label">Street Address</label>
         <input
-          className={`details__container__input ${
-            hasError("address") ? "formError" : null
+          className={`editdetails__container__input ${
+            hasError("address") ? "formError" : "editformPass"
           }`}
           type="text"
           name="address"
@@ -52,10 +52,10 @@ function WarehouseDetailsForm({ warehouseData, setWarehouseData, hasError }) {
           </p>
         )}
 
-        <label className="details__container__label">City</label>
+        <label className="editdetails__container__label">City</label>
         <input
-          className={`details__container__input ${
-            hasError("city") ? "formError" : null
+          className={`editdetails__container__input ${
+            hasError("city") ? "editformError" : "editformPass"
           }`}
           type="text"
           name="city"
@@ -69,10 +69,10 @@ function WarehouseDetailsForm({ warehouseData, setWarehouseData, hasError }) {
             This field is required
           </p>
         )}
-        <label className="details__container__label">Country:</label>
+        <label className="editdetails__container__label">Country:</label>
         <input
-          className={`details__container__input ${
-            hasError("country") ? "formError" : null
+          className={`editdetails__container__input ${
+            hasError("country") ? "editformError" : "editformPass"
           }`}
           type="text"
           name="country"
@@ -87,8 +87,8 @@ function WarehouseDetailsForm({ warehouseData, setWarehouseData, hasError }) {
           </p>
         )}
       </div>
-      <div className="details__division">
-        <div className="details__division__line"></div>
+      <div className="editdetails__division">
+        <div className="editdetails__division__line"></div>
       </div>
     </section>
   );

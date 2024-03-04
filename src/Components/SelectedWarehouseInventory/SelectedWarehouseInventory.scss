@@ -200,10 +200,14 @@
         justify-content: space-between;
         align-items: center;
         font-weight: 600;
+        
+        &:hover {
+            cursor: pointer;
+              text-decoration: underline;
     }
 
 }
-
+}
 .modbutton{
     padding: 0rem;
     display: flex;

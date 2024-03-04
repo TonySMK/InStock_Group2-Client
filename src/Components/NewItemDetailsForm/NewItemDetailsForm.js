@@ -27,12 +27,10 @@ function NewItemsDetailsForm({ formData, setFormData, hasError }) {
   } else {
     return (
       <>
-        <section className="details">
-          <div className="details__subheader">
-            <h2 className="details__subheader__title">Item Details</h2>
-          </div>
-          <div className="details__container">
-            <label className="details__container__label">Item Name:</label>
+        <section className="add-details">
+            <h2 className="add-details__title">Item Details</h2>
+          <div className="add-details__container">
+            <label className="add-details__container__label">Item Name:</label>
             <input
               className={`item-name ${
                 hasError("item_name") ? "formError" : null
@@ -42,6 +40,7 @@ function NewItemsDetailsForm({ formData, setFormData, hasError }) {
               value={formData.item_name}
               onChange={handleInputChange}
               placeholder="Item Name"
+              id="item_name"
             />
             {hasError("item_name") && (
               <p className="validate">
@@ -50,7 +49,7 @@ function NewItemsDetailsForm({ formData, setFormData, hasError }) {
               </p>
             )}
 
-            <label className="details__container__label">Description:</label>
+            <label className="dadd-etails__container__label">Description:</label>
             <input
               className={`description ${
                 hasError("description") ? "formError" : null
@@ -60,6 +59,7 @@ function NewItemsDetailsForm({ formData, setFormData, hasError }) {
               value={formData.description}
               onChange={handleInputChange}
               placeholder="Please enter a brief item description"
+              id="description"
             />
             {hasError("description") && (
               <p className="validate">
@@ -67,7 +67,7 @@ function NewItemsDetailsForm({ formData, setFormData, hasError }) {
                 This field is required
               </p>
             )}
-            <label className="details__container__label">Category:</label>
+            <label className="add-details__container__label">Category:</label>
             <select
               className={`category ${
                 hasError("category") ? "formError" : null
@@ -75,8 +75,9 @@ function NewItemsDetailsForm({ formData, setFormData, hasError }) {
               name="category"
               value={formData.category}
               onChange={handleInputChange}
+              id="category"
             >
-              <option value="">Please Select</option>
+              <option value="" className="category">Please Select</option>
               {categories.map((category) => (
                 <option key={category} value={category}>
                   {category}
@@ -91,9 +92,6 @@ function NewItemsDetailsForm({ formData, setFormData, hasError }) {
             )}
           </div>
         </section>
-        <div className="details__division">
-          <div className="details__division__line"></div>
-        </div>
       </>
     );
   }

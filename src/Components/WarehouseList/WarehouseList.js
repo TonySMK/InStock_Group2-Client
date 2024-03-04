@@ -23,9 +23,6 @@ const WarehouseList = ({ warehouses, onDeleteWarehouse }) => {
     setModalOpen(false);
   };
 
-  const editWarehouseClick = () => {
-    navigate(`/warehouses/${warehouses.id}/edit`);
-  };
 
   const deleteWarehouse = (deleteID) => {
     onDeleteWarehouse(deleteID);
@@ -91,9 +88,11 @@ const WarehouseList = ({ warehouses, onDeleteWarehouse }) => {
                   <img src={del} alt="delete" />
                 </button>
               </div>
-              <button onClick={editWarehouseClick}>
+              <Link to={`/warehouses/${warehouse.id}/edit`}>
+              <button>
                 <img src={edit} alt="edit" />
               </button>
+              </Link>
             </div>
           </li>
         ))}

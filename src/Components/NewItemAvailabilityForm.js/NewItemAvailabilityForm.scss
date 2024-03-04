@@ -3,18 +3,12 @@
 @import "../../Styles/Partials/mixins";
 @import "../../Styles/Partials/variables";
 
-.availability {
-  @include mobile {
-    padding-bottom: 24px;
-  }
-  @include tablet {
-    width: 50%;
-    padding-top: 8px;
-  }
-  &__subheader {
-    @include mobile {
-      padding-top: 16px;
-    }
+.new-availability {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 16px;
     &__title {
       font-family: $Semi-bold;
       font-size: 20px;
@@ -26,8 +20,8 @@
       line-height: 22px;
       width: 60%;
     }
-    }
   }
+  
 
   &__status {
     align-self: flex-start;

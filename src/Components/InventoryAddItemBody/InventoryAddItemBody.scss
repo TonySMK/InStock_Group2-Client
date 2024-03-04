@@ -3,41 +3,24 @@
 @import "../../Styles/Partials/mixins";
 @import "../../Styles/Partials/variables";
 
-.offsetwarpper {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  @include desktop {
-    background-color: transparent;
-    width: 88%;
-    position: relative;
-    top: -7rem;
-    left: 60px;
-    padding: 0rem 1rem;
-  }
-}
 
 .body {
   background-color: $P-white;
   &__wrapper {
+    text-align: left;
     display: flex;
+    justify-content: center;
+    align-content: center;
     align-items: baseline;
+    padding: 24px 16px ;
+    border-bottom: 1px solid $S-cloud;
     @include tablet {
-      padding: 32px;
+      justify-content: flex-start;
     }
-    @include desktop {
-      padding: 32px;
-      padding-bottom: 0;
-    }
-    &__arrow {
-      display: flex;
-      align-items: center;
-      flex-direction: row;
-      padding-right: 10px;
+    .arrow-back {
+      margin-right: 4px;
     }
     &__header {
-      font-family: $Semi-bold;
-      font-size: 25px;
-      line-height: 36px;
-      text-align: left;
       padding-top: 16px;
       @include tablet {
         font-size: 32px;
@@ -45,25 +28,20 @@
       }
     }
   }
-  &__division {
-    &__line {
-      border-bottom: 0.5px solid $S-cloud;
-      padding-top: 24px;
-    }
-  }
   &__forms-wrapper {
+    width: 100%;
     @include tablet {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      padding: 24px 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-row: auto;
+      margin: 24px 0;
     }
   }
   &__buttons {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    background-color: $B-grey;
+    background-color: rgba(247, 248, 249, 0.7);
     padding: 16px 0;
     @include tablet {
       justify-content: flex-end;
@@ -74,8 +52,8 @@
         color: $S-slate;
         background-color: $P-white;
         border: 0.5px solid $S-slate;
-        height: 30px;
-        width: 120px;
+        height: 36px;
+        width: 139px;
         border-radius: 20px;
         &:hover {
           border: 0.5px solid $P-interactive;
@@ -84,8 +62,8 @@
           font-family: $Semi-bold;
         }
         @include tablet {
-          height: 36px;
-          width: 75px;
+          height: 38px;
+          width: 72px;
         }
       }
 
@@ -93,8 +71,8 @@
         color: $P-white;
         background-color: $P-interactive;
         border: 0.5px solid $P-interactive;
-        height: 30px;
-        width: 120px;
+        height: 36px;
+        width: 139px;
         border-radius: 20px;
         &:hover {
           background-color: $B-graphite;
@@ -102,8 +80,8 @@
           font-family: $Semi-bold;
         }
         @include tablet {
-          height: 36px;
-          width: 100px;
+          height: 38px;
+          width: 98px;
         }
       }
     }

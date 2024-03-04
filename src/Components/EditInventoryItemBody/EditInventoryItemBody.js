@@ -89,7 +89,7 @@ function EditInventoryItemBody() {
             <button className="body__buttons__container__cancel">Cancel</button>
           </div>
           <div className="body__buttons__container">
-            <button className="body__buttons__container__add" type="submit">
+            <button className="body__buttons__container__save" type="submit">
               <div></div>
               Save
             </button>

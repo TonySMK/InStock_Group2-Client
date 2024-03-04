@@ -4,21 +4,17 @@
 
 .overlay{
     position: fixed;
-    background-color: $P-white;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     z-index: 2;
     top:0px;
-    @include tablet{
-        background-color: rgba(19, 24, 44, 0.75);
-    }
-
+    background-color: rgba(19, 24, 44, 0.75);
 }
 
 .modalbody{
     background-color: $P-white;
     width: 100%;
-    height: 667px;
+    height: 100%;
     position: fixed;
     top:50%;
     left: 50%;
@@ -32,7 +28,7 @@
     @include tablet{
         width: 672px;
         height: 262px;
-        top:40%;
+        top:35%;
         padding-bottom: 2rem;
         // padding-right: 4rem;
     }
@@ -40,15 +36,21 @@
     
     &__upperpanel{
         // background-color: aqua;
-        
+        .closebuttonimagecloseicon {
+            width: 24px;
+        }
         &__questionprompt{
             margin-bottom: 1rem;
+            font-size: 28px;
+            line-height: 36px;
             @include tablet{
                 padding: 0rem 4rem;
             }
         }
 
         &__warningmessage{
+            font-size: 15px;
+            line-height: 26px;
             @include tablet{
                 padding: 0rem 4rem;
             }

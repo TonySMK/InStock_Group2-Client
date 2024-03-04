@@ -3,7 +3,7 @@ import InventoryAddItemBody from "../../Components/InventoryAddItemBody/Inventor
 
 function InventoryAddItem () { 
     return(
-        <div>
+        <div className="inventory-add">
             <InventoryAddItemBody/>
         </div>
     );

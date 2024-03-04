@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+ import React, { useState } from "react";
 import NewItemsDetailsForm from "../NewItemDetailsForm/NewItemDetailsForm";
 import NewItemAvailabilityForm from "../NewItemAvailabilityForm.js/NewItemAvailabilityForm";
 import axios from "axios";
@@ -62,19 +62,12 @@ function InventoryAddItemBody() {
   return (
     <section className="body">
       <div className="body__wrapper">
-        <div className="body__wrapper__arrow">
           <Link to={"/"}>
-            <img src={back} alt="arrow-back" />
+            <img src={back} alt="arrow-back" className="arrow-back"/>
           </Link>
-        </div>
-        <div className="body__wrapper__header">
           <h1 className="body__wrapper__header__title">
             Add New Inventory Item
           </h1>
-        </div>
-      </div>
-      <div className="body__division">
-        <div className="body__division__line"></div>
       </div>
       <form onSubmit={handleSubmit}>
         <div className="body__forms-wrapper">

@@ -12,8 +12,8 @@ const navigateTo = (path) => {
         <div className="header__container">
           <img className="header__logo" src={InStockLogo}></img>
           <div className="header__button-container">
-            <button className="header__nav-warehouses" onClick={() => navigateTo("/warehouses")}>Warehouses</button>
-            <button className="header__nav-inventory" onClick={() => navigateTo("/")}>Inventory</button>
+            <button className= 'header__nav-warehouses' onClick={()=> navigateTo('/warehouses')}>Warehouses</button>
+            <button className='header__nav-inventory'  onClick={()=>navigateTo('/')}>Inventory</button>
           </div>
         </div>
       </section>

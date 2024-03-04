@@ -21,10 +21,7 @@ function App() {
           <section className="parenteoffsetwarpper">
             <Routes>
               <Route path="/" element={<Inventory />}></Route>
-              <Route
-                path="/:id /details"
-                element={<InventoryDetails />}
-              ></Route>
+              <Route path="/:id/details" element={<InventoryDetails />}></Route>
               <Route path="/:id/edit" element={<InventoryEditItem />}></Route>
               <Route path="/add" element={<InventoryAddItem />}></Route>
               <Route path="/warehouses" element={<Warehouses />}></Route>

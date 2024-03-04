@@ -16,12 +16,15 @@ function App() {
   return (
     <div className="App">
       <div className="backgroundwrapper">
-        <Header />
-        <section className="parenteoffsetwarpper">
-          <BrowserRouter>
+        <BrowserRouter>
+          <Header />
+          <section className="parenteoffsetwarpper">
             <Routes>
               <Route path="/" element={<Inventory />}></Route>
-              <Route path="/:id/details" element={<InventoryDetails />}></Route>
+              <Route
+                path="/:id /details"
+                element={<InventoryDetails />}
+              ></Route>
               <Route path="/:id/edit" element={<InventoryEditItem />}></Route>
               <Route path="/add" element={<InventoryAddItem />}></Route>
               <Route path="/warehouses" element={<Warehouses />}></Route>
@@ -38,8 +41,8 @@ function App() {
                 element={<WarehousesAddItem />}
               ></Route>
             </Routes>
-          </BrowserRouter>
-        </section>
+          </section>
+        </BrowserRouter>
         <Footer />
       </div>
     </div>

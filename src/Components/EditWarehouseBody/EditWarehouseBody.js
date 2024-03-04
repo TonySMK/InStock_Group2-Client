@@ -5,7 +5,7 @@ import ContactDetailsForm from "../ContactDetailsForm/ContactDetailsForm";
 import axios from "axios";
 import "./EditWarehousesBody.scss";
 import back from "../../Assets/Icons/arrow_back-24px.svg";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 function EditWarehouseBody() {
   const { id } = useParams();
@@ -23,7 +23,6 @@ function EditWarehouseBody() {
   };
 
   const [warehouseData, setWarehouseData] = useState(initialFormData);
-  const [error, setError] = useState({});
   const [hasSubmitted, setHasSubmitted] = useState(false);
 
   useEffect(() => {
@@ -48,7 +47,6 @@ function EditWarehouseBody() {
         );
     } else {
       console.log(validateError);
-      setError(validateError);
     }
   };
 
@@ -64,13 +62,12 @@ function EditWarehouseBody() {
       <div className="warehouse__wrapper">
         <div className="warehouse__wrapper__head">
           <div className="warehouse__wrapper__head__img">
-            <Link to={"/warehouses"}>
-              <img
-                className="warehouse__wrapper__head__img__arrow"
-                src={back}
-                alt="back_arrow"
-              />
-            </Link>
+            <img
+              onClick={() => handleCancel()}
+              className="warehouse__wrapper__head__img__arrow"
+              src={back}
+              alt="back_arrow"
+            />
           </div>
           <div className="warehouse__wrapper__head__title">
             <h1 className="warehouse__wrapper__head__title__name">

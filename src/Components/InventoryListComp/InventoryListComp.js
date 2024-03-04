@@ -5,7 +5,7 @@ import editIcon from "../../Assets/Icons/edit-24px.svg";
 import sortIcon from "../../Assets/Icons/sort-24px.svg";
 
 import StockStatus from "../StockStatus/StockStatus";
-import InventoryModel from "../InventoryModal/InventortyModel";
+import InventoryModel from "../InventoryModal/InventoryModel";
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";

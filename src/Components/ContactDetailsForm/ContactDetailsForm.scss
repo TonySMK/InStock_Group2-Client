@@ -1,0 +1,82 @@
+@import "../../Styles/Partials/fonts";
+@import "../../Styles/Partials/mixins";
+@import "../../Styles/Partials/variables";
+
+.contactdetails {
+  // background-color: red;
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  @include tablet{
+    width: 50%;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    border-right: 1px solid $S-cloud;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  @include desktop {
+    width: 50%;
+  }
+  &__head {
+    width: 57%;
+    // padding-top: 24px;
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    padding: 24px 0;
+    @include tablet {
+      padding-top: 0rem;
+      padding-bottom: 0rem;
+    }
+    @include desktop {
+      padding: 0;
+    }
+    &__label {
+      padding: 16px 16px 4px 16px;
+      width: auto;
+      text-decoration: none;
+      color: $P-text;
+    }
+  }
+}
+
+label {
+  text-align: left;
+  text-decoration: none;
+  color: $P-text;
+  padding-top: 16px;
+  @include tablet {
+    padding-left: 16px;
+    padding-bottom: 4px;
+  }
+}
+
+input {
+  &:active {
+    border: 0.5px solid $P-interactive;
+    color: $P-text;
+  }
+  &:focus {
+    border: 0.5px solid $P-interactive;
+    color: $P-text;
+  }
+  @include mobile {
+    height: 32px;
+    padding-left: 16px;
+  }
+}
+
+.contactformError {
+  border: 1px solid red;
+  margin: 0rem;
+  border-radius: 20px;
+}
+
+.contactformPass{
+  border: 1px solid $S-cloud;
+  border-radius: 20px;
+  margin: 0rem;
+}

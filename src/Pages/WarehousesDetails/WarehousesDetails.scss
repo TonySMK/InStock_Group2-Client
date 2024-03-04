@@ -1,0 +1,162 @@
+@import '../../Styles/Partials/fonts';
+@import '../../Styles/Partials/mixins';
+@import '../../Styles/Partials/variables';
+
+p {
+    margin: 0;
+}
+  .warehouse-details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    background-color: $P-white;
+
+    &__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid $S-cloud;
+      padding: 2rem 1rem 24px 1rem;
+
+      @include tablet {
+        padding: 2rem 2rem 31px 2rem;
+        font-size: 15px;
+      }
+
+      @include desktop {
+        padding: 2rem 40px 31px 40px;
+        font-size: 15px;
+      }
+
+      &-name {
+        display: flex;
+        gap: 5%;
+      }
+    }
+
+    &__back {
+      display: flex;
+      align-items: center;
+    }
+
+    &__edit-link {
+      text-decoration: none;
+
+    }
+
+    &__edit-circle {
+        background-color: $P-interactive;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        width: 2.25rem;
+        height: 2.25rem;
+        border-radius: 3.125rem;
+        text-decoration: none;
+
+        @include tablet {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-decoration: none;
+        }
+
+        @include tablet {
+          width: 75px;
+          height: 38px;
+        }
+      }
+
+    &__edit-text {
+          display: none;
+          text-decoration: none;
+
+        @include tablet {
+            display: block;
+            color: $P-white;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 22px;
+            text-decoration: none;
+        }
+    }
+    &__edit-img {
+        filter: brightness(4) sepia(0) hue-rotate(0deg) saturate(0);
+        height: 20px;
+        width: 20px;
+        @include tablet {
+          margin-right: 4px;
+      }
+    }
+
+    &__info {
+        padding: 0 1.5rem 1rem 1.5rem;
+        border-bottom: 1px solid $S-cloud;
+        @include tablet {
+            padding: 0 1.5rem 0rem 1.5rem;
+        }
+    }
+
+    &__info-container {
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    &__address {
+        display: flex;
+        @include tablet {
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+
+    &__address-header, &__contact-header, &__contact-info-header {
+        font-size: 11px;
+    }
+
+    &__address-container, &__contact-name-container, &__contact-info-container {
+        text-align: left;
+    }
+
+    &__contact-name-container {
+        padding: 0 3rem 0 0;
+        @include desktop {
+            padding: 0 5rem 0 0;
+        }
+    }
+
+    &__data {
+        font-size: 13px;
+    }
+
+    &__address-container {
+        margin: 1rem 0 2rem 0;
+        @include tablet {
+            margin: 1rem 0 1rem 0;
+            padding: 0 10rem 0 0;
+            border-right: 1px solid $S-slate 
+        }
+        @include desktop {
+            padding: 0 15rem 0 0;
+        }
+    }
+
+    &__contact-container {
+        display: flex;
+        justify-content: space-between;
+        @include tablet {
+            justify-content: left;
+            flex-grow: 1;
+            padding: 0 0 0 3rem;
+        }
+    }
+
+  }
+  
+  
+  

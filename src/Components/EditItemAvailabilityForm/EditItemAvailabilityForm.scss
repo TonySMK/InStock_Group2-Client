@@ -1,0 +1,97 @@
+@import '../../Styles/Partials/mixins';
+@import '../../Styles/Partials/variables';
+
+.availability {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 16px 32px;    
+    @include tablet {
+        padding-top: 0;
+    }
+     &__subheader__title {
+        text-align: left;
+        padding: 16px 0;
+    }
+    &__status {
+        text-align: left;
+        &__title{
+            color: $P-text;
+        }
+    }
+    &__container {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        &__instock {
+            margin-right: 40%;
+            display: flex;
+        }
+        &__instock, &__out {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;    
+        }
+        p {
+            font-size: 13px;
+        }
+        input {
+            border: 1px solid $S-cloud;
+            margin: 0;
+            margin-right: 4px;
+        }
+    }
+    &__quantity {
+        width: 100%;
+        &__label {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            margin-top: 16px;
+            input {
+                border: 1px solid $S-cloud;
+                width: 100%;
+                height: 36px;
+                border-radius: 20px;
+                margin: 0;
+                margin-top: 4px;
+                padding: 0 16px;
+            }
+        }
+    }
+    &__warehouse {
+        width: 100%;
+        &__label {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 0;
+            margin-top: 16px;
+            .availability__warehouse__select {
+                border: 1px solid $S-cloud;
+                width: 100%;
+                height: 36px;
+                border-radius: 20px;
+                margin: 0;
+                margin-top: 4px;
+                padding: 0 16px;
+                @include tablet {
+                    height: 38px;
+                }
+            }
+            select {
+                appearance: none;
+                width: 100%;
+                background-image: url("../../Assets/Icons/arrow_drop_down-24px.svg");
+                background-repeat: no-repeat;
+                background-position: 98%;
+            }        
+        }
+    }
+}

@@ -4,20 +4,33 @@ import "./App.scss";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="backgroundwrapper">
+        <BrowserRouter>
+          <Header />
+          <section className="parenteoffsetwarpper">
+            <Routes>
+              <Route path="/" element={<Inventory />}></Route>
+              <Route path="/:id/details" element={<InventoryDetails />}></Route>
+              <Route path="/:id/edit" element={<InventoryEditItem />}></Route>
+              <Route path="/add" element={<InventoryAddItem />}></Route>
+              <Route path="/warehouses" element={<Warehouses />}></Route>
+              <Route
+                path="/warehouses/:id/details"
+                element={<WarehousesDetails />}
+              ></Route>
+              <Route
+                path="/warehouses/:id/edit"
+                element={<WarehousesEditItem />}
+              ></Route>
+              <Route
+                path="/warehouses/add"
+                element={<WarehousesAddItem />}
+              ></Route>
+            </Routes>
+          </section>
+        </BrowserRouter>
+        <Footer />
+      </div>
     </div>
   );
 }

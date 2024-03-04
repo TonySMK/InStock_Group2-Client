@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Developed by: Lucille Alvar, Ryan Park, Wanessa Lopes, Tony Sun
+
+InStock Group 2 Server:
+https://github.com/lucillealvar/Instock_Group2-Server.git
+
 ## Available Scripts
 
 In the project directory, you can run:

@@ -36,6 +36,7 @@
       input,
       .category {
         border: 1px solid $S-cloud;
+        border-radius: 20px;
         margin: 0;
         margin-top: 4px;
         width: 100%;
@@ -46,8 +47,9 @@
       }
     }
   }
-  select {
+  .category {
     appearance: none;
+    padding: 0 16px;
     width: 100%;
     background-image: url("../../Assets/Icons/arrow_drop_down-24px.svg");
     background-repeat: no-repeat;

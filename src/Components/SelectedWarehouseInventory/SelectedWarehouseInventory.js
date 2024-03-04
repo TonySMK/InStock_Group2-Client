@@ -14,6 +14,12 @@ const SelectedWarehouseInventory = ({id}) => {
   const [isModelOpen, setIsModelOpen] = useState(false);
   const [targetInformationArray, setTargetInformationArray] = useState(null);
   const [inventoryList, setInventoryList] = useState("");
+  const [selectedItemId, setSelectedItemId] = useState([])
+
+  const handleClick = (id) => {
+    setSelectedItemId(id);
+    console.log(selectedItemId)
+  }
 
   // console.log(eTarget);
   function closeModalHandler() {
@@ -52,7 +58,7 @@ const SelectedWarehouseInventory = ({id}) => {
 
   useEffect(() => {
     axios
-    .get(`http://localhost:8080/api/inventories/${id}`)
+    .get(`http://localhost:8080/api/warehouses/${id}/inventories`)
     .then((res) => {
       let inventoryDetails = res.data;
       console.log(inventoryDetails);
@@ -128,16 +134,15 @@ const SelectedWarehouseInventory = ({id}) => {
               inventory item
             </div>
 
-            <Link to={`/${warehouseInventory.id}/details`}>
-              <button className="contentpanel__value inventorylabelnamebuttonwrapper">
-                <h3 className="itembutton__name">{warehouseInventory.item_name}</h3>
+            
+              <button onClick ={() => handleClick([warehouseInventory.id])} className="contentpanel__value inventorylabelnamebuttonwrapper">
+              <Link to={`/${selectedItemId}/details`}><h3 className="itembutton__name">{warehouseInventory.item_name}</h3></Link>
                 <img
                   className="itembutton__icon"
                   src={chevronRightIcon}
                   alt="Chevron Right Icon"
                 />
               </button>
-            </Link>
           </div>
 
           <div className="contentpanel categorypanel">

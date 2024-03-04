@@ -12,10 +12,6 @@ p {
     margin: 0 auto;
     background-color: $P-white;
 
-    @include desktop {
-      width: 1020px;
-    }
-
     &__top {
       display: flex;
       justify-content: space-between;

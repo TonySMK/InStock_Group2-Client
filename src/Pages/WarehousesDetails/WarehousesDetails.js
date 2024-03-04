@@ -14,14 +14,6 @@ function WarehousesDetails (warehouses) {
 
   const [warehouse, setWarehouse] = useState([]);
 
-  function deleteButtonHandler(id) {
-    axios
-      .delete(`http://localhost:8080/api/inventories/${id}`)
-      .then((res) => {
-        fetch();
-      });
-  }
-
   useEffect(() => {
     axios
     .get(`http://localhost:8080/api/warehouses/${id}`)
@@ -47,7 +39,7 @@ function WarehousesDetails (warehouses) {
       <h1>{warehouse?.warehouse_name}</h1>
     </div>
     <Link
-      // to={`/warehouse/edit/{}`}
+      to={`/warehouse/${id}/edit`}
       className="warehouse-details__edit-link"
     >
       <div className="warehouse-details__edit-circle">
@@ -83,7 +75,7 @@ function WarehousesDetails (warehouses) {
       </div>
       </div>
   </section>
-  <SelectedWarehouseInventory id = {id} deleteButtonHandler={deleteButtonHandler}/>
+  <SelectedWarehouseInventory id = {id}/>
 
 
   </div>

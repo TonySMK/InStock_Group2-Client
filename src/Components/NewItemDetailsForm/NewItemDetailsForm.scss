@@ -11,6 +11,11 @@
   justify-content: flex-start;
   align-items: flex-start;
   border-bottom: 1px solid $S-cloud;
+  @include tablet {
+    border-bottom: hidden;
+    border-right: 1px solid $S-cloud;
+    padding-top: 0;
+  }
   &__container {
     width: 100%;
     display: flex;

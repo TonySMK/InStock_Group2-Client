@@ -16,16 +16,11 @@
     border-bottom: 1px solid $S-cloud;
     @include tablet {
       justify-content: flex-start;
-      padding: 24px 32px;
     }
     .arrow-back {
       margin-right: 4px;
     }
     &__header {
-      font-family: $Semi-bold;
-      font-size: 25px;
-      line-height: 36px;
-      text-align: left;
       padding-top: 16px;
       @include tablet {
         font-size: 32px;
@@ -35,6 +30,12 @@
   }
   &__forms-wrapper {
     width: 100%;
+    @include tablet {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-row: auto;
+      margin: 24px 0;
+    }
   }
   &__buttons {
     display: flex;

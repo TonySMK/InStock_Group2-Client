@@ -41,6 +41,7 @@ function NewItemAvailabilityForm({ formData, setFormData, hasError }) {
               value="in stock"
               checked={formData.status === "in stock"}
               onChange={handleInputChange}
+              id="input"
             />
             <label className="new-availability__container__instock__label">
               In stock
@@ -53,6 +54,7 @@ function NewItemAvailabilityForm({ formData, setFormData, hasError }) {
               value="Out of Stock"
               checked={formData.status === "Out of Stock"}
               onChange={handleInputChange}
+              id="input"
             />
             <label className="new-availability__container__out__label">
               Out of stock
@@ -69,7 +71,7 @@ function NewItemAvailabilityForm({ formData, setFormData, hasError }) {
           <div className="new-availability__quantity">
             <label className="new-availability__quantity__label">Quantity:</label>
             <input
-              className={`availability__quantity__input ${
+              className={`new-availability__quantity__input ${
                 hasError("quantity") ? "formError" : null
               }`}
               type="text"
@@ -83,7 +85,7 @@ function NewItemAvailabilityForm({ formData, setFormData, hasError }) {
         <div className="new-availability__warehouse">
           <label className="new-availability__warehouse__label">Warehouse:</label>
           <select
-            className={`availability__warehouse__select ${
+            className={`new-availability__warehouse__select ${
               hasError("warehouse_id") ? "formError" : null
             }`}
             name="warehouse_id"

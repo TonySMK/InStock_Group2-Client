@@ -49,7 +49,7 @@ function NewItemsDetailsForm({ formData, setFormData, hasError }) {
               </p>
             )}
 
-            <label className="dadd-etails__container__label">Description:</label>
+            <label className="add-etails__container__label">Description:</label>
             <input
               className={`description ${
                 hasError("description") ? "formError" : null

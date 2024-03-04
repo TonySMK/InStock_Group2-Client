@@ -16,15 +16,15 @@ function ContactDetailsForm({
   };
 
   return (
-    <section className="contact">
-      <div className="contact__head">
-        <h2 className="contact__head__name">Contact Details</h2>
+    <section className="contactdetails">
+      <div className="contactdetails__head">
+        <h2 className="contactdetails__head__name">Contact Details</h2>
       </div>
-      <div className="contact__container">
-        <label className="contact__container__label">Contact Name</label>
+      <div className="contactdetails__container">
+        <label className="contactdetails__container__label">Contact Name</label>
         <input
-          className={`contact__container__input ${
-            hasError("contact_name") ? "formError" : null
+          className={`contactdetails__container__input ${
+            hasError("contact_name") ? "formError" : "contactformPass"
           }`}
           type="text"
           name="contact_name"
@@ -38,10 +38,10 @@ function ContactDetailsForm({
             This field is required
           </p>
         )}
-        <label className="contact__container__label">Position</label>
+        <label className="contactdetails__container__label">Position</label>
         <input
-          className={`contact__container__input ${
-            hasError("contact_position") ? "formError" : null
+          className={`contactdetails__container__input ${
+            hasError("contact_position") ? "formError" : "contactformPass"
           }`}
           type="text"
           name="contact_position"
@@ -55,10 +55,10 @@ function ContactDetailsForm({
             This field is required
           </p>
         )}
-        <label className="contact__container__label">Phone Number</label>
+        <label className="contactdetails__container__label">Phone Number</label>
         <input
-          className={`contact__container__input ${
-            hasError("contact_phone") ? "formError" : null
+          className={`contactdetails__container__input ${
+            hasError("contact_phone") ? "formError" : "contactformPass"
           }`}
           type="text"
           name="contact_phone"
@@ -72,10 +72,10 @@ function ContactDetailsForm({
             This field is required
           </p>
         )}
-        <label className="contact__container__label">Email</label>
+        <label className="contactdetails__container__label">Email</label>
         <input
-          className={`contact__container__input ${
-            hasError("contact_email") ? "formError" : null
+          className={`contactdetails__container__input ${
+            hasError("contact_email") ? "formError" : "contactformPass"
           }`}
           type="text"
           name="contact_email"

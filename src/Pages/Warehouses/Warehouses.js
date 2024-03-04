@@ -1,12 +1,11 @@
+import "./Warehouses.scss";
+
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
 
-import "./Warehouses.scss";
 import SearchBar from "../../Components/SearchBar/SearchBar";
 import WarehouseList from "../../Components/WarehouseList/WarehouseList";
-// import Footer from "../../Components/Footer/Footer";
-
 
 function Warehouses() {
   const [warehouses, setWarehouses] = useState([]);
@@ -23,9 +22,8 @@ function Warehouses() {
       });
   };
 
-
   const handleDeleteWarehouse = (deleteID) => {
-    console.log("Deleting warehouse with ID:", deleteID)
+    console.log("Deleting warehouse with ID:", deleteID);
     axios
       .delete(`http://localhost:8080/api/warehouses/${deleteID}`)
       .then((res) => {
@@ -46,17 +44,21 @@ function Warehouses() {
   };
 
   return (
-        <div className="warehouse">
+    <div className="warehouse">
       <div className="warehouse-header">
         <h1 className="warehouse-header_label">Warehouses</h1>
         <div className="warehouse-header_input">
           <SearchBar className="search-bar" />
-          <button className="add-warehouse" onClick={handleAddWarehouseClick}>+ Add New Warehouse</button>
+          <button className="add-warehouse" onClick={handleAddWarehouseClick}>
+            + Add New Warehouse
+          </button>
         </div>
       </div>
-      <WarehouseList warehouses={warehouses}
-      onDeleteWarehouse = {handleDeleteWarehouse}
-       className="warehouse-list"/>
+      <WarehouseList
+        warehouses={warehouses}
+        onDeleteWarehouse={handleDeleteWarehouse}
+        className="warehouse-list"
+      />
     </div>
   );
 }

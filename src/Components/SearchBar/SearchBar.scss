@@ -13,6 +13,8 @@
         align-items: center;
         position: relative;
         .input {
+            width: 100%;
+            margin: 0;
             border: 1px solid $S-cloud;
             border-radius: 20px;
             width: 100%;
@@ -35,7 +37,7 @@
             background-color: transparent;
             border: none;
             top: 15%;
-            right: 20px
+            right: 15px;
         }
     }
 }

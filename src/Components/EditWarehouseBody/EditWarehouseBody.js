@@ -58,29 +58,29 @@ function EditWarehouseBody() {
     return warehouseData[fieldName] === "" && hasSubmitted;
   };
   return (
-    <section className="warehouse">
-      <div className="warehouse__wrapper">
-        <div className="warehouse__wrapper__head">
-          <div className="warehouse__wrapper__head__img">
+    <section className="editwarehouse">
+      <div className="editwarehouse__wrapper">
+        <div className="editwarehouse__wrapper__head">
+          <div className="editwarehouse__wrapper__head__img">
             <img
               onClick={() => handleCancel()}
-              className="warehouse__wrapper__head__img__arrow"
+              className="editwarehouse__wrapper__head__img__arrow"
               src={back}
               alt="back_arrow"
             />
           </div>
-          <div className="warehouse__wrapper__head__title">
-            <h1 className="warehouse__wrapper__head__title__name">
+          <div className="editwarehouse__wrapper__head__title">
+            <h1 className="editwarehouse__wrapper__head__title__name">
               Edit Warehouse
             </h1>
           </div>
         </div>
-        <div className="warehouse__wrapper__division">
-          <div className="warehouse__wrapper__division__line"></div>
+        <div className="editwarehouse__wrapper__division">
+          <div className="editwarehouse__wrapper__division__line"></div>
         </div>
       </div>
-      <form className="warehouse__form" onSubmit={handleSubmit}>
-        <div className="warehouse__form__wrapper">
+      <form className="editwarehouse__form" onSubmit={handleSubmit}>
+        <div className="editwarehouse__form__wrapper">
           <WarehouseDetailsForm
             warehouseData={warehouseData}
             setWarehouseData={setWarehouseData}
@@ -92,18 +92,18 @@ function EditWarehouseBody() {
             hasError={hasError}
           />
         </div>
-        <div className="warehouse__buttons">
-          <div className="warehouse__buttons__container">
+        <div className="editwarehouse__buttons">
+          <div className="editwarehouse__buttons__container">
             <button
-              className="warehouse__buttons__container__cancel"
+              className="editwarehouse__buttons__container__cancel"
               onClick={handleCancel}
             >
               Cancel
             </button>
           </div>
-          <div className="warehouse__buttons__container">
+          <div className="editwarehouse__buttons__container">
             <button
-              className="warehouse__buttons__container__save"
+              className="editwarehouse__buttons__container__save"
               type="submit"
             >
               Save

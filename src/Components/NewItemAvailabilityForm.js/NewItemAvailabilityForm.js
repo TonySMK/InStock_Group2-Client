@@ -30,7 +30,7 @@ function NewItemAvailabilityForm({ formData, setFormData, hasError }) {
           <h3 className="new-availability__status__title">Status</h3>
         </div>
         <div
-          className={`availability__container ${
+          className={`new-availability__container ${
             hasError("status") ? "formError" : null
           }`}
         >

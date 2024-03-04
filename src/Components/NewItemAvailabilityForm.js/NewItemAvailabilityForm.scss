@@ -4,54 +4,34 @@
 @import "../../Styles/Partials/variables";
 
 .new-availability {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   padding: 16px;
     &__title {
-      font-family: $Semi-bold;
-      font-size: 20px;
-      line-height: 20px;
-      width: 60%;
-      text-decoration: none;
-      @include tablet {
-      font-size: 24px;
-      line-height: 22px;
-      width: 60%;
-    }
+      text-align: left;
+      padding-bottom: 16px;
   }
-  
-
   &__status {
-    align-self: flex-start;
-    @include mobile {
-      width: 26%;
-      padding: 16px 0 4px 0;
-    }
-    @include tablet {
-      width: 23%;
-      padding-top: 16px;
-    }
+    text-align: left;
+    width: 100%;
     &__title {
-      font-family: $Semi-bold;
-      font-size: 13px;
-      line-height: 20px;
       color: $P-text;
-      text-decoration: none;
-      @include tablet {
-        align-self: flex-start;
-        font-size: 14px;
-        line-height: 22px;
-      }
     }
   }
   &__container {
+    width: 100%;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
     padding-top: 4px;
-    &__instock {
+    &__instock, &__out {
+      display: flex;
+      justify-content: center;
+      align-content: flex-start;
       &__label {
         font-size: 14px;
         color: $P-text;

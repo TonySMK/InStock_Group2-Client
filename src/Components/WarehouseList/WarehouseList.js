@@ -1,8 +1,8 @@
+import "./WarehouseList.scss";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router";
 import { createPortal } from "react-dom";
-import "./WarehouseList.scss";
+
 import victor from "../../Assets/Icons/chevron_right-24px.svg";
 import edit from "../../Assets/Icons/edit-24px.svg";
 import del from "../../Assets/Icons/delete_outline-24px.svg";
@@ -12,10 +12,9 @@ import WarehouseDeleteModal from "../WarehouseDeleteModal/WarehouseDeleteModal";
 const WarehouseList = ({ warehouses, onDeleteWarehouse }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedWarehouse, setSelectedWarehouse] = useState("");
-  const navigate = useNavigate();
 
   const openModal = (warehouseName) => {
-    setSelectedWarehouse(warehouseName)
+    setSelectedWarehouse(warehouseName);
     setModalOpen(true);
   };
 
@@ -23,14 +22,10 @@ const WarehouseList = ({ warehouses, onDeleteWarehouse }) => {
     setModalOpen(false);
   };
 
-  const editWarehouseClick = () => {
-    navigate(`/warehouses/${warehouses.id}/edit`);
-  };
-
   const deleteWarehouse = (deleteID) => {
     onDeleteWarehouse(deleteID);
     setModalOpen(false);
-  }
+  };
   return (
     <div className="warehouses">
       <header className="warehouses_header">
@@ -91,9 +86,11 @@ const WarehouseList = ({ warehouses, onDeleteWarehouse }) => {
                   <img src={del} alt="delete" />
                 </button>
               </div>
-              <button onClick={editWarehouseClick}>
-                <img src={edit} alt="edit" />
-              </button>
+              <Link to={`/warehouses/${warehouse.id}/edit`}>
+                <button>
+                  <img src={edit} alt="edit" />
+                </button>
+              </Link>
             </div>
           </li>
         ))}

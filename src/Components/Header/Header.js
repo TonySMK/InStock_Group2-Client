@@ -12,7 +12,7 @@ function Header() {
   let inventoryButtonClass = 'header__nav-inventory';
 
   // Setting button classes based on the current page reference
-  if (currentPage === '/warehouses') {
+  if (currentPage.startsWith('/warehouses')) {
     warehousesButtonClass = 'header__nav-warehouses--active';
   } else if (currentPage === '/') {
     inventoryButtonClass = 'header__nav-inventory--active';

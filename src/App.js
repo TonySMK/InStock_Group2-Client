@@ -22,7 +22,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Inventory />}></Route>
               <Route
-                path="/:id /details"
+                path="/:id/details"
                 element={<InventoryDetails />}
               ></Route>
               <Route path="/:id/edit" element={<InventoryEditItem />}></Route>

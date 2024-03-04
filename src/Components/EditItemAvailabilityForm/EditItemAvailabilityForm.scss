@@ -17,6 +17,9 @@
     }
     &__status {
         text-align: left;
+        &__title{
+            color: $P-text;
+        }
     }
     &__container {
         width: 100%;

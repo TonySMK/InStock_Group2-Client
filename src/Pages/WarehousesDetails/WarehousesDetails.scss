@@ -20,12 +20,12 @@ p {
       padding: 2rem 1rem 24px 1rem;
 
       @include tablet {
-        padding: 2rem 2rem 21px 2rem;
+        padding: 2rem 2rem 31px 2rem;
         font-size: 15px;
       }
 
       @include desktop {
-        padding: 2rem 40px 21px 40px;
+        padding: 2rem 40px 31px 40px;
         font-size: 15px;
       }
 

@@ -41,7 +41,7 @@ function InventoryDetails() {
           <div className="inventorydetailsparentwrapper">
             <section className="detailpageheader">
               <div className="detailpageheader__left">
-                <button className="backbuttonn" onClick={() => navigate("/")}>
+                <button className="backbuttonn" onClick={() => navigate(-1)}>
                   <img
                     className="backbuttonnicon"
                     src={leftChevron}
